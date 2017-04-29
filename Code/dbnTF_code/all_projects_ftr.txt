@@ -1,0 +1,12 @@
+loc
+tnm
+tnpm
+tnlm
+tns
+tng
+tna
+tnos
+tcloc
+tcd
+nl
+cboi

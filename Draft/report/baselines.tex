@@ -1,0 +1,33 @@
+To evaluate the performance of our approach in defect prediction, we compare with traditional features (see Section~\ref{sec:relatedwork}). The first baseline consists some traditional features, including lines of code, cyclomatic complexity~\cite{mccabe1976complexity}, total number of methods, total number of public methods, total number of local methods, the depth of inheritance tree, comment density, etc. These features are well described in~\cite{hassan2009predicting} and have been widely used in previous work~\cite{jing2014dictionary, menzies2007data, menzies2010defect, nam2013transfer, zimmermann2007predicting, yang2015deep}. Since they are popular features so we can directly compare our work with previous studies. We note that the traditional features do not contain Abstract Syntax Tree (AST) nodes, which are described in this paper. 
+
+The second baseline includes semantic features constructed following Wang et al. approaches~\cite{wang2016automatically}. Typically, they tried to employ deep belief network~\cite{hinton2009deep} to automatically learn semantic features from token vectors extracted from programs' AST. They also proved that their semantic features significantly improve the performance of defect prediction in software engineering domain. 
+
+To build a defect prediction model, we apply three popular machine learning algorithms~\cite{bishop2006pattern} which are widely used in software engineering domain~\cite{wang2016automatically, wang2013using, jing2014dictionary}. They are described as following: 
+\begin{itemize}
+	\item Decision tree is used to build a predictive model about an item (represented in the branches) to conclusions about the item's target value (represented in the leaves). This algorithm is very popular in statistics, data mining and machine learning~\cite{safavian1991survey}. Tree models where the target variable can take a finite set of values are called classification trees; in these tree structures, leaves represent class labels and branches represent conjunctions of features that lead to those class labels.
+	\item Logistic regression is a predictive analysis and used to describe data and to explain the relationship between one dependent binary variable and one or more nominal, ordinal, interval or ratio-level independent variables. Logistic regression is used in various applications like: health, statistics, data analysis, etc.~\cite{hosmer2013applied}.
+	\item Naive Bayes classifiers are a family of simple probabilistic classifiers based on applying Bayes' theorem~\cite{vapnik1998statistical} with strong (naive) independence assumptions between the features. Naive Bayes classifiers are highly scalable, requiring a number of parameters linear in the number of variables (features/predictors) in a learning problem. For some types of probability models, Naive Bayes classifiers can be trained very efficiently in a supervised learning setting. In many practical applications, parameter estimation for naive Bayes models uses the method of maximum likelihood~\cite{pan2002maximum}.
+\end{itemize}
+
+%The 20 traditional features are available for PROMISE data, and the work from He et al. [13] contains the full list of the 20 features, which are well described in their Table II. These features and data have been widely used in previous work [20, 33, 34, 42, 70]. We choose the widely used PROMISE data so that we can directly com- pare our work with previous studies. Note that, for a fair comparison, we also perform the noise removal approach de- scribed in Section 3.2.1 on the PROMISE data.
+
+
+%The traditional features from PROMISE do not contain AST nodes, which were used by our DBN models. For a fair comparison, our second baseline of traditional features is the AST nodes that were given to our DBN models, i.e., the AST nodes in all files after fixing noise (Section 3.2.1). Each instance is represented as a vector of term frequencies of the AST nodes.
+
+%To bridge the gap between programs' semantics and
+%defect prediction features, this paper proposes to leverage a
+%powerful representation-learning algorithm, deep learning,
+%to learn semantic representation of programs automatically
+%from source code. Specically, we leverage Deep Belief
+%Network (DBN) to automatically learn semantic features
+%from token vectors extracted from programs' Abstract
+%Syntax Trees (ASTs).
+%Our evaluation on ten open source projects shows that
+%our automatically learned semantic features signicantly improve
+%both within-project defect prediction (WPDP) and
+%cross-project defect prediction (CPDP) compared to traditional
+%features. Our semantic features improve WPDP on
+%average by 14.7% in precision, 11.5% in recall, and 14.2%
+%in F1. For CPDP, our semantic features based approach
+%outperforms the state-of-the-art technique TCA+ with traditional
+%features by 8.9% in F1.

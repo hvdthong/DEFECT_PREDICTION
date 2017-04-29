@@ -1,0 +1,280 @@
+\begin{thebibliography}{10}
+
+\bibitem{amasaki2003bayesian}
+S.~Amasaki, Y.~Takagi, O.~Mizuno, and T.~Kikuno.
+\newblock A bayesian belief network for assessing the likelihood of fault
+  content.
+\newblock In {\em Software Reliability Engineering, 2003. ISSRE 2003. 14th
+  International Symposium on}, pages 215--226. IEEE, 2003.
+
+\bibitem{bishop2006pattern}
+C.~M. Bishop.
+\newblock Pattern recognition.
+\newblock {\em Machine Learning}, 128:1--58, 2006.
+
+\bibitem{chidamber1994metrics}
+S.~R. Chidamber and C.~F. Kemerer.
+\newblock A metrics suite for object oriented design.
+\newblock {\em IEEE Transactions on software engineering}, 20(6):476--493,
+  1994.
+
+\bibitem{e1994candidate}
+F.~B. e~Abreu and R.~Carapu{\c{c}}a.
+\newblock Candidate metrics for object-oriented software within a taxonomy
+  framework.
+\newblock {\em Journal of Systems and Software}, 26(1):87--96, 1994.
+
+\bibitem{elish2008predicting}
+K.~O. Elish and M.~O. Elish.
+\newblock Predicting defect-prone software modules using support vector
+  machines.
+\newblock {\em Journal of Systems and Software}, 81(5):649--660, 2008.
+
+\bibitem{fischer2003populating}
+M.~Fischer, M.~Pinzger, and H.~Gall.
+\newblock Populating a release history database from version control and bug
+  tracking systems.
+\newblock In {\em Software Maintenance, 2003. ICSM 2003. Proceedings.
+  International Conference on}, pages 23--32. IEEE, 2003.
+
+\bibitem{harrison1998evaluation}
+R.~Harrison, S.~J. Counsell, and R.~V. Nithi.
+\newblock An evaluation of the mood set of object-oriented software metrics.
+\newblock {\em IEEE Transactions on Software Engineering}, 24(6):491--496,
+  1998.
+
+\bibitem{hassan2009predicting}
+A.~E. Hassan.
+\newblock Predicting faults using the complexity of code changes.
+\newblock In {\em Proceedings of the 31st International Conference on Software
+  Engineering}, pages 78--88. IEEE Computer Society, 2009.
+
+\bibitem{hecht1988theory}
+R.~Hecht-Nielsen et~al.
+\newblock Theory of the backpropagation neural network.
+\newblock {\em Neural Networks}, 1(Supplement-1):445--448, 1988.
+
+\bibitem{hinton2009deep}
+G.~E. Hinton.
+\newblock Deep belief networks.
+\newblock {\em Scholarpedia}, 4(5):5947, 2009.
+
+\bibitem{hosmer2013applied}
+D.~W. Hosmer~Jr, S.~Lemeshow, and R.~X. Sturdivant.
+\newblock {\em Applied logistic regression}, volume 398.
+\newblock John Wiley \& Sons, 2013.
+
+\bibitem{jiang2013personalized}
+T.~Jiang, L.~Tan, and S.~Kim.
+\newblock Personalized defect prediction.
+\newblock In {\em Automated Software Engineering (ASE), 2013 IEEE/ACM 28th
+  International Conference on}, pages 279--289. IEEE, 2013.
+
+\bibitem{jing2014dictionary}
+X.-Y. Jing, S.~Ying, Z.-W. Zhang, S.-S. Wu, and J.~Liu.
+\newblock Dictionary learning based software defect prediction.
+\newblock In {\em Proceedings of the 36th International Conference on Software
+  Engineering}, pages 414--423. ACM, 2014.
+
+\bibitem{khoshgoftaar2010attribute}
+T.~M. Khoshgoftaar, K.~Gao, and N.~Seliya.
+\newblock Attribute selection and imbalanced data: Problems in software defect
+  prediction.
+\newblock In {\em Tools with Artificial Intelligence (ICTAI), 2010 22nd IEEE
+  International Conference on}, volume~1, pages 137--144. IEEE, 2010.
+
+\bibitem{khoshgoftaar2002tree}
+T.~M. Khoshgoftaar and N.~Seliya.
+\newblock Tree-based software quality estimation models for fault prediction.
+\newblock In {\em Software Metrics, 2002. Proceedings. Eighth IEEE Symposium
+  on}, pages 203--214. IEEE, 2002.
+
+\bibitem{kingma2014adam}
+D.~Kingma and J.~Ba.
+\newblock Adam: A method for stochastic optimization.
+\newblock {\em arXiv preprint arXiv:1412.6980}, 2014.
+
+\bibitem{kochhar2016large}
+P.~S. Kochhar, D.~Wijedasa, and D.~Lo.
+\newblock A large scale study of multiple programming languages and code
+  quality.
+\newblock In {\em Software Analysis, Evolution, and Reengineering (SANER), 2016
+  IEEE 23rd International Conference on}, volume~1, pages 563--573. IEEE, 2016.
+
+\bibitem{lam2015combining}
+A.~N. Lam, A.~T. Nguyen, H.~A. Nguyen, and T.~N. Nguyen.
+\newblock Combining deep learning with information retrieval to localize buggy
+  files for bug reports (n).
+\newblock In {\em Automated Software Engineering (ASE), 2015 30th IEEE/ACM
+  International Conference on}, pages 476--481. IEEE, 2015.
+
+\bibitem{lee2011micro}
+T.~Lee, J.~Nam, D.~Han, S.~Kim, and H.~P. In.
+\newblock Micro interaction metrics for defect prediction.
+\newblock In {\em Proceedings of the 19th ACM SIGSOFT symposium and the 13th
+  European conference on Foundations of software engineering}, pages 311--321.
+  ACM, 2011.
+
+\bibitem{manning2008introduction}
+C.~D. Manning, P.~Raghavan, H.~Sch{\"u}tze, et~al.
+\newblock {\em Introduction to information retrieval}, volume~1.
+\newblock Cambridge university press Cambridge, 2008.
+
+\bibitem{mcabeebayesian}
+K.~T. McAbee, N.~P. Nibbelink, T.~D. Johnson, and H.~T. Mattingly.
+\newblock Bayesian-belief network model.
+
+\bibitem{mccabe1976complexity}
+T.~J. McCabe.
+\newblock A complexity measure.
+\newblock {\em IEEE Transactions on software Engineering}, (4):308--320, 1976.
+
+\bibitem{menzies2007data}
+T.~Menzies, J.~Greenwald, and A.~Frank.
+\newblock Data mining static code attributes to learn defect predictors.
+\newblock {\em IEEE transactions on software engineering}, 33(1), 2007.
+
+\bibitem{menzies2010defect}
+T.~Menzies, Z.~Milton, B.~Turhan, B.~Cukic, Y.~Jiang, and A.~Bener.
+\newblock Defect prediction from static code features: current results,
+  limitations, new approaches.
+\newblock {\em Automated Software Engineering}, 17(4):375--407, 2010.
+
+\bibitem{mikolov2010recurrent}
+T.~Mikolov, M.~Karafi{\'a}t, L.~Burget, J.~Cernock{\`y}, and S.~Khudanpur.
+\newblock Recurrent neural network based language model.
+\newblock In {\em Interspeech}, volume~2, page~3, 2010.
+
+\bibitem{moser2008comparative}
+R.~Moser, W.~Pedrycz, and G.~Succi.
+\newblock A comparative analysis of the efficiency of change metrics and static
+  code attributes for defect prediction.
+\newblock In {\em Proceedings of the 30th international conference on Software
+  engineering}, pages 181--190. ACM, 2008.
+
+\bibitem{mou2014tbcnn}
+L.~Mou, G.~Li, Z.~Jin, L.~Zhang, and T.~Wang.
+\newblock Tbcnn: A tree-based convolutional neural network for programming
+  language processing.
+\newblock {\em CoRR, abs/1409.5718}, 2014.
+
+\bibitem{nagappan2007using}
+N.~Nagappan and T.~Ball.
+\newblock Using software dependencies and churn metrics to predict field
+  failures: An empirical case study.
+\newblock In {\em Empirical Software Engineering and Measurement, 2007. ESEM
+  2007. First International Symposium on}, pages 364--373. IEEE, 2007.
+
+\bibitem{nam2013transfer}
+J.~Nam, S.~J. Pan, and S.~Kim.
+\newblock Transfer defect learning.
+\newblock In {\em Proceedings of the 2013 International Conference on Software
+  Engineering}, pages 382--391. IEEE Press, 2013.
+
+\bibitem{neamtiu2005understanding}
+I.~Neamtiu, J.~S. Foster, and M.~Hicks.
+\newblock Understanding source code evolution using abstract syntax tree
+  matching.
+\newblock {\em ACM SIGSOFT Software Engineering Notes}, 30(4):1--5, 2005.
+
+\bibitem{ng2011sparse}
+A.~Ng.
+\newblock Sparse autoencoder.
+\newblock {\em CS294A Lecture notes}, 72(2011):1--19, 2011.
+
+\bibitem{nguyen2011topic}
+T.~T. Nguyen, T.~N. Nguyen, and T.~M. Phuong.
+\newblock Topic-based defect prediction (nier track).
+\newblock In {\em Proceedings of the 33rd international conference on software
+  engineering}, pages 932--935. ACM, 2011.
+
+\bibitem{pan2002maximum}
+J.-X. Pan and K.-T. Fang.
+\newblock Maximum likelihood estimation.
+\newblock {\em Growth Curve Models and Statistical Diagnostics}, pages 77--158,
+  2002.
+
+\bibitem{pascanu2015malware}
+R.~Pascanu, J.~W. Stokes, H.~Sanossian, M.~Marinescu, and A.~Thomas.
+\newblock Malware classification with recurrent networks.
+\newblock In {\em Acoustics, Speech and Signal Processing (ICASSP), 2015 IEEE
+  International Conference on}, pages 1916--1920. IEEE, 2015.
+
+\bibitem{ray2014large}
+B.~Ray, D.~Posnett, V.~Filkov, and P.~Devanbu.
+\newblock A large scale study of programming languages and code quality in
+  github.
+\newblock In {\em Proceedings of the 22nd ACM SIGSOFT International Symposium
+  on Foundations of Software Engineering}, pages 155--165. ACM, 2014.
+
+\bibitem{raychev2014code}
+V.~Raychev, M.~Vechev, and E.~Yahav.
+\newblock Code completion with statistical language models.
+\newblock In {\em ACM SIGPLAN Notices}, volume~49, pages 419--428. ACM, 2014.
+
+\bibitem{safavian1991survey}
+S.~R. Safavian and D.~Landgrebe.
+\newblock A survey of decision tree classifier methodology.
+\newblock {\em IEEE transactions on systems, man, and cybernetics},
+  21(3):660--674, 1991.
+
+\bibitem{suykens1999least}
+J.~A. Suykens and J.~Vandewalle.
+\newblock Least squares support vector machine classifiers.
+\newblock {\em Neural processing letters}, 9(3):293--300, 1999.
+
+\bibitem{vapnik1998statistical}
+V.~N. Vapnik and V.~Vapnik.
+\newblock {\em Statistical learning theory}, volume~1.
+\newblock Wiley New York, 1998.
+
+\bibitem{wang2012compressed}
+J.~Wang, B.~Shen, and Y.~Chen.
+\newblock Compressed c4. 5 models for software defect prediction.
+\newblock In {\em Quality Software (QSIC), 2012 12th International Conference
+  on}, pages 13--16. IEEE, 2012.
+
+\bibitem{wang2016automatically}
+S.~Wang, T.~Liu, and L.~Tan.
+\newblock Automatically learning semantic features for defect prediction.
+\newblock In {\em Proceedings of the 38th International Conference on Software
+  Engineering}, pages 297--308. ACM, 2016.
+
+\bibitem{wang2013using}
+S.~Wang and X.~Yao.
+\newblock Using class imbalance learning for software defect prediction.
+\newblock {\em IEEE Transactions on Reliability}, 62(2):434--443, 2013.
+
+\bibitem{yang2015deep}
+X.~Yang, D.~Lo, X.~Xia, Y.~Zhang, and J.~Sun.
+\newblock Deep learning for just-in-time defect prediction.
+\newblock In {\em Software Quality, Reliability and Security (QRS), 2015 IEEE
+  International Conference on}, pages 17--26. IEEE, 2015.
+
+\bibitem{yuan2014droid}
+Z.~Yuan, Y.~Lu, Z.~Wang, and Y.~Xue.
+\newblock Droid-sec: deep learning in android malware detection.
+\newblock In {\em ACM SIGCOMM Computer Communication Review}, volume~44, pages
+  371--372. ACM, 2014.
+
+\bibitem{zhou2012should}
+J.~Zhou, H.~Zhang, and D.~Lo.
+\newblock Where should the bugs be fixed?-more accurate information
+  retrieval-based bug localization based on bug reports.
+\newblock In {\em Proceedings of the 34th International Conference on Software
+  Engineering}, pages 14--24. IEEE Press, 2012.
+
+\bibitem{zhou2006training}
+Z.-H. Zhou and X.-Y. Liu.
+\newblock Training cost-sensitive neural networks with methods addressing the
+  class imbalance problem.
+\newblock {\em IEEE Transactions on Knowledge and Data Engineering},
+  18(1):63--77, 2006.
+
+\bibitem{zimmermann2007predicting}
+T.~Zimmermann, R.~Premraj, and A.~Zeller.
+\newblock Predicting defects for eclipse.
+\newblock In {\em Proceedings of the third international workshop on predictor
+  models in software engineering}, page~9. IEEE Computer Society, 2007.
+
+\end{thebibliography}

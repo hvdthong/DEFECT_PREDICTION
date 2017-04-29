@@ -1,0 +1,143 @@
+%Recently, text retrieval ~\cite{Salton:1988:TAA:54259.54260} approaches have been widely used to support a lof of software engineering task~\cite{Unterkalmsteiner:2016:LIR:3023163.3023241, Haiduc:2013:AQR:2486788.2486898, Arnaoudova:2015:UTR:2819009.2819224}. In these approaches, the lexical gap between user queries and code is usually identified as significant issues~\cite{Poshyvanyk:10.1109/TSE.2011.84}. In bug localization 
+
+Software defect prediction techniques~\cite{hassan2009predicting, jiang2013personalized, zimmermann2007predicting} have been proposed to detect defects among program elements to help developers to reduce their testing efforts, thus leading to reduce software development costs. Defect prediction tries to construct defect prediction models from software history data, and use these models to predict whether new instances of code regions, e.g., files, changes, and methods, contain defects or any bugs. Traditional approaches try to construct accurate defect prediction models following two different directions: first direction focuses on manually designing a set of features so that it can represent defects more effectively; the second direction focuses on building a new machine learning algorithm to improve the prediction models. 
+
+In the past, most researchers have manually designed features to filter buggy source files from non-buggy files. McCabe et al.~\cite{mccabe1976complexity} features focus on a complexity measure for the program elements, CK features~\cite{chidamber1994metrics} based on function and inheritance counts to understand the development of software projects, whereas MOOD features~\cite{harrison1998evaluation} tried to provide an overall assessment of a software system. The other features are constructed based on source code changes like, number of lines of code added, removed, etc.~\cite{jiang2013personalized, e1994candidate}. On the other hand, many machine learning algorithm have been widely used for software defect prediction, including decision tree, logistic regression, Naive Bayes, etc~\cite{jing2014dictionary}. However, the traditional approaches fail to distinguish code regions of different semantics. 
+
+To bridge the gap between programs' semantic information and features used for defect prediction, Wang et al.~\cite{wang2016automatically} employed Deep Belief Network (DBN)~\cite{hinton2009deep} to automatically learn features from token vectors extracted from programs' ASTs, and then utilize these features to train a defect prediction model. However, Wang approaches~\cite{wang2016automatically} build semantic features and defect prediction model independently. Typically, the semantic features only learn from source files without considering the true label of this program element, hence the defect prediction model may not optimize. To tackle this problem, we propose a semi-supervised autoencoder allowing to extract semantic features and optimize the prediction model in one stage. Our proposed framework takes advantage of antoencoder~\cite{ng2011sparse} to construct semi-supervised learning model. 
+
+This paper makes the following contributions:
+\begin{itemize}
+	\item We propose to leverage a powerful representation learning algorithm, namely deep learning, to learn
+	semantic features from token vectors extracted from programs' ASTs automatically and use these features to optimize defect prediction models.
+	\item Our evaluation results on 28 open source Java projects shows that our approach significantly improve the performance of defect prediction by 5.4\% compared to traditional approaches. 
+\end{itemize}
+% We propose to leverage a powerful representationlearning
+%algorithm, namely deep learning, to learn
+%semantic features from token vectors extracted from
+%programs' ASTs automatically.
+% We leverage the semantic features learned automatically
+%by DBN to improve both within-project defect
+%prediction (WPDP) and cross-project defect prediction
+%(CPDP).
+% Our evaluation results on ten open source Java projects
+%show that the automatically generated semantic features
+%improve both WPDP and CPDP. ForWPDP, our
+%semantic features achieve an average improvement of
+%precision by 14.7%, recall by 11.5%, and F1 by 14.2%
+%compared to traditional features. For CPDP, our semantic
+%feature based approach outperforms the stateof-
+%the-art technique TCA+ [42] built on traditional
+%features by 8.9% in F1.
+
+%To bridge the gap between programs' semantic information
+%and features used for defect prediction, this paper proposes
+%to leverage a powerful representation-learning algorithm,
+%namely deep learning [17], to learn semantic represen-
+%tation of programs automatically and use the representation
+%to improve defect prediction. Specically, we use Deep Belief
+%Network (DBN) [16] to automatically learn features from token
+%vectors extracted from programs' ASTs, and then utilize
+%these features to train a defect prediction model.
+
+%This paper makes the following contributions:
+% We propose to leverage a powerful representationlearning
+%algorithm, namely deep learning, to learn
+%semantic features from token vectors extracted from
+%programs' ASTs automatically.
+% We leverage the semantic features learned automatically
+%by DBN to improve both within-project defect
+%prediction (WPDP) and cross-project defect prediction
+%(CPDP).
+% Our evaluation results on ten open source Java projects
+%show that the automatically generated semantic features
+%improve both WPDP and CPDP. ForWPDP, our
+%semantic features achieve an average improvement of
+%precision by 14.7%, recall by 11.5%, and F1 by 14.2%
+%compared to traditional features. For CPDP, our semantic
+%feature based approach outperforms the stateof-
+%the-art technique TCA+ [42] built on traditional
+%features by 8.9% in F1.
+
+
+The rest of this paper is summarized as follows. Section~\ref{sec:framework} briefly presents the defect prediction problem and our semi-supervised learning autoencoder. Section~\ref{sec:exp_results} shows the experimental results of our approaches. Section~\ref{sec:threats} presents threat to validity. Section~\ref{sec:relatedwork} and Section~\ref{sec:conclusion} describe the related work and conclusion of our paper. 
+%provides backgrounds on defect prediction and DBN. Section 3 describes our proposed approach to learn semantic features from source code automatically, and leverage these learned features to predict defects. Section 4 shows the experimental setup. Section 5 evaluates the performance of learned semantic features. Section 6 and Section 7 present threats to our work and related work respectively. We conclude this paper in Section 8.
+
+%Programs have well-dened syntax, which can be represented
+%by Abstract Syntax Trees (ASTs) [15] and have been
+%successfully used to capture programming patterns [44, 46].
+%In addition, programs have semantics, which is hidden
+%deeply in source code [65]. It has been shown that programs'
+%semantic information is useful for tasks such as
+%code completion and bug detection [15, 28, 44, 46, 60]. Such
+%semantic information should also be useful for characterizing
+%defects for improving defect prediction. Specically,
+%in order to make accurate predictions, the features need to
+%be discriminative: capable of distinguishing one instance of
+%code region from another.
+%However, existing traditional features cannot distinguish
+%code regions of dierent semantics. Program les with
+%dierent semantics can have traditional features with the
+%same values. For example, Figure 1 shows two Java les,
+%File1.java and File2.java, both of which contain an if
+%statement, a for statement, and two function calls. Using
+%traditional features to represent these two les, their feature
+%vectors are identical, because these two les have the same
+%source code characteristics in terms of lines of code, function
+%calls, raw programming tokens, etc. However, the semantic
+%information is dierent. Features that can distinguish such
+%semantic dierences should enable the building of more
+%accurate prediction models.
+%To bridge the gap between programs' semantic information
+%and features used for defect prediction, this paper proposes
+%to leverage a powerful representation-learning algorithm,
+%namely deep learning [17], to learn semantic represen-
+%tation of programs automatically and use the representation
+%to improve defect prediction. Specically, we use Deep Belief
+%Network (DBN) [16] to automatically learn features from token
+%vectors extracted from programs' ASTs, and then utilize
+%these features to train a defect prediction model.
+%
+%DBN is a generative graphical model, which learns a representation
+%that can reconstruct training data with a high
+%probability. It automatically learns high-level representation
+%of data by constructing a deep architecture [2]. We have
+%seen successful applications of DBN in many elds, including
+%speech recognition [37], image classication [6, 25], natural
+%language understanding [35, 55], and semantic search [54].
+%To use a DBN to learn features from code snippets, we
+%convert the code snippets into vectors of tokens with structural
+%and contextual information preserved, and use these
+%vectors as input to the DBN. For the two code snippets in
+%Figure 1, the input vectors will be [..., if, foo, for,
+%bar, ...] and [..., foo, for, if, bar, ...] respectively.
+%Since the vectors of these two les are dierent,
+%DBN will automatically learn features to distinguish these
+%two code snippets (details are in Figure 3 and Section 3.3).
+%This paper makes the following contributions:
+% We propose to leverage a powerful representationlearning
+%algorithm, namely deep learning, to learn
+%semantic features from token vectors extracted from
+%programs' ASTs automatically.
+% We leverage the semantic features learned automatically
+%by DBN to improve both within-project defect
+%prediction (WPDP) and cross-project defect prediction
+%(CPDP).
+% Our evaluation results on ten open source Java projects
+%show that the automatically generated semantic features
+%improve both WPDP and CPDP. ForWPDP, our
+%semantic features achieve an average improvement of
+%precision by 14.7%, recall by 11.5%, and F1 by 14.2%
+%compared to traditional features. For CPDP, our semantic
+%feature based approach outperforms the stateof-
+%the-art technique TCA+ [42] built on traditional
+%features by 8.9% in F1.
+%The rest of this paper is summarized as follows. Section 2
+%provides backgrounds on defect prediction and DBN. Section
+%3 describes our proposed approach to learn semantic
+%features from source code automatically, and leverage these
+%learned features to predict defects. Section 4 shows the experimental
+%setup. Section 5 evaluates the performance of
+%learned semantic features. Section 6 and Section 7 present
+%threats to our work and related work respectively. We conclude
+%this paper in Section 8.
