@@ -1,0 +1,78 @@
+\documentclass[10pt,conference]{IEEEtran}
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[T1]{fontenc}
+\usepackage{pgfplots}
+\pgfplotsset{
+	compat=newest,
+	xlabel near ticks,
+	ylabel near ticks
+}
+\usepackage{color}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\makeatletter
+\def\@copyrightspace{\relax}
+\makeatother
+
+\begin{document}
+	
+\title{Semi-supervised Autoencoder for Defect Prediction}
+
+\author{\IEEEauthorblockN{James Hoang}
+\IEEEauthorblockA{School of Information System\\
+Singapore Management University\\
+vdthoang.2016@smu.edu.sg}
+}
+
+\maketitle
+
+\begin{abstract}\label{sec:abstract}
+Software defect prediction help developers to find bugs and prioritize their testing efforts. The traditional approaches focus on manually designing features encoding the characteristics of programs and employing different machine algorithms to construct defect prediction models. However, the manual defect features often fail to capture the semantic differences of programs, hence the prediction models may not be accurate. 
+In this paper, we propose bridging the lexical gap between programs' semantics and defect prediction features by projecting natural language statements and programming element. Specifically, we introduce semi-supervised model inspired by autoencoder to learn semantic representation of source code as well as detect program's defect. Our framework is not only learn semantic features from token vectors extracted from programs' Abstract Syntax Trees (ASTs), but also construct classification model to detect program elements containing future bug. The experimental results show that our approach significantly outperforms the traditional approaches in defect prediction problem. 
+\end{abstract}
+
+\IEEEpeerreviewmaketitle
+
+\begin{IEEEkeywords}
+Deep learning, defect prediction, bug localization, autoencoder, semi-supervised
+\end{IEEEkeywords}
+
+\section{Introduction}
+\label{sec:introduction}
+\input{introduction}
+
+\section{Proposed Approach}
+\label{sec:framework}
+\input{framework}
+
+\section{Experimental Results}
+\label{sec:exp_results}
+\input{exp}
+
+\section{Threats to validity}
+\label{sec:threats}
+\input{threats}
+
+\section{Related Work}
+\label{sec:relatedwork}
+\input{relatedwork}
+
+\section{Conclusion}
+\label{sec:conclusion}
+\input{conclusion}
+
+\section{Acknowledgments}
+\label{sec:acknowledgments}
+\input{acknowledgments}
+
+\bibliographystyle{abbrv}
+\bibliography{sigproc} 
+
+\end{document}
+
+
