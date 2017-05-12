@@ -188,18 +188,18 @@
 
 \let\oldthebibliography=\thebibliography
 \let\endoldthebibliography=\endthebibliography
-\renewenvironment{thebibliography}[1]{%
-	\vspace{0pt}
-	\begin{oldthebibliography}{#1}%
-		\fontsize{7.0}{7.5}\selectfont
-		\setlength{\parskip}{0ex}%
-		\setlength{\itemsep}{0.5ex}%
-	}%
-	{%
-	\end{oldthebibliography}%
-}
+%\renewenvironment{thebibliography}[1]{%
+%	\vspace{0pt}
+%	\begin{oldthebibliography}{#1}%
+%		\fontsize{7.5}{7.9}\selectfont
+%		\setlength{\parskip}{0ex}%
+%		\setlength{\itemsep}{0.5ex}%
+%	}%
+%	{%
+%	\end{oldthebibliography}%
+%}
 {\scriptsize
-	\def\baselinestretch{0.95}
+%	\def\baselinestretch{0.95}
 	\bibliographystyle{IEEEtranS}
 	%\def\IEEEbibitemsep{0.92pt plus .5pt}
 	\bibliography{sigproc}
