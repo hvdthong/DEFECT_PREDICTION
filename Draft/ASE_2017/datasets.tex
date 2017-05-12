@@ -1,4 +1,5 @@
 
+\textcolor{red}{Ferdian: Can you help me to rewrite dataset section?}
 
 We perform several steps to create our benchmark dataset. Firstly, we fetch top 2,500 most popular open-source Java projects from GitHub (sorted by the sum of their number of stars and number of forks). GitHub contains many toy projects, thus, we only consider popular projects similar to prior studies~\cite{ray2014large, kochhar2016large}. We only clone the git repositories of projects which use Maven as we leverage Maven to automatically build the projects and construct call graphs from compiled classes. Out of the 2500 projects, 831 projects use Maven. Secondly, we collect 342 Apache Java projects which use Maven and are hosted on GitHub. A er removing the overlapping projects, our dataset contains 1,143 projects.
 

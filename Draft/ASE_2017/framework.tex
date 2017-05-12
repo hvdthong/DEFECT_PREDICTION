@@ -14,9 +14,8 @@
 \end{figure*}
 
 
-Figure~\ref{fig:defect} presents the overall framework of file-level defect prediction. Typically, the defect prediction problem is solved by following two specific steps. The first step is to label the program elements as bug or clean based on post-release defects for each file and then we extract the traditional features of these files. These features are briefly introduced in Section~\ref{sec:defect}. The second step is to construct the classification model~\cite{bishop2006pattern} used to predict whether a new program element contains bug or clean. 
-
-We refer to the software history used for building models as the training set, whereas the new software used to evaluate the trained models as the test set. The classification model are employed on test set to evaluate the performance of our defect prediction model. 
+%Figure~\ref{fig:defect} presents the overall framework of file-level defect prediction. Typically, the defect prediction problem is solved by following two specific steps. 
+The overall framework of file-level defect prediction are proposed by following two specific steps. The first step is to label the program elements as bug or clean based on post-release defects for each file and then extract the traditional features of these files. These features are briefly introduced in~\cite{wang2016automatically, mccabe1976complexity, chakradeo2013mast}. The second step is to construct the classification model~\cite{bishop2006pattern} used to predict whether a new program element contains bug or clean.  We refer to the software history used for building models as the training set, whereas the new software used to evaluate the trained models as the test set. The classification model are employed on test set to evaluate the performance of our defect prediction model. 
 
 %Figure 2 presents a typical le-level defect prediction process
 %that is adopted by existing studies [20,27,34,41,42,51,
@@ -42,7 +41,11 @@ We refer to the software history used for building models as the training set, w
 
 \subsection{Parsing Source Code and Generating Features}
 \label{sec:parsing}
-In our approach, we follow Wang et al.~\cite{wang2016automatically} to extract source code information to learn semantic features. Typically, the syntactic information from source code is collected based on Java Abstract Syntax Tree (AST)~\cite{neamtiu2005understanding}. For each program element, we extract a vector of tokens of the three types of AST nodes: 1) nodes of method invocations and class instance creations, 2) declaration nodes, i.e., method declarations, type declarations, etc. and 3) control-flow nodes such as while statements, catch clauses, if statements, for statements, etc. Note that our semi-supervised learning only takes numerical vectors as inputs, and the lengths of the input vectors are the same. Thus, we apply Wang approaches~\cite{wang2016automatically} to map between integers and tokens, and encode token vectors to integer vector. Note that our integer vectors may have different lengths, we append 0 to the integer vectors to make all the lengths consistent and equal to the length of the longest vector. We also note that adding zeros does not affect the results, since it is simply representation transformation to make the vectors acceptable by neural network~\cite{wang2016automatically}.
+%In our approach, we follow Wang et al.~\cite{wang2016automatically} to extract source code information to learn semantic features. Typically, the syntactic information from source code is collected based on Java Abstract Syntax Tree (AST)~\cite{neamtiu2005understanding}. For each program element, we extract a vector of tokens of the three types of AST nodes: 1) nodes of method invocations and class instance creations, 2) declaration nodes, i.e., method declarations, type declarations, etc. and 3) control-flow nodes such as while statements, catch clauses, if statements, for statements, etc. Note that our semi-supervised learning only takes numerical vectors as inputs, and the lengths of the input vectors are the same. Thus, we apply Wang approaches~\cite{wang2016automatically} to map between integers and tokens, and encode token vectors to integer vector. Note that our integer vectors may have different lengths, we append 0 to the integer vectors to make all the lengths consistent and equal to the length of the longest vector. We also note that adding zeros does not affect the results, since it is simply representation transformation to make the vectors acceptable by neural network~\cite{wang2016automatically}.
+
+In our approach, we follow Wang et al.~\cite{wang2016automatically} to extract source code information. Typically, the syntactic information from source code is collected based on Java Abstract Syntax Tree (AST)~\cite{neamtiu2005understanding}. For each program element, we extract a vector of tokens of the three types of AST nodes: 1) nodes of method invocations and class instance creations, 2) declaration nodes, i.e., method declarations, type declarations, etc. and 3) control-flow nodes such as while statements, catch clauses, if statements, for statements, etc. Unlike Wang approach takes token mapped from identifier integer without reflecting how important a token in program files, we employ a term frequency–inverse document frequency (TF-IDF)~\cite{manning2008introduction} as features for our framework (i.e., deep semi-supervised learning). 
+
+%Note that our semi-supervised learning only takes numerical vectors as inputs, and the lengths of the input vectors are the same. Thus, we apply Wang approaches~\cite{wang2016automatically} to map between integers and tokens, and encode token vectors to integer vector. Note that our integer vectors may have different lengths, we append 0 to the integer vectors to make all the lengths consistent and equal to the length of the longest vector. We also note that adding zeros does not affect the results, since it is simply representation transformation to make the vectors acceptable by neural network~\cite{wang2016automatically}.
 
 %DBN takes only numerical vectors as inputs, and the
 %lengths of the input vectors must be the same. To use DBN
@@ -65,22 +68,24 @@ In our approach, we follow Wang et al.~\cite{wang2016automatically} to extract s
 %since the order of tokens remains unchanged.
 
 
-\subsection{Semi-supervised Autoencoder}
+\subsection{Deep Semi-supervised Learning}
 \label{sec:semi}
 The goal of defect prediction is to detect the potentially source files that may contain bug in the future. 
 
-Let $\mathcal{X}=\{x_1, x_2, \dots, x_n\}$ denotes the set of program elements of a software project and $\mathcal{Y}=\{y_1, y_2, \dots, y_n\}$ represents the label of each program element, where $n$ is the number of source files in our collection data.  Note that the program element is labeled as $1$ if it contains bug, otherwise it will be labeled as $0$ which means that it cleans. The source files can be collected from some popular software projects (e.g, ant, camel, lucene, etc.)~\footnote{http://openscience.us/repo/defect/}. Unlike the traditional approaches~\cite{yang2015deep, wang2016automatically} that independently learn semantic features and construct defect prediction model. Our semi-supervised autoencoder (SSA) combines two different tasks to optimize the classification model for defect prediction problem. Typically, we attempt to learn semantic features function $f: \mathcal{X} \longmapsto \mathcal{X}$ and predict function $f': \mathcal{X} \longmapsto \mathcal{Y}$, $y_i \in \mathcal{Y}=\{0, 1\}$ indicates whether a source file $x_i \in \mathcal{X}$ contains a bug which can be obtained by investigating software commit logs and bug report descriptions~\cite{fischer2003populating}. These two functions $f$ and $f'$ can be learned by minimizing the following objective function:
+Let $\mathcal{X}=\{x_1, x_2, \dots, x_n\}$ denotes the set of program elements of a software project and $\mathcal{Y}=\{y_1, y_2, \dots, y_n\}$ represents the label of each program element, where $n$ is the number of source files in our collection data.  Note that the program element is labeled as $1$ if it contains bug, otherwise it will be labeled as $0$ which means that it cleans. The source files can be collected from github repository~\footnote{https://github.com/}
+%The source files can be collected from some popular software projects (e.g, ant, camel, lucene, etc.)~\footnote{http://openscience.us/repo/defect/}. 
+Unlike the traditional approaches~\cite{yang2015deep, wang2016automatically} that independently learn semantic features and construct defect prediction model. Our deep semi-supervised learning (DSSL) combines two different tasks to optimize the classification model for defect prediction problem. Typically, we attempt to learn semantic features function $f: \mathcal{X} \longmapsto \mathcal{X}$ and predict function $f': \mathcal{X} \longmapsto \mathcal{Y}$, $y_i \in \mathcal{Y}=\{0, 1\}$ indicates whether a source file $x_i \in \mathcal{X}$ contains a bug which can be obtained by investigating software commit logs and bug report descriptions~\cite{fischer2003populating}. These two functions $f$ and $f'$ can be learned by minimizing the following objective function:
 %We formalize the our approaches as a joint optimization, expressed by the loss function $\mathcal{L}$, for learning semantic features and building defect prediction model as following:
 \begin{equation}
 \label{eq:loss}
 \begin{split}
-\min_{f,f'} \sum_{i}^{}\mathcal{L}(f(x_i), x_i) + \mathcal{L'}(f'(x_i), y_i) \\
+\min_{f,f'} \sum_{i}^{}\mathcal{L}(f(x_i), x_i) + \theta \mathcal{L'}(f'(x_i), y_i) \\
 + \lambda \Omega(f, f')
 \end{split}
 \end{equation}
-where $\mathcal{L}(\cdot, \cdot)$ and $\mathcal{L}'(\cdot, \cdot)$ are the empirical loss of semantic features and predict functions for the defect prediction problem, respectively. $\Omega(f, f')$ is the regularization terms imposing on the semantic and prediction functions. The trade-off between empirical loss and regularization terms are balanced by $\lambda$. 
+where $\mathcal{L}(\cdot, \cdot)$ and $\mathcal{L}'(\cdot, \cdot)$ are the empirical loss of semantic features and predict functions for the defect prediction problem, respectively. $\theta$ is the predefined value to solve the weighting problem between two loss functions. $\Omega(f, f')$ is the regularization terms imposing on the semantic and prediction functions. The trade-off between empirical loss and regularization terms are balanced by $\lambda$. 
 
-The overall framework of SSA are shown in Figure~\ref{fig:semi_framework}. The SSA model contains two four different parts: parsing abstract syntax tree, generating features, encoder, and decoder. The first two steps are briefly described in Section~\ref{sec:parsing} to feed source files data to our deep neural network. Encoder and decoder are required to learn semantic features as well as defect prediction model. Note that our encoder and decoder steps are inspired by autoencoder~\cite{ng2011sparse} which is an unsupervised learning technique. However the original autoencoder only tries to learn the function $f: \mathcal{X} \longmapsto \mathcal{X}$ so that the output values $\mathcal{\hat{X}}$ are similar to input values $\mathcal{X}$. However, SSA attempts to learn semantic features and optimize defect prediction model, thus it takes into account of two functions, i.e., $f$ and $f'$ represent the semantic features and defect prediction respectively. According to Figure~\ref{fig:semi_framework}, our model tries to optimze two different loss functions, i.e., $\mathcal{L}$ and $\mathcal{L'}$ to optimize the defect prediction model. In encoder and decoder steps, we employ a fully connected neural network to fuse middle-level features extracted from source files to generate semantic features, where our network is learn to facilitate the determination on whether the given source code file is related to the given bug report based on the semantic features. 
+The overall framework of DSSL are shown in Figure~\ref{fig:semi_framework}. The DSSL model contains two four different parts: parsing abstract syntax tree, generating features, encoder, and decoder. The first two steps are briefly described in Section~\ref{sec:parsing} to feed source files data to our deep neural network. Encoder and decoder are required to learn semantic features as well as defect prediction model. Note that our encoder and decoder steps are inspired by autoencoder~\cite{ng2011sparse} which is an unsupervised learning technique. However the original autoencoder only tries to learn the function $f: \mathcal{X} \longmapsto \mathcal{X}$ so that the output values $\mathcal{\hat{X}}$ are similar to input values $\mathcal{X}$. However, SSA attempts to learn semantic features and optimize defect prediction model, thus it takes into account of two functions, i.e., $f$ and $f'$ represent the semantic features and defect prediction respectively. According to Figure~\ref{fig:semi_framework}, our model tries to optimize two different loss functions, i.e., $\mathcal{L}$ and $\mathcal{L'}$ to construct the defect prediction model. In encoder and decoder steps, we employ a fully connected neural network to fuse middle-level features extracted from source files to generate semantic features, where our network is learn to facilitate the determination on whether the given source code file is related to the given bug report based on the semantic features. In this paper, we employ Adam optimization~\cite{kingma2014adam}, which is popular optimization method in deep learning community, to optimize the two loss functions for constructing defect prediction model. 
 
 %In the cross-language feature fusion layers, we employ a fully connected neural network to fuse middle-level features ex- tracted from bug reports and source files to generate a unified feature representation, where the network is learned in order to facilitate the determination on whether the given source code file is related to the given bug report based on the uni- fied feature.
 
@@ -99,19 +104,34 @@ The overall framework of SSA are shown in Figure~\ref{fig:semi_framework}. The S
 
 \subsection{Imbalanced Problem in Defect Prediction}
 \label{sec:imbalanced}
-In most cases of defect prediction, only few source code files contain bug and a large number of source code files are \textit{clean}~\cite{khoshgoftaar2010attribute}, hence the imbalanced nature of this type of data increases the learning difficulty of this problem. For this reason, class imbalance learning specializes in tackling classification problems with imbablanced data is helpful for defect prediction problem~\cite{wang2013using}. 
+In most cases of defect prediction, only few source code files contain bug and a large number of source code files are \textit{clean}~\cite{khoshgoftaar2010attribute}, hence the imbalanced nature of this type of data increases the learning difficulty of this problem. For this reason, class imbalance learning specializes in tackling classification problems with imbalanced data is helpful for defect prediction problem~\cite{wang2013using}. 
 
-To address this problem, we propose to learn the semantic features that may counteract the negative influence of the imbablanced data in the subsequent learning of defect prediction function. Inspired by~\cite{zhou2006training}, we introduce an unequal misclassification cost accroding to the imbalance ratio and train the fully connected network in a cost-sensitive manner. 
+%To address this problem, we propose to learn the semantic features that may counteract the negative influence of the imbalanced data in the subsequent learning of defect prediction function. Inspired by~\cite{zhou2006training}, we introduce an unequal misclassification cost according to the imbalance ratio and train the fully connected network in a cost-sensitive manner. 
+%
+%Let $r_n$ denote the ratio cost of incorrectly associating an \textit{clean} source code file to a bug program element and $r_p$ denote the cost of missing a buggy source code file in the training data. The weight of the semi-supervised autoencoder (SSA) networks $\mathcal{W}$  can be learned by minimizing the following objective function following Adam optimization~\cite{kingma2014adam}. 
+%\begin{equation}
+%\label{eq:imbalanced}
+%\begin{split}
+%\min_{\mathcal{W}} \sum_{i}^{}\mathcal{L}(f(x_i), x_i) 
+%+ r_n \mathcal{L}'(x_i, y_i;\mathcal{W}) y_i \\ + r_p \mathcal{L}'(x_i, y_i;\mathcal{W}) (1 - y_i) + \lambda \rVert \mathcal{W} \rVert^2
+%\end{split}
+%\end{equation}
+%where $\mathcal{L}$ and $\mathcal{L}'$ are the loss function for semantic features and defect prediction model, respectively. $\lambda$ is the trade-off parameter.  
 
-Let $r_n$ denote the ratio cost of incorrectly associating an \textit{clean} source code file to a bug program element and $r_p$ denote the cost of missing a buggy source code file in the training data. The weight of the semi-supervised autoencoder (SSA) networks $\mathcal{W}$  can be learned by minimizing the following objective function following Adam optimization~\cite{kingma2014adam}. 
-\begin{equation}
-\label{eq:imbalanced}
-\begin{split}
-\min_{\mathcal{W}} \sum_{i}^{}\mathcal{L}(f(x_i), x_i) 
-+ r_n \mathcal{L}'(x_i, y_i;\mathcal{W}) y_i \\ + r_p \mathcal{L}'(x_i, y_i;\mathcal{W}) (1 - y_i) + \lambda \rVert \mathcal{W} \rVert^2
-\end{split}
-\end{equation}
-where $\mathcal{L}$ and $\mathcal{L}'$ are the loss function for semantic features and defect prediction model, respectively. $\lambda$ is the trade-off parameter.  
+To address this problem, we propose a balanced random sampling procedure when picking a data instance to update Adam optimizer. In particular, we alternatively select a random instance from the positive and negative instance pools to mitigating the issue of skewed distribution, hence we can solve imbalanced problem in defect prediction. 
+
+%To address this, we devise a balanced random
+%sampling procedure when picking a data instance for gradient
+%descent update. In particular, for every update step, we
+%alternatingly select a random instance from the positive and
+%negative instance pools, as per lines 4-8 of Algorithm 1.
+%Using this simple method, we can balance the training
+%from positive and negative instances, thus effectively mitigating
+%the issue of skewed distribution in the localization
+%task. It is also worth noting that our iterative tuning procedure
+%is efficient. That is, its time complexity is linear with
+%respect to the number of instances N and maximum iterations
+%Tmax.
 
 %Let costn denote the cost of incorrectly associating an ir- relevant source code file to a bug report and costp denote the cost of missing a buggy source code file that is responsible for the reported bugs. The weight of the fully connected net- works w can be learned by minimizing the following objec- tive function based on SGD (stochastic gradient descent).
 
@@ -124,9 +144,15 @@ where $\mathcal{L}$ and $\mathcal{L}'$ are the loss function for semantic featur
 %To address this problem, we propose to learn the unified feature that may counteract the negative influence of the im- balanced data in the subsequent learning of prediction func- tion. Inspired by [Zhou and Liu, 2006], we introduce an un- equal misclassification cost according to the imbalance ratio and train the fully connected network in a cost-sensitive man- ner.
 %Let costn denote the cost of incorrectly associating an ir- relevant source code file to a bug report and costp denote the cost of missing a buggy source code file that is responsible for the reported bugs. The weight of the fully connected net- works w can be learned by minimizing the following objec- tive function based on SGD (stochastic gradient descent).
 
-\subsection{Setting for Training Semi-supervised Autoencoder}
+\subsection{Setting for Training Deep Semi-supervised Learning}
 \label{sec:setting}
-Some deep learning application~\cite{hinton2009deep, ng2011sparse} reports an effective of deep learning models need well-tuned parameters, i.e., 1) the number of hidden layers, 2) the number of nodes in each hidden layer, and 3) the number of iterations. In~\cite{wang2016automatically}, the authors pointed out that the deep learning model was optimized when they chose 10, 100, 200 as the number of hidden layers, number of nodes in each hidden layer, and number of iterations respectively. For the fair comparison with~\cite{wang2016automatically}, we use these parameters to train our semi-supervised autoencoder model. 
+In our setting, the number of hidden layers, number of nodes in each hidden, and the number of iteration are chosen by performing cross validation on training data. Typically, the number of hidden layers, number of nodes in each hidden, and number of iteration are selected as 2, 1000-100, and 75 respectively for our deep semi-supervised learning framework. Note that $\theta$ in Equation~\ref{eq:loss} is also well-chosen based on training data to solving imbalanced between two loss functions. 
+
+
+%Some deep learning application~\cite{hinton2009deep, ng2011sparse} reports an effective of deep learning models need well-tuned parameters, i.e., 1) the number of hidden layers, 2) the number of nodes in each hidden layer, and 3) the number of iterations.
+%In our deep semi-supervised learning, we choose two hidden layers and  these parameters are chosen by learning from training data 
+%
+% In~\cite{wang2016automatically}, the authors pointed out that the deep learning model was optimized when they chose 10, 100, 200 as the number of hidden layers, number of nodes in each hidden layer, and number of iterations respectively. For the fair comparison with~\cite{wang2016automatically}, we use these parameters to train our deep semi-supervised learning model. 
 
 %Many DBN applications [6,25,37] report that an eective
 %DBN needs well-tuned parameters, i.e., 1) the number of hid-
