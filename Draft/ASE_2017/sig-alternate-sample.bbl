@@ -59,6 +59,11 @@ G.~E. Hinton.
 \newblock Deep belief networks.
 \newblock {\em Scholarpedia}, 4(5):5947, 2009.
 
+\bibitem{hosmer2013applied}
+D.~W. Hosmer~Jr, S.~Lemeshow, and R.~X. Sturdivant.
+\newblock {\em Applied logistic regression}, volume 398.
+\newblock John Wiley \& Sons, 2013.
+
 \bibitem{jiang2013personalized}
 T.~Jiang, L.~Tan, and S.~Kim.
 \newblock Personalized defect prediction.
@@ -89,6 +94,13 @@ D.~Kingma and J.~Ba.
 \newblock Adam: A method for stochastic optimization.
 \newblock {\em arXiv preprint arXiv:1412.6980}, 2014.
 
+\bibitem{kochhar2016large}
+P.~S. Kochhar, D.~Wijedasa, and D.~Lo.
+\newblock A large scale study of multiple programming languages and code
+  quality.
+\newblock In {\em Software Analysis, Evolution, and Reengineering (SANER), 2016
+  IEEE 23rd International Conference on}, volume~1, pages 563--573. IEEE, 2016.
+
 \bibitem{lam2015combining}
 A.~N. Lam, A.~T. Nguyen, H.~A. Nguyen, and T.~N. Nguyen.
 \newblock Combining deep learning with information retrieval to localize buggy
@@ -102,6 +114,11 @@ T.~Lee, J.~Nam, D.~Han, S.~Kim, and H.~P. In.
 \newblock In {\em Proceedings of the 19th ACM SIGSOFT symposium and the 13th
   European conference on Foundations of software engineering}, pages 311--321.
   ACM, 2011.
+
+\bibitem{manning2008introduction}
+C.~D. Manning, P.~Raghavan, H.~Sch{\"u}tze, et~al.
+\newblock {\em Introduction to information retrieval}, volume~1.
+\newblock Cambridge university press Cambridge, 2008.
 
 \bibitem{mcabeebayesian}
 K.~T. McAbee, N.~P. Nibbelink, T.~D. Johnson, and H.~T. Mattingly.
@@ -171,21 +188,45 @@ T.~T. Nguyen, T.~N. Nguyen, and T.~M. Phuong.
 \newblock In {\em Proceedings of the 33rd international conference on software
   engineering}, pages 932--935. ACM, 2011.
 
+\bibitem{pan2002maximum}
+J.-X. Pan and K.-T. Fang.
+\newblock Maximum likelihood estimation.
+\newblock {\em Growth Curve Models and Statistical Diagnostics}, pages 77--158,
+  2002.
+
 \bibitem{pascanu2015malware}
 R.~Pascanu, J.~W. Stokes, H.~Sanossian, M.~Marinescu, and A.~Thomas.
 \newblock Malware classification with recurrent networks.
 \newblock In {\em Acoustics, Speech and Signal Processing (ICASSP), 2015 IEEE
   International Conference on}, pages 1916--1920. IEEE, 2015.
 
+\bibitem{ray2014large}
+B.~Ray, D.~Posnett, V.~Filkov, and P.~Devanbu.
+\newblock A large scale study of programming languages and code quality in
+  github.
+\newblock In {\em Proceedings of the 22nd ACM SIGSOFT International Symposium
+  on Foundations of Software Engineering}, pages 155--165. ACM, 2014.
+
 \bibitem{raychev2014code}
 V.~Raychev, M.~Vechev, and E.~Yahav.
 \newblock Code completion with statistical language models.
 \newblock In {\em ACM SIGPLAN Notices}, volume~49, pages 419--428. ACM, 2014.
 
+\bibitem{safavian1991survey}
+S.~R. Safavian and D.~Landgrebe.
+\newblock A survey of decision tree classifier methodology.
+\newblock {\em IEEE transactions on systems, man, and cybernetics},
+  21(3):660--674, 1991.
+
 \bibitem{suykens1999least}
 J.~A. Suykens and J.~Vandewalle.
 \newblock Least squares support vector machine classifiers.
 \newblock {\em Neural processing letters}, 9(3):293--300, 1999.
+
+\bibitem{vapnik1998statistical}
+V.~N. Vapnik and V.~Vapnik.
+\newblock {\em Statistical learning theory}, volume~1.
+\newblock Wiley New York, 1998.
 
 \bibitem{wang2012compressed}
 J.~Wang, B.~Shen, and Y.~Chen.
