@@ -20,21 +20,21 @@ We conduct several experiments to study the performance of the proposed approach
 	
 	\begin{tabular}{|c|c|c|c|c|c|c|c|}
 		\hline
-		\multirow{3}[6]{*}{Project} & \multirow{2}[4]{*}{DSSL} & \multicolumn{3}{c|}{Semantic} & \multicolumn{3}{c|}{AST} \\
+		\multirow{3}[6]{*}{Project} & \multirow{2}[4]{*}{DDA} & \multicolumn{3}{c|}{Embedding} & \multicolumn{3}{c|}{AST} \\
 		\cline{3-8}          &       & DT    & LR    & NB    & DT    & LR    & NB \\
 		\cline{2-8}          & P R F1 & P R F1 & P R F1 & P R F1 & P R F1 & P R F1 & P R F1 \\
 		\hline
 		\hline
-		\multicolumn{1}{|l|}{Checkstyle} & 74.6 84.7 \textbf{79.3} & 78.3 55.3 64.8 & 83.6 68.8 75.5 & 72.3 82.9 \textbf{77.3} & 82.4 63.5 71.8 & 79.7 62.4 70.0  & 82.7 64.7 72.6 \\
+		\multicolumn{1}{|l|}{Checkstyle} & 74.6 84.7 \textbf{79.3} & 78.3 55.3 64.8 & 83.6 68.8 75.5 & 72.3 82.9 77.3 & 82.4 63.5 71.8 & 79.7 62.4 70.0  & 82.7 64.7 72.6 \\
 
-		\multicolumn{1}{|l|}{Nuvolabase} & 33.8 66.0 \textbf{44.7} & 32.8 7.51 12.2 & 36.2 44.7 40.0 & 31.1 73.5 \textbf{43.7} & 50.7 14.2 22.2 & 59.6 12.2 20.3  & 20.3 41.1 27.1 \\
+		\multicolumn{1}{|l|}{Nuvolabase} & 33.8 66.0 \textbf{44.7} & 32.8 7.51 12.2 & 36.2 44.7 40.0 & 31.1 73.5 43.7 & 50.7 14.2 22.2 & 59.6 12.2 20.3  & 20.3 41.1 27.1 \\
 		
 		\multicolumn{1}{|l|}{OrientDB} & 32.9 47.9 \textbf{39.0} & 25.6 6.94 10.9 & 27.3 47.2 34.6 & 20.8 69.4 32.0 & 40.3 18.8 25.6 & 44.2 13.2 20.3  & 12.1 38.2 18.4 \\
 		
 		\multicolumn{1}{|l|}{Traccar} & 33.9 75.0 \textbf{46.7} & 14.0 80.0 23.9 & 12.7 75.0 21.7 & 12.8 95.0 22.0 & 20.0 20.0 20.0 & 12.2 70.0 20.7  & 9.47 90.0 17.1 \\
 		\hline
 		\hline
-		Average & 43.8 68.4 \textbf{52.4} & 37.7 37.4 28.0 & 39.9 58.9 \textbf{42.9} & 34.3 80.2 \textbf{43.8} & 48.4 29.1 34.9 & 48.9 39.5 32.8 & 31.1 58.5 33.8 \\
+		Average & 43.8 68.4 \textbf{52.4} & 37.7 37.4 28.0 & 39.9 58.9 42.9 & 34.3 80.2 43.8 & 48.4 29.1 34.9 & 48.9 39.5 32.8 & 31.1 58.5 33.8 \\
 		\hline
 	\end{tabular}%
 	\end{adjustbox}
@@ -50,7 +50,7 @@ We conduct several experiments to study the performance of the proposed approach
 	\begin{tabular}{|c|c|c|c|c|}
 		\hline
 		\multirow{3}[6]{*}{Source } & \multirow{3}[6]{*}{Target} & \multicolumn{2}{c|}{Cross-project} & \multirow{2}[4]{*}{Within-project} \\
-		\cline{3-4}          &       & DSSL & Semantic &  \\
+		\cline{3-4}          &       & DDA & Embedding &  \\
 		\cline{3-5}          &       & P R F1 & P R F1 & P R F1 \\
 		\hline
 		\hline
