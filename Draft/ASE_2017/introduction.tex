@@ -6,11 +6,11 @@ In the past, most researchers have manually designed features to filter buggy so
 
 To bridge the gap between programs' semantic information and features used for defect prediction, Wang et al.~\cite{wang2016automatically} employed Deep Belief Network (DBN)~\cite{hinton2009deep} to automatically learn features from token vectors extracted from programs' ASTs, and then utilize these features to train a defect prediction model. However, Wang approaches~\cite{wang2016automatically} build semantic features and defect prediction model independently. Typically, semantic features only learn from source files without considering the true label of this program element. Moreover, token values are mapped to unique integer identifier without reflecting how important a token in program element files's. Hence the semantic features may fail to optimize the defect prediction model. 
 
-To tackle this problem, we propose a deep semi-supervised learning (DSSL) approach allowing to extract semantic features and optimize the prediction model in one stage. Our proposed framework takes advantage of antoencoder~\cite{ng2011sparse} to construct DSSL model for defect prediction. 
+To tackle this problem, we propose a deep  discriminative autoencoder (DDA) approach allowing to extract semantic features and optimize the prediction model in one stage. Our proposed framework takes advantage of antoencoder~\cite{ng2011sparse} to construct DSSL model for defect prediction. 
 
 This paper makes the following contributions:
 \begin{itemize}
-	\item We propose to leverage a powerful representation learning algorithm, namely deep semi-supervised learning, to construct the defect prediction model.
+	\item We propose to leverage a powerful representation learning algorithm, namely deep  discriminative autoencoder, to construct the defect prediction model.
 	\item Our evaluation results on four popular software Java projects shows that our approach significantly improve the performance of defect prediction by 8.6\% and 5.4\% on both within-project and cross project defect prediction respectively in term of F1 compared to traditional approaches. 
 \end{itemize}
 % We propose to leverage a powerful representationlearning
@@ -61,7 +61,7 @@ This paper makes the following contributions:
 %features by 8.9% in F1.
 
 
-The rest of this paper is summarized as follows. Section~\ref{sec:framework} briefly presents the defect prediction problem and our deep semi-supervised learning. Section~\ref{sec:exp_results} shows the experimental results of our approaches. Section~\ref{sec:threats} presents threat to validity. Section~\ref{sec:relatedwork} and Section~\ref{sec:conclusion} describe the related work and conclusion of our paper. 
+The rest of this paper is summarized as follows. Section~\ref{sec:framework} briefly presents the defect prediction problem and our deep  discriminative autoencoder. Section~\ref{sec:exp_results} shows the experimental results of our approaches. Section~\ref{sec:threats} presents threat to validity. Section~\ref{sec:relatedwork} and Section~\ref{sec:conclusion} describe the related work and conclusion of our paper. 
 %provides backgrounds on defect prediction and DBN. Section 3 describes our proposed approach to learn semantic features from source code automatically, and leverage these learned features to predict defects. Section 4 shows the experimental setup. Section 5 evaluates the performance of learned semantic features. Section 6 and Section 7 present threats to our work and related work respectively. We conclude this paper in Section 8.
 
 %Programs have well-dened syntax, which can be represented

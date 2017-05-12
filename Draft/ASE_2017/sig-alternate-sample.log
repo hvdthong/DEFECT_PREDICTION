@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.16)  12 MAY 2017 23:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.16)  12 MAY 2017 23:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -655,56 +655,8 @@ LaTeX Info: Redefining \nameref on input line 133.
 
  (./abstract.tex)
 (./introduction.tex
-
-LaTeX Warning: Citation `hassan2009predicting' on page 1 undefined on input lin
-e 3.
-
-
-LaTeX Warning: Citation `jiang2013personalized' on page 1 undefined on input li
-ne 3.
-
-
-LaTeX Warning: Citation `zimmermann2007predicting' on page 1 undefined on input
- line 3.
-
-
-LaTeX Warning: Citation `mccabe1976complexity' on page 1 undefined on input lin
-e 5.
-
-
-LaTeX Warning: Citation `chidamber1994metrics' on page 1 undefined on input lin
-e 5.
-
-
-LaTeX Warning: Citation `harrison1998evaluation' on page 1 undefined on input l
-ine 5.
-
-
-LaTeX Warning: Citation `jiang2013personalized' on page 1 undefined on input li
-ne 5.
-
-
-LaTeX Warning: Citation `e1994candidate' on page 1 undefined on input line 5.
-
-
-LaTeX Warning: Citation `jing2014dictionary' on page 1 undefined on input line 
-5.
-
-
-LaTeX Warning: Citation `wang2016automatically' on page 1 undefined on input li
-ne 7.
-
-
-LaTeX Warning: Citation `hinton2009deep' on page 1 undefined on input line 7.
-
-
-LaTeX Warning: Citation `wang2016automatically' on page 1 undefined on input li
-ne 7.
-
-
-LaTeX Warning: Citation `ng2011sparse' on page 1 undefined on input line 9.
-
 LaTeX Font Info:    Try loading font information for U+msa on input line 13.
+
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
@@ -718,277 +670,27 @@ LaTeX Font Info:    Try loading font information for U+lasy on input line 13.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )) (./framework.tex
-<dssl_framework.pdf, id=77, 586.19pt x 448.67625pt>
+<dssl_framework.pdf, id=94, 586.19pt x 448.67625pt>
 File: dssl_framework.pdf Graphic file (type pdf)
  <use dssl_framework.pdf>
 Package pdftex.def Info: dssl_framework.pdf used on input line 11.
 (pdftex.def)             Requested size: 232.19843pt x 177.72153pt.
 
-
-LaTeX Warning: Citation `wang2016automatically' on page 1 undefined on input li
-ne 18.
-
-
-LaTeX Warning: Citation `mccabe1976complexity' on page 1 undefined on input lin
-e 18.
-
-
-LaTeX Warning: Citation `chakradeo2013mast' on page 1 undefined on input line 1
-8.
-
-
-LaTeX Warning: Citation `bishop2006pattern' on page 1 undefined on input line 1
-8.
-
 [1{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
 ]
-
-LaTeX Warning: Citation `wang2016automatically' on page 2 undefined on input li
-ne 46.
-
-
-LaTeX Warning: Citation `neamtiu2005understanding' on page 2 undefined on input
- line 46.
-
-
-LaTeX Warning: Citation `manning2008introduction' on page 2 undefined on input 
-line 46.
-
-
-LaTeX Warning: Citation `yang2015deep' on page 2 undefined on input line 77.
-
-
-LaTeX Warning: Citation `wang2016automatically' on page 2 undefined on input li
-ne 77.
-
-
-LaTeX Warning: Citation `ng2011sparse' on page 2 undefined on input line 90.
-
-
-LaTeX Warning: Citation `khoshgoftaar2010attribute' on page 2 undefined on inpu
-t line 111.
-
-
-LaTeX Warning: Citation `wang2013using' on page 2 undefined on input line 111.
-
-
-LaTeX Warning: Citation `kingma2014adam' on page 2 undefined on input line 152.
-
-
-[2 <./dssl_framework.pdf>]) (./exp.tex (./metrics.tex
-
-LaTeX Warning: Citation `menzies2007data' on page 3 undefined on input line 1.
-
-
-LaTeX Warning: Citation `menzies2010defect' on page 3 undefined on input line 1
-.
-
-
-LaTeX Warning: Citation `nam2013transfer' on page 3 undefined on input line 1.
-
-) (./datasets.tex
-
-LaTeX Warning: Citation `antoniol2008bug' on page 3 undefined on input line 21.
-
-
-
-LaTeX Warning: Citation `wang2013using' on page 3 undefined on input line 27.
-
-
-LaTeX Warning: Citation `khoshgoftaar2010attribute' on page 3 undefined on inpu
-t line 27.
-
-) (./baselines.tex
-
-LaTeX Warning: Citation `wang2016automatically' on page 3 undefined on input li
-ne 3.
-
-
-LaTeX Warning: Citation `hinton2009deep' on page 3 undefined on input line 3.
-
-
-LaTeX Warning: Citation `bishop2006pattern' on page 3 undefined on input line 7
-.
-
-
-LaTeX Warning: Citation `wang2016automatically' on page 3 undefined on input li
-ne 7.
-
-
-LaTeX Warning: Citation `wang2013using' on page 3 undefined on input line 7.
-
-
-LaTeX Warning: Citation `jing2014dictionary' on page 3 undefined on input line 
-7.
-
-
-LaTeX Warning: Citation `safavian1991survey' on page 3 undefined on input line 
-9.
-
-
-LaTeX Warning: Citation `hosmer2013applied' on page 3 undefined on input line 1
-0.
-
-
-LaTeX Warning: Citation `vapnik1998statistical' on page 3 undefined on input li
-ne 11.
-
-
-LaTeX Warning: Citation `pan2002maximum' on page 3 undefined on input line 11.
-
-) (./results.tex [3]
-
-LaTeX Warning: Citation `wang2016automatically' on page 4 undefined on input li
-ne 9.
-
-)) (./threats.tex
-
-LaTeX Warning: Citation `menzies2007data' on page 4 undefined on input line 1.
-
-
-LaTeX Warning: Citation `menzies2010defect' on page 4 undefined on input line 1
-.
-
-
-LaTeX Warning: Citation `nam2013transfer' on page 4 undefined on input line 1.
-
-[4]) (./relatedwork.tex (./defect.tex)
-
-LaTeX Warning: Citation `nam2013transfer' on page 5 undefined on input line 5.
-
-
-LaTeX Warning: Citation `menzies2010defect' on page 5 undefined on input line 5
-.
-
-
-LaTeX Warning: Citation `menzies2007data' on page 5 undefined on input line 5.
-
-
-LaTeX Warning: Citation `zimmermann2007predicting' on page 5 undefined on input
- line 5.
-
-
-LaTeX Warning: Citation `jiang2013personalized' on page 5 undefined on input li
-ne 5.
-
-
-LaTeX Warning: Citation `nagappan2007using' on page 5 undefined on input line 5
-.
-
-
-LaTeX Warning: Citation `nguyen2011topic' on page 5 undefined on input line 5.
-
-
-LaTeX Warning: Citation `wang2012compressed' on page 5 undefined on input line 
-5.
-
-
-LaTeX Warning: Citation `menzies2010defect' on page 5 undefined on input line 5
-.
-
-
-LaTeX Warning: Citation `mccabe1976complexity' on page 5 undefined on input lin
-e 5.
-
-
-LaTeX Warning: Citation `chidamber1994metrics' on page 5 undefined on input lin
-e 5.
-
-
-LaTeX Warning: Citation `harrison1998evaluation' on page 5 undefined on input l
-ine 5.
-
-
-LaTeX Warning: Citation `moser2008comparative' on page 5 undefined on input lin
-e 5.
-
-
-LaTeX Warning: Citation `nagappan2007using' on page 5 undefined on input line 5
-.
-
-
-LaTeX Warning: Citation `lee2011micro' on page 5 undefined on input line 6.
-
-
-LaTeX Warning: Citation `jiang2013personalized' on page 5 undefined on input li
-ne 6.
-
-
-LaTeX Warning: Citation `elish2008predicting' on page 5 undefined on input line
- 8.
-
-
-LaTeX Warning: Citation `suykens1999least' on page 5 undefined on input line 8.
-
-
-
-LaTeX Warning: Citation `amasaki2003bayesian' on page 5 undefined on input line
- 8.
-
-
-LaTeX Warning: Citation `mcabeebayesian' on page 5 undefined on input line 8.
-
-
-LaTeX Warning: Citation `khoshgoftaar2002tree' on page 5 undefined on input lin
-e 8.
-
-
-LaTeX Warning: Citation `jing2014dictionary' on page 5 undefined on input line 
-9.
-
+Underfull \vbox (badness 1577) has occurred while \output is active []
+
+ [2 <./dssl_framework.pdf>]) (./exp.tex (./metrics.tex) (./datasets.tex) (./bas
+elines.tex)
+(./results.tex [3])) (./threats.tex [4]) (./relatedwork.tex (./defect.tex)
 (./deeplearning.tex
+Underfull \vbox (badness 1043) has occurred while \output is active []
 
-LaTeX Warning: Citation `lam2015combining' on page 5 undefined on input line 1.
-
-
-
-LaTeX Warning: Citation `hecht1988theory' on page 5 undefined on input line 1.
-
-
-LaTeX Warning: Citation `zhou2012should' on page 5 undefined on input line 1.
-
-
-LaTeX Warning: Citation `raychev2014code' on page 5 undefined on input line 1.
-
-
-LaTeX Warning: Citation `mikolov2010recurrent' on page 5 undefined on input lin
-e 1.
-
-
-LaTeX Warning: Citation `mou2014tbcnn' on page 5 undefined on input line 1.
-
-
-LaTeX Warning: Citation `pascanu2015malware' on page 5 undefined on input line 
-1.
-
-
-LaTeX Warning: Citation `yuan2014droid' on page 5 undefined on input line 1.
-
-
-LaTeX Warning: Citation `hinton2009deep' on page 5 undefined on input line 1.
-
-
-LaTeX Warning: Citation `yang2015deep' on page 5 undefined on input line 3.
-
-
-LaTeX Warning: Citation `wang2016automatically' on page 5 undefined on input li
-ne 3.
-
-
-LaTeX Warning: Citation `wang2012compressed' on page 5 undefined on input line 
-3.
-
-
-LaTeX Warning: Citation `yang2015deep' on page 5 undefined on input line 3.
-
-
-LaTeX Warning: Citation `wang2012compressed' on page 5 undefined on input line 
-3.
-
-)) (./conclusion.tex [5]) (./sig-alternate-sample.bbl
-Overfull \vbox (6.94902pt too high) has occurred while \output is active []
+ [5]))
+(./conclusion.tex) (./sig-alternate-sample.bbl
+Overfull \vbox (6.89899pt too high) has occurred while \output is active []
 
 
 [6])
@@ -1013,30 +715,17 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 208.
  (./sig-alternate-sample.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 208.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 208.
-
-
-Package rerunfilecheck Warning: File `sig-alternate-sample.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `sig-alternate-sample.out':
-(rerunfilecheck)             Before: A880EE30C20D7E862BC04F079794BBA5;1121
-(rerunfilecheck)             After:  8E174A15009223A8B4B52112E1CE56B7;1168.
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
+Package rerunfilecheck Info: File `sig-alternate-sample.out' has not changed.
+(rerunfilecheck)             Checksum: 8E174A15009223A8B4B52112E1CE56B7;1168.
  ) 
 Here is how much of TeX's memory you used:
- 10394 strings out of 493089
- 157887 string characters out of 6134841
- 330406 words of memory out of 5000000
- 13580 multiletter control sequences out of 15000+600000
+ 10395 strings out of 493089
+ 157899 string characters out of 6134841
+ 326940 words of memory out of 5000000
+ 13581 multiletter control sequences out of 15000+600000
  44995 words of font info for 94 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 33i,16n,35p,1728b,506s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 33i,16n,35p,1728b,504s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/te
 xlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/tex
@@ -1050,10 +739,10 @@ xmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2015/texmf-dist/f
 onts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type
 1/urw/times/utmr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/time
 s/utmri8a.pfb>
-Output written on sig-alternate-sample.pdf (7 pages, 430994 bytes).
+Output written on sig-alternate-sample.pdf (7 pages, 436576 bytes).
 PDF statistics:
- 264 PDF objects out of 1000 (max. 8388607)
- 234 compressed objects within 3 object streams
+ 359 PDF objects out of 1000 (max. 8388607)
+ 328 compressed objects within 4 object streams
  81 named destinations out of 1000 (max. 500000)
- 142 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 150 words of extra memory for PDF output out of 10000 (max. 10000000)
 
