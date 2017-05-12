@@ -1,191 +1,156 @@
-% This is "sig-alternate.tex" V2.1 April 2013
-% This file should be compiled with V2.5 of "sig-alternate.cls" May 2012
+%\documentclass{sig-alternate-05-2015}
+%\documentclass[conference]{IEEEtran}
+%\IEEEoverridecommandlockouts
+%\usepackage{caption}
+%\usepackage{subcaption}
+%\usepackage[T1]{fontenc}
+%\usepackage{pgfplots}
+%\pgfplotsset{
+%  compat=newest,
+%  xlabel near ticks,
+%  ylabel near ticks
+%}
+%\usepackage{color}
+%\usepackage{booktabs}
+%\usepackage{multirow}
+%\usepackage{hyperref}
+%\makeatletter
+%\def\@copyrightspace{\relax}
+%\makeatother
+%\usepackage{adjustbox}
+%\begin{document}
 %
-% This example file demonstrates the use of the 'sig-alternate.cls'
-% V2.5 LaTeX2e document class file. It is for those submitting
-% articles to ACM Conference Proceedings WHO DO NOT WISH TO
-% STRICTLY ADHERE TO THE SIGS (PUBS-BOARD-ENDORSED) STYLE.
-% The 'sig-alternate.cls' file will produce a similar-looking,
-% albeit, 'tighter' paper resulting in, invariably, fewer pages.
+%\title{Deep Semi-Supervised Learning for Defect Prediction}
 %
-% ----------------------------------------------------------------------------------------------------------------
-% This .tex file (and associated .cls V2.5) produces:
-%       1) The Permission Statement
-%       2) The Conference (location) Info information
-%       3) The Copyright Line with ACM data
-%       4) NO page numbers
+%\maketitle\begin{abstract}
+%	\label{sec:abstract}
+%	\input{abstract}
+%\end{abstract}
 %
-% as against the acm_proc_article-sp.cls file which
-% DOES NOT produce 1) thru' 3) above.
+%\printccsdesc
+%\keywords{Deep learning, defect prediction, bug localization, autoencoder, semi-supervised.}
 %
-% Using 'sig-alternate.cls' you have control, however, from within
-% the source .tex file, over both the CopyrightYear
-% (defaulted to 200X) and the ACM Copyright Data
-% (defaulted to X-XXXXX-XX-X/XX/XX).
-% e.g.
-% \CopyrightYear{2007} will cause 2007 to appear in the copyright line.
-% \crdata{0-12345-67-8/90/12} will cause 0-12345-67-8/90/12 to appear in the copyright line.
+%\section{Introduction}
+%\label{sec:introduction}
+%\input{introduction}
 %
-% ---------------------------------------------------------------------------------------------------------------
-% This .tex source is an example which *does* use
-% the .bib file (from which the .bbl file % is produced).
-% REMEMBER HOWEVER: After having produced the .bbl file,
-% and prior to final submission, you *NEED* to 'insert'
-% your .bbl file into your source .tex file so as to provide
-% ONE 'self-contained' source file.
 %
-% ================= IF YOU HAVE QUESTIONS =======================
-% Questions regarding the SIGS styles, SIGS policies and
-% procedures, Conferences etc. should be sent to
-% Adrienne Griscti (griscti@acm.org)
 %
-% Technical questions _only_ to
-% Gerald Murray (murray@hq.acm.org)
-% ===============================================================
+%\section{Proposed Approach}
+%\label{sec:framework}
+%\input{framework}
 %
-% For tracking purposes - this is V2.0 - May 2012
+%\section{Experimental Results}
+%\label{sec:exp_results}
+%\input{exp}
+%
+%\section{Threats to validity}
+%\label{sec:threats}
+%\input{threats}
+%
+%
+%\section{Related Work}
+%\label{sec:relatedwork}
+%\input{relatedwork}
+%
+%\section{Conclusion}
+%\label{sec:conclusion}
+%\input{conclusion}
+%
+%\section{Acknowledgments}
+%\label{sec:acknowledgments}
+%\input{acknowledgments}
+%
+%\bibliographystyle{abbrv}
+%\bibliography{sigproc}  % sigproc.bib is the name of the Bibliography in this case
+%\end{document}
 
-\documentclass{sig-alternate-05-2015}
-\usepackage{caption}
-\usepackage{subcaption}
-\usepackage[T1]{fontenc}
-\usepackage{pgfplots}
-\pgfplotsset{
-  compat=newest,
-  xlabel near ticks,
-  ylabel near ticks
-}
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+
+\usepackage[pdftex]{graphicx}
 \usepackage{color}
-\usepackage{booktabs}
-\usepackage{multirow}
+\usepackage{tablefootnote}
+\usepackage{mathtools}
+\usepackage{balance}
+\usepackage{amssymb,amsmath}
+\usepackage{proof,latexsym}
+\usepackage{color}
+\usepackage{enumerate}
 \usepackage{hyperref}
-\makeatletter
-\def\@copyrightspace{\relax}
-\makeatother
+\usepackage{ifthen}
+\usepackage{amssymb}
+\usepackage{multicol}
+\usepackage{multirow}
+
+\usepackage[ruled]{algorithm2e}
 \usepackage{adjustbox}
+
+\newboolean{showcomments}
+\setboolean{showcomments}{true}
+\ifthenelse{\boolean{showcomments}}
+{ \newcommand{\mynote}[2]{
+		\fbox{\bfseries\sffamily\scriptsize#1}
+		{\small$\blacktriangleright$\textsf{\emph{#2}}$\blacktriangleleft$}}}
+{ \newcommand{\mynote}[2]{}}
+
+
+\def\cnf{\mathit{conf}}
+
+\newenvironment{packed_enum}{
+	\begin{enumerate}
+		\setlength{\itemsep}{1pt}
+		\setlength{\parskip}{0pt}
+		\setlength{\parsep}{0pt}
+	}{\end{enumerate}}
+
+\newenvironment{packed_itemize}{
+	\begin{itemize}
+		\setlength{\itemsep}{1pt}
+		\setlength{\parskip}{0pt}
+		\setlength{\parsep}{0pt}
+	}{\end{itemize}}
+
+\def\concat{\mathit{+\!\!+}}
+
+
+\newcommand{\todosimple}[2]
+{{\scriptsize \textbf{{#1} says: \color{red} {#2}}}}
+\newcommand{\ssmnote}[1]{\todosimple{SM}{#1}}
+\newcommand{\sdlnote}[1]{\todosimple{DL}{#1}}
+
+
+\newcommand{\task}[1]{\mynote{**Task**}{#1}}
+
+
+\newcommand{\todo}[1]{\vspace{3mm}\begin{center}\fbox{
+			\begin{minipage}{.7\linewidth} \small\begin{center}\fbox{To Do:}
+				\end{center}#1\end{minipage}}\end{center}}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}
+
 \begin{document}
+	
+	\pdfpagewidth 8.5in
+	\pdfpageheight 11.0in
+	
+	\title{Deep Semi-Supervised Learning for Defect Prediction}
+	
+	\author{
+%		Author information omitted for double-blind review.
+	}
+	
+	\maketitle
+	
 
-% Copyright
-%\setcopyright{acmcopyright}
-%\setcopyright{acmlicensed}
-%\setcopyright{rightsretained}
-%\setcopyright{usgov}
-%\setcopyright{usgovmixed}
-%\setcopyright{cagov}
-%\setcopyright{cagovmixed}
+	\begin{abstract}
+		\label{sec:abstract}
+		\input{abstract}
+	\end{abstract}
 
-
-% DOI
-%\doi{10.475/123_4}
-%
-%% ISBN
-%\isbn{123-4567-24-567/08/06}
-%
-%%Conference
-%\conferenceinfo{PLDI '13}{June 16--19, 2013, Seattle, WA, USA}
-%
-%\acmPrice{\$15.00}
-
-%
-% --- Author Metadata here ---
-%\conferenceinfo{WOODSTOCK}{'97 El Paso, Texas USA}
-%\CopyrightYear{2007} % Allows default copyright year (20XX) to be over-ridden - IF NEED BE.
-%\crdata{0-12345-67-8/90/01}  % Allows default copyright data (0-89791-88-6/97/05) to be over-ridden - IF NEED BE.
-% --- End of Author Metadata ---
-
-\title{Semi-supervised Autoencoder for Defect Prediction}
-%\subtitle{[Extended Abstract]
-%\titlenote{A full version of this paper is available as
-%\textit{Author's Guide to Preparing ACM SIG Proceedings Using
-%\LaTeX$2_\epsilon$\ and BibTeX} at
-%\texttt{www.acm.org/eaddress.htm}}}
-%
-% You need the command \numberofauthors to handle the 'placement
-% and alignment' of the authors beneath the title.
-%
-% For aesthetic reasons, we recommend 'three authors at a time'
-% i.e. three 'name/affiliation blocks' be placed beneath the title.
-%
-% NOTE: You are NOT restricted in how many 'rows' of
-% "name/affiliations" may appear. We just ask that you restrict
-% the number of 'columns' to three.
-%
-% Because of the available 'opening page real-estate'
-% we ask you to refrain from putting more than six authors
-% (two rows with three columns) beneath the article title.
-% More than six makes the first-page appear very cluttered indeed.
-%
-% Use the \alignauthor commands to handle the names
-% and affiliations for an 'aesthetic maximum' of six authors.
-% Add names, affiliations, addresses for
-% the seventh etc. author(s) as the argument for the
-% \additionalauthors command.
-% These 'additional authors' will be output/set for you
-% without further effort on your part as the last section in
-% the body of your article BEFORE References or any Appendices.
-
-\author{
-% 1st. author
-\alignauthor
-James Hoang\\
-       \affaddr{School of Information System}\\
-%       \affaddr{Singapore Management University}\\
-%       \affaddr{Wallamaloo, New Zealand}\\
-       \email{vdthoang.2016@smu.edu.sg}
-% 2nd. author
-%\alignauthor
-%G.K.M. Tobin\titlenote{The secretary disavows
-%any knowledge of this author's actions.}\\
-%       \affaddr{Institute for Clarity in Documentation}\\
-%       \affaddr{P.O. Box 1212}\\
-%       \affaddr{Dublin, Ohio 43017-6221}\\
-%       \email{webmaster@marysville-ohio.com}
-%% 3rd. author
-%\alignauthor Lars Th{\o}rv{\"a}ld\titlenote{This author is the
-%one who did all the really hard work.}\\
-%       \affaddr{The Th{\o}rv{\"a}ld Group}\\
-%       \affaddr{1 Th{\o}rv{\"a}ld Circle}\\
-%       \affaddr{Hekla, Iceland}\\
-%       \email{larst@affiliation.org}
-%\and  % use '\and' if you need 'another row' of author names
-%% 4th. author
-%\alignauthor Lawrence P. Leipuner\\
-%       \affaddr{Brookhaven Laboratories}\\
-%       \affaddr{Brookhaven National Lab}\\
-%       \affaddr{P.O. Box 5000}\\
-%       \email{lleipuner@researchlabs.org}
-%% 5th. author
-%\alignauthor Sean Fogarty\\
-%       \affaddr{NASA Ames Research Center}\\
-%       \affaddr{Moffett Field}\\
-%       \affaddr{California 94035}\\
-%       \email{fogartys@amesres.org}
-%% 6th. author
-%\alignauthor Charles Palmer\\
-%       \affaddr{Palmer Research Laboratories}\\
-%       \affaddr{8600 Datapoint Drive}\\
-%       \affaddr{San Antonio, Texas 78229}\\
-%       \email{cpalmer@prl.com}
-}
-% There's nothing stopping you putting the seventh, eighth, etc.
-% author on the opening page (as the 'third row') but we ask,
-% for aesthetic reasons that you place these 'additional authors'
-% in the \additional authors block, viz.
-%\additionalauthors{Additional authors: John Smith (The Th{\o}rv{\"a}ld Group,
-%email: {\texttt{jsmith@affiliation.org}}) and Julius P.~Kumquat
-%(The Kumquat Consortium, email: {\texttt{jpkumquat@consortium.net}}).}
-%\date{30 July 1999}
-% Just remember to make sure that the TOTAL number of authors
-% is the number that will appear on the first page PLUS the
-% number that will appear in the \additionalauthors section.
-
-\maketitle\begin{abstract}
-	\label{sec:abstract}
-	\input{abstract}
-\end{abstract}
-
-\printccsdesc
-\keywords{Deep learning, defect prediction, bug localization, autoencoder, semi-supervised.}
+%\printccsdesc
+%\keywords{Deep learning, defect prediction, bug localization, autoencoder, semi-supervised.}
 
 \section{Introduction}
 \label{sec:introduction}
@@ -206,397 +171,6 @@ James Hoang\\
 \input{threats}
 
 
-%
-%
-%
-%%Nowadays most modern smartphone platforms allow users to download third-party applications, and hence it has made mobile devices are more interesting to the users and developers. Moreover, it has led to an explosion of development. For example, Apple Store has around three billion applications after only 18 months \footnote{http://www.apple.com/pr/library/2010/01/05Apples-App-Store-Downloads-Top-Three-Billion.html}. Most of these applications have legitimate reaons for accessing user privacy sensitive data (i.e., GPS receiver, camera, microphone, acceleremeter, etc.). However, the users want assurance that their data is not misused. There have been incidents where developers relayed private information to the cloud  and privacy risks posed by seemingly innocent sensors like accelerometers illustrate the danger \cite{Mather:2009:CSP:1594881}. Currently, mobile operating systems only provide coarse-grained controls for detecting an application that can acess private information, but it does not show how private information is used by third-party application. In particular, monitoring network discolsure of privacy sensitive information on mobiles deals with some challenges: 
-%%\begin{itemize}
-%%	\item The resource limitation of mobiles prevents the use of information tracking system \cite{Yin:2007:PCS:1315245.1315261}. 
-%%	\item We assume that third-party applications are entrusted with several types of privacy sensitive information \cite{Zhou:2015:HUS:2714576.2714598}. 
-%%	\item Context-based privacy sensitive information is dynamic, and hence it is hard to detect or predict \cite{Nissenbaum:2009:PCT:1822585}. 
-%%	\item Applications can share information, leading to disclosure privacy sensitive information. 
-%%\end{itemize}
-%%
-%%The paper proposed TaintDroid, an extension of Android mobile platform, to track the flow of privacy sensitive information through third-party applications. In particular, TaintDroid assumes that the third-party applications are not trusted, and monitors how these applications access and control users' personal data in realtime. In particular, TaintDroid labels privacy sensitive information data through program variables, files, and interprocess messages. If these data are transmitted over the network, or leave the system, TaintDroid logs the data's labels. Note that the application responsible for transmitting the data, and the data's destination. The realtime information from log file gives users an overview of what mobile applications are doing, and help them to identify misbehaving applicaitons.
-%%
-%%In practice, the performance overhead of TaintDroid runtime must be minimal.  Existing solutions relying on whole-system emulation~\cite{Chow:2004:UDL:1251375.1251397}, whereas TaintDroid relies on Android's virtualized architecture to combine four granularities of taint propagation: variable-level, method-level, message-level, and file-level. Note that these techniques are not novel, however TaintDroid contributions lie on the combination of four different techniques. 
-%
-%Nowadays, the automatd extraction of hidden predictive information from large datasets becomes more and more popular. By applying \textit{data mining}~\cite{Han:2005:DMC:1076797} techniques, we are able to build recommender systems predicting items that users need. Recommender systems have become increasingly popular in recent years, and are utilized in a variety of areas including movies, music, news, books, research articles, search queries, social tags, and products in general. In this paper, Zimmermann et al. proposed ROSE tool guides the developers with the following aims:
-%
-%\begin{itemize}
-%	\item Suggest and predict likely changes for the developers based on ECLIPSE version history. The first recommended changes indicates the first highest \textit{confidence} score. 
-%	\item Prevent errors due to incomplete changes for the developers. 
-%	\item Detect coupling indetectable by program analysis. 	
-%\end{itemize}
-%
-%Figure~\ref{fig:rose} shows an example of our ROSE tools as a plug-in for the ECLIPSE environment. The developers try to add an element to the fKeys[] array, hence ROSE suggests to consider further changes. Moreover, position 3 on the list is an ECLIPSE HTML documentation file with a confidence 0.75 suggesting that we need to update documentation after adding the new preference. 
-%
-%In the past, researchers have used history data to understand programs~\cite{Ball97ifyour}, to detect coupling between two files~\cite{Gall98detectionof}, or to support navigation in the source code~\cite{Cubranic:2003:HRP:776816.776866}.
-%
-%\begin{figure*}[h!]
-%	\centering
-%	\includegraphics[width=0.7\textwidth]{rose_example}
-%	\caption{An example of ROSE tools plug-in installed on ECLIPSE. After the developer has made some changes, further changes are showed to the user.}
-%	\label{fig:rose}
-%\end{figure*}
-%
-%\subsection{ROSE Tools}
-%%\begin{figure}[t!]
-%%	\centering
-%%	\includegraphics[width=0.45\textwidth]{TaintDroidApproach}
-%%	\caption{Approach overview for performance efficient taint tracking in mobile.}
-%%	\label{fig:approach}
-%%\end{figure}
-%%TaintDroid use dynamic taint analysis~\cite{Schwartz:2010:YEW:1849417.1849981}, namely taint tracking, to control privacy sensitive information on mobiles. Dynamic taint analysis detects whether labeled data impacts other data that may leak original sensitive information. These data is identified before leaving the system. 
-%%
-%%Figure \ref{fig:approach} briefly shows taint tracking approach in smartphone platform. The VM interpreter are firstly instrmented to provide variable-level tracking within third-party application. Moreover, taint markings, indicating type of information, are maintained by tracking variables in the system. Second, message-level tracking between application is applied to detect taint on messages while extending the analysis system-wide. Next, method-level tracking is used for system-provided native libraries. And finally, file-leve tracking is deployed to ensure persistent information conservatively retains its taint markings. 
-%%
-%%
-%%
-%%Figure \ref{fig:architecture} presents TaintDroid's architecture in Android platform. In particular, TaintDroid envolves 9 steps for tracking taints within smartphone platforms:
-%%\begin{enumerate}
-%%	\item Information is tainted in a trusted application. 
-%%	\item The taint interface invokes a native method that interfaces with the Dalvik VM interpreter, and stores taint markings in the virtual taint map. 
-%%	\item The Dalvik VM propagates taint tags when the trusted application uses the tainted information.
-%%	\item The binder library ensures that the parcel has a taint tag reflecting the combined tain markings.
-%%	\item The parcel is transfered to the untrusted application by binder kernel module. 
-%%	\item The binder library receives the taint tag and assigns it to all values read from it. 
-%%	\item The remote Dalvik VM instance propagates taint tags identically for the untrusted application. 
-%%	\item The untrusted application invokes a library as a taint sink.
-%%	\item The library retrieves the taint tag and sends the event. 
-%%\end{enumerate}
-%Figure~\ref{fig:rose_dataflow} briefly describes the basic data flow through ROSE tools. According to the figure, the ROSE server reads a version archive, groups the changes into transactions, then mines the transactions for rules which show the relationship between software entities. The further changes are showed to the user when he makes some changes on entity. In particular, the ROSE client queries the rule set for applicable rules. Next, I would like to explain the ``grouping'' and ``mining'' arrow in the ROSE server in the figure~\ref{fig:rose_dataflow}. 
-%
-%\subsubsection{Grouping Changes to Transaction}
-%The ROSE server receives changes and transactions from CVS archives~\footnote{https://en.wikipedia.org/wiki/Concurrent\_Versions\_System}, which are frequently used for open source systems. However, we still need to do data cleaning~\cite{Dasu:2003:EDM:861869} as it has some weakness:
-%\begin{itemize}
-%	\item Inferring transactions: ROSE applies the sliding window approach~\cite{Datar:2002:MSS:586845.586959} to group the individual changes into individual transactions. 
-%	\item Branches and merges: ROSE ignores all changes affecting more than 30 entities to detect coupling within transactions. 
-%	\item Getting entities: ROSE parses the files associating syntactic entities with line range to collect the affected components.
-%\end{itemize}
-% 
-%\subsubsection{Mining Rules}
-%The rule is define as whenever the user modifies one file, then she \textit{should} likely change the other files. In particular, the rules are based on experience and does not constitute absolute truth. Hence, they have a probabilistic interpretation based on the amount of evidence in the transactions that they are derived from. Note that the amount of evidence is calculated based on two measures:
-%\begin{itemize}
-%	\item Support which is used to determine the number of transactions the rules have been derived from. 
-%	\item Confidence estimates the strength of the consequence, or the relative amount of the given consequences across all alternatives. 
-%\end{itemize}
-%
-%ROSE tools uses Apriori~\cite{Agrawal:1994:FAM:645920.672836} to compute association rules. The algorithm takes a minimum support and minimum confidence, then compute the set of all association rules in two phases: 
-%\begin{itemize}
-%	\item The algorithm runs over the set of transactions and forms entity sets that are above the minimal support. 
-%	\item The algorithm only returns the rules that are above the minimum confidence. 
-%\end{itemize}
-%
-%\begin{figure}[t!]
-%	\centering
-%	\includegraphics[width=0.45\textwidth]{rose_dataflow}
-%	\caption{An architecture of ROSE tools.}
-%	\label{fig:rose_dataflow}
-%\end{figure}
-%\subsection{Experimental Results}
-%To evaluation the effectiveness of ROSE tool, Zimmermann et al. analyzed the archives of 8 large open-source projects. For each archive, the last 1,000 transactions are selected. Note that not more than 50\% of all transactions as the evaluation period. During this period, each transaction is checked whether its entities can be predicted from earlier history. The precision and recall~\cite{Rijsbergen:1979:IR:539927} are used to measure the performance of ROSE tool. Moreover, the authors also used likelihood~\cite{Dempster77maximumlikelihood} to assess the actual usefulness of the developer. 
-%
-%Figure~\ref{fig:rose_fine_granularity} shows the results of our tool for all 8 projects with supports ${1, 3, 3}$ and confidence levels ${0.1, 0.9, 0.9}$ for three different experiments (i.e., navigation, prevention, and closure). According to this figure, ROSE can predict 15\% of all entities changed later in the same transaction. In 64\% of all transactions, ROSE’s topmost three suggestions contain a correct location. When one change is missing, ROSE can predict 4\% of the entities that need to be changed. Moreover, only 2\% of all transactions make a false alarm when ROSE warns missing changes. 
-%
-%\begin{figure}[t!]
-%	\centering
-%	\includegraphics[width=0.45\textwidth]{rose_fine_granularity}
-%	\caption{Results for fine granularity}
-%	\label{fig:rose_fine_granularity}
-%\end{figure}
-%
-%Figures~\ref{fig:rose_coarse_granularity} focuses on coarse granularity where we want to mine and apply rules between files rather than between entities. It shows us that ROSE can predict 26\% of the files actually changed in the same transaction. In 70\% of all transactions, ROSE’s topmost three suggestions contain a correct location.
-%
-%\begin{figure}[t!]
-%	\centering
-%	\includegraphics[width=0.45\textwidth]{rose_coarse_granularity}
-%	\caption{Results for coarse granularity}
-%	\label{fig:rose_coarse_granularity}
-%\end{figure} 
-%%
-%%\begin{figure}[t!]
-%%	\centering
-%%	\includegraphics[width=0.45\textwidth]{Overhead_JavaMicro}
-%%	\caption{Microbenchmark of Java overhead}
-%%	\label{fig:overhead}
-%%\end{figure}
-%
-%%The authors analyzed 30 popular third-party Android applications to check how they use privacy sensitive information. They found that two thirds of these applications disclosure user privacy data (i.e., detailed location, the phone's ID, and the phone number). According the results from TaintDroid, figure \ref{fig:application} shows that 21 out of 20 applications require permission to read phone state. Moreover, 2 out of 21 the applications send the device's phone number, the IMSI (a unique 15-digit code used to identify user), and ICC-ID number (a unique SIM card serial number) to their server. It proves that Android's coarse-grained access control provides infufficient protection against third-party applications. 
-%
-%%\begin{table}
-%%	\centering
-%%	\caption{Macrobenchmark Results}	
-%%	\label{tab:macro}
-%%	\begin{tabular}{|c|c|c|}
-%%		\hline 
-%%		& \textbf{Android}& \textbf{TaintDroid}\tabularnewline
-%%		\hline 
-%%		\hline 
-%%		App Load Time & 63 ms & 65 ms\tabularnewline
-%%		\hline 
-%%		Address Book (create) & 348 ms & 367 ms\tabularnewline
-%%		\hline 
-%%		Address Book (read) & 101 ms & 119 ms\tabularnewline
-%%		\hline 
-%%		Phone Call & 96 ms& 106 ms\tabularnewline
-%%		\hline 
-%%		Take Picture & 1718 ms& 2216 ms\tabularnewline
-%%		\hline 
-%%	\end{tabular}
-%%\end{table}
-%
-%%Table \ref{tab:macro} presents the performance overhead between Android OS vs. TaintDroid. We see that TaintDroid only adds 3 \% overhead in the application load time compared to Android system. In the address book, approximately 5.5 \% and 18\% overhead are added for address bok entry creates and reads, respectively. Moreover, TaintDroid adds 10\% overhead, which approximately is 10 ms, in the phone call benchmark. Furthermore, TaintDroid adds 498 ms, which 29\% overhead, compared to Android platform to take a picture. 
-%%
-%%Figure \ref{fig:overhead} presents the execution time results of Java microbenchmark of TaintDroid compared to Android OS. Overall results show that TaintDroid has a 14\% overhead with respect to the Android system. 
-%
-%\subsection{Qualitative Evaluation}
-%\subsubsection{Originality}
-%\begin{itemize}
-%	\item Are the problems or approaches new? No, there are some researchers have used history data to understand programs, to detect evolutionary coupling between files, to support navigation in the source code. 
-%	\item Is this novel techniques? No, the authors use Apriori algorithm to mine the association rules. 
-%	\item Is the technique better than previous work? I have no idea since the authors didn't compare ROSE tool to other tools. 
-%\end{itemize}
-%\subsubsection{Clarity}
-%\begin{itemize}
-%	\item Is the paper clearly written? Yes. The paper is well-written.
-%	\item Is well-organized? Yes. The paper is easy to follow.
-%	\item Does it adequately inform the reader? Yes. ROSE tool also releases its source code~\footnote{https://github.com/secure-software-engineering/rose}. 
-%\end{itemize}
-%\subsubsection{Evaluation}
-%%The authors used TaintDroid to analyze the data usage of 30 popular Android applications. They also ran macrobenchmarks to test the performance hit for certain common high-level tasks, such as launching an application and taking a photo. Further, there were various microbenchmarks, such as for various Java operations.
-%The authors run ROSE tool over eight open-software projects, and the last 1,000 transactions to measure the performance of ROSE tool. The results show that ROSE tool is very helpful in stable system (i.e., GCC). For some rapidly evolving systems (i.e., KOFFICE or JEDIT), ROSE is useful at file level. 
-%
-%
-%\subsubsection{Limitation}
-%\begin{itemize}
-%	\item The support and confidence score are set using human knowledge, hence we may not capture the best support and confidence.
-%	\item Taxonomies haven't explored in this paper. For example, how to detect this change implies a change in this package rather than in this method. 
-%	\item The rules, detected by ROSE, may or may not be the intended process. We should make them more explicit.  
-%\end{itemize}
-%
-%\subsection{Conclusion}
-%%This paper describes TaintDroid, system-wide information flow tracking tool that can simultaneously track multiple sources of sensitive data from users. TaintDroid is efficiency since it intergrates four granularities of taint propagation (variable-level, message-level, method-level, and file-level). The experiments show that TaintDroid is able to achieve 14\% performance overhead on Java microbenchmark. Moreover, TaintDroid is used to study the behavior of 30 third-party applications, and find that there are 20 applications exhibit suspicious handling of sensitive data. 
-%
-%This paper describes ROSE tool, an automated system that can help us to suggest further changes to be made, and in warning about missing changes. According to the results, the more we learn from history, the more and better suggestion can be made. For some stable system (i.e., GCC), ROSE tool can show 44\% related files and 28\% related entities of precise suggestions, and a likelihood of more than 90\% for the top three most suggestions. For some systems like KOFFICE or JEDIT, ROSE is useful at the file level. 
-%
-%
-%\section{Configuring Global Software System Teams: A Multi-Company Analysis of Project Productivity, Quality, and Profits}
-%\subsection{Problem}
-%%Android platform is one of the most popular mobile operating system nowadays, and hence it is a target for mobile malware~\cite{Kalkov:2012:REA:2388936.2388955}. In particular, many of the malicious applications has tried to exploit the users information in their smartphone. To prevent this situation, we need a tolls that can automatically detect malicious applications which are able to steal sensitive information from users. Currently, there are two research approaches for detecting Android malware: 
-%%\begin{itemize}
-%%	\item Taint analyses~\cite{Fuchs_scandroid:automated} are able to expose applications leaking private user information. However, some app requires user information to perform its functionality. Thus, taint analyses may not distinguish these applications from malware. 
-%%	\item Signature-based malware detectors~\cite{Griffin:2009:AGS:1691138.1691146, Rastogi:2013:DEA:2484313.2484355} recognize a program as malware if its sequence of instruction is matched a predefined regular expression. In particular, a malware can be detected using simiple program obfuscations based on syntatic low-level signatures \cite{Rastogi:2013:DEA:2484313.2484355}. 
-%%\end{itemize}
-%%
-%%The paper proposed a new semantics based approach, namely Apposcopy, for detecting Android malware stealing private user information. Apposcopy takes advantage of pattern-based malware detectors and taint analyzers, and tries to integrate two different approaches
-%%\begin{itemize}
-%%	\item A high-level specification language for describing semantic characteristics of Android malware families. 
-%%	\item Static analysis for deciding whether a given application matches the signature of a malware family.
-%%\end{itemize}
-%
-%Nowadays, global software development has become a dominant operational model for developing and delivering software applications. Moreover, the organizations of software development have expanded and disperse geographically in search of lower project cycle-times, and increase the quality of software at lower cost. However, the benefit of dispersing software development requires some associated costs and challenge. In the past, most researchers focused on the negative impact of geographic distribution in software development~\cite{Carmel:1999:GST:293968, Cataldo:2008:SCF:1414004.1414008}. They found that problems in communication, coordination, and awareness~\cite{cummings2009crossing} often lead to longer times to complete development tasks~\cite{herbsleb2003empirical} and more errors~\cite{espinosa2007gradations}. 
-%
-%Given the rapid growth of the global software development, it is important to understand how global software are still able to contribute benefits from distributed development. Event thought some researchers have described the challenges of global distributed development by studying process investments and quality management practices~\cite{ramasubbu2007globally}. In this paper, Ramasubbu et al. takes a step further to study the relationship between configurational characteristics of the software project team and project performance. In particular, the authors try to answer two research questions:
-%\begin{itemize}
-%	\item How do the configurational dimensions of distribution impact the performance (productivity, quality, and profits) of globally distributed software projects?
-%	\item What are the team configurations that firms can use to mitigate the ill effects of spatio-temporal dispresion, and overcome the challenges of distributed software development? 
-%\end{itemize}
-%
-%
-%\subsection{Research Methodology}
-%\subsubsection{Datasets}
-%%In this paper, Apposcopy's malware signature language is considered as a Datalog program augmented with built-in predicates. A Datalog program includes a set of rules and set of facts, hence Apposcopy's built-in predicates are divided into four class: 
-%%\begin{itemize}
-%%	\item Component type predicates present the four different kinds of components, called Activity, Service, BroadcastReceiver and ContentProvider, which are provided by Android framework. Each of these components has predefined predicates, called activity(C), service(C), receiver(C) and
-%%	contentprovider(C). Note that four predicates correspond to relations of type where domain C is the set of all components in the application. 
-%%	\item Predicate icc is Intents, which are messages passed between components. Intents are used to start Activities, start, stop and bind Services, and broadcast information to Broadcast Receivers.
-%%	\item Predicate calls is control-flow predicate, called \textbf{calls}. Predicate \textbf{calls} represents a relation of type where domains C and M represent the set of all components and methods in the program respectively. We declare \textbf{calls(c, m)} is true if component \textbf{c} call method \textbf{m}. 
-%%	\item Predicate flows is data-flow predicates (\textbf{flows}) for tracking whether an application leaks sensitive information. The \textbf{flows} predicate represents a relation of type (srcComp : C, src : SRC, sinkComp : C, sink : SINK) where domain C	is the set of components, and SRC and SINK are the sets of all sources and sinks in the program. 
-%%\end{itemize}
-%
-%To answer the two research questions, the authors tried to analyze 362 projects from four popular softwre developments. All projects are tracked from start to finish. Furthermore, the data collected were audited by the quality assurance and central process engineering. Econometric models were applied on the data to detect the relationship between the work dispresion measures and software project performance. 
-%
-%\subsubsection{Dispersion Measures}
-%The authors defined four different dispersion measures to evaluate the global software development:
-%\begin{itemize}
-%	\item Separation is used to measure the geographic distance among team members.
-%	\item Time zone is the time difference among team members. 
-%	\item Number of sites is the number of locations where team members work.
-%	\item Personnel imbalance is the extent of unevenness in distribution of personnel across locations.
-%	\item Experience spread is the extent of unevenness in work experience of personnel across locations.
-%\end{itemize}
-%
-%\subsubsection{Project Performance Measures}
-%%\begin{figure}[t!]
-%%	\centering
-%%	\includegraphics[width=0.45\textwidth]{TaintAnalysis}
-%%	\caption{Rules describing the taint analysis}
-%%	\label{fig:taintAnalysis}
-%%\end{figure}
-%%Apposcopy's used static analyses to decide whether an application matches a malware signature by computing an over-approximation of the icc, calls and flow relations. Static analysis includes three different components:
-%%\begin{itemize}
-%%	\item Pointer analysis \& callgraph contruction: Appscopy based on pointer analysis to build the inter-component callgraph (ICC) and track information flow. 
-%%	\item Inter-component control-flow graph (ICCG) construction is a data flow analysis to track the information stored in Inter object. To build the ICCG, Apposcopy performs a	forward interprocedural dataflow analysis, called the intent analysis, which approximates the target, action and data type associated with each intent object. Note that the target, action and data are defined as the target of an intents, the action that ICC target needs to perform, and the data type which the recipient components needs to operate on, respectively. Using the results of the intent analysis, we are able to construct ICCG. In particular, using the implicit rule for the ICC, we can infer the edge. Using the explicit rule for ICC site, we can add the edge. 
-%%	\item Taint analysis is used to answer data-flow queries. Figure \ref{fig:taintAnalysis} define two predicates \textbf{tainted(o,l)} and \textbf{flow(so,si)}. ``Source'' annotations are used to mark Android framework methods that read sensitive data, whereas ``sink'' annotations indicate methods that leak data outside of the device. ``Transfer'' annotations are used for describing taint through Android SDK methods.
-%%\end{itemize}
-%
-%There are three different project performance measures:
-%\begin{itemize}
-%	\item Productivity is the ratio between \textit{CodeSize} and \textit{Total Project Effort}. \textit{CodeSize} is measured using KLOC, and \textit{Total Project Effort} is calculated using person hours. 
-%	\item Quality is measured as the delivered code defect density. Note that \textit{Defects Delivered} is the number of defects reported by the client after the project had been delivered. 
-%	\item Project Profits is measured using the ratio between different project revenues minus project cost and project cost. 
-%\end{itemize}
-%
-%\subsubsection{Experimental Results}
-%%\begin{figure}[t!]
-%%	\centering
-%%	\includegraphics[width=0.5\textwidth]{ApposcopyMalware}
-%%	\caption{Evaluation of Apposcopy on malware from the Android Malware Genome project.}
-%%	\label{fig:ApposcopyMalware}
-%%\end{figure}
-%%The authors evaluate the effectiveness of Apposcopy on 1027 malware instance from Android Genome project~\cite{Zhou:2012:DAM:2310656.2310710}. Figure \ref{fig:ApposcopyMalware} shows the results of Apposcopy for detecting malware. Among 1027 malware instances, Apposcopy is able to recognize around 90\% of malware instances from Android Malware Genome. However, Apposcopy has poor result on the BaseBridge malware family since we can not use static analysis to detect the BaseBridge instances load the code performing malicious functionality. 
-%%
-%%Apposcopy also is used to compare against Kirin \cite{Enck:2009:LMP:1653662.1653691}, which is commercial anti-virus tools for Android malware detection. Based on the set of malicious application in figure \ref{fig:ApposcopyMalware}, Kirin  reports only 532 apps out of 1,027 malicious apps to be malware. It shows that Apposcopy outperforms Kirin in terms of accuracy performance. 
-%
-%\begin{figure}[t!]
-%	\centering
-%	\includegraphics[width=0.45\textwidth]{configuring_empirical}
-%	\caption{The empirical Results Summary}
-%	\label{fig:configuring_empirical}
-%\end{figure}
-%
-%Figure~\ref{fig:configuring_empirical} shows the overall joints impacts of the configurational characteristics of software dispersion on the project performance outcomes. According to this figure, we see that simultaneous improvement in both productivity and quality using the same dispersion configurations an extremely challenging management issue. 
-%
-%\begin{figure}[t!]
-%	\centering
-%	\includegraphics[width=0.45\textwidth]{configuring_productivity}
-%	\caption{Productivity}
-%	\label{fig:configuring_productivity}
-%\end{figure}
-%
-%\begin{figure}[t!]
-%	\centering
-%	\includegraphics[width=0.45\textwidth]{configuring_quality}
-%	\caption{Quality}
-%	\label{fig:configuring_quality}
-%\end{figure}
-%
-%\begin{figure}[t!]
-%	\centering
-%	\includegraphics[width=0.45\textwidth]{configuring_profits}
-%	\caption{Profits}
-%	\label{fig:configuring_profits}
-%\end{figure}
-%
-%Figure~\ref{fig:configuring_productivity} shows that a ``balanced'' configuration that balances the tension between personnel imbalance and experience spread has the highest productivity. Furthermore, figure~\ref{fig:configuring_quality} shows that the best quality is achieved when one measure (i.e., experience spread or personnel imbalance) is balanced and the other is customer-oriented. Finally, figure~\ref{fig:configuring_profits} shows that the highest profits are achieved when both the personnel imbalance and experience spread measures are offshore-oriented. 
-%\subsection{Qualitative Evaluation}
-%
-%\subsubsection{Originality}
-%
-%%\begin{itemize}
-%%
-%%	\item Are the problems or approaches new? No, detecting malicious applications stealing user information has been studied for the past decade. 
-%%
-%%	\item Is this novel techniques? Yes, Apposcopy integrates two different approaches, which are high-level specification language and powerful static analysis to detect Android malware. 
-%%	\item Is the technique better than previous work? Yes, previous researches only focus on taint analyses or signature-based malware detectors which may not capture all Android malware stealing sensitive information.
-%%\end{itemize}
-%%\subsubsection{Clarity}
-%%\begin{itemize}
-%%	\item Is the paper clearly written? Yes. The paper is well-written.
-%%	\item Is well-organized? Yes. The paper is easy to follow.
-%%	\item Does it adequately inform the reader? Yes. Apposcopy also releases a list of malware instances in Android Malware Genome project, however this project is stopped due to limited resources and human power. 
-%%\end{itemize}
-%%\subsubsection{Evaluation}
-%%The authors evaluate the effectiveness of Apposcopy on 1027 malware instances. The experimental results show that Apposcopy is able detect more than 90\% of malware instances, and achieves the significant improvement compared to Kirin. 
-%%\subsubsection{Limitation}
-%%\begin{itemize}
-%%	\item Apposcopy may be defeated by a suitably designed automatic obfuscator.
-%%	\item Apposcopy may not be fit in case of requiring instant detection of malware. 
-%%\end{itemize}
-%
-%\begin{itemize}	
-%	\item Are the problems or approaches new? No, studying the challenges of global software development have been done in the past decade. 	
-%	\item Is this novel techniques? No, the authors only apply some basic statistical test for finding the imbalance in the expertise and personnel distribution of project team to maximum the profits. 
-%	\item Is the technique better than previous work? This paper takes a step further to studying the relationship between the configurational characteristics of the software project teams and project performance.
-%\end{itemize}
-%\subsubsection{Clarity}
-%\begin{itemize}
-%	\item Is the paper clearly written? Yes. The paper is well-written.
-%	\item Is well-organized? Yes. The paper is easy to follow.
-%	\item Does it adequately inform the reader? No. The authors haven't released the datasets. 
-%\end{itemize}
-%\subsubsection{Evaluation}
-%The authors analyzed the 362 software projects from four different datasets. The results show that there is a fundamental tradeoff between productivity, quality, and profits at the project configurational level. 
-%\subsubsection{Limitation}
-%\begin{itemize}
-%	\item The paper only considers dependencies at the team level without exploring the architectural or code level.
-%	\item The joint impact of spatial dispersion and temporal dispersion are not mentioned. 
-%\end{itemize}
-%
-%\subsection{Conclusion}
-%%In this paper, a new statis analysis approach, namely Apposcopy, for detecting malware in the smartphone system is proposed. Malware family may share a common set of behaviors, which can be encoded through Apposcopy malware specification language. Apposcopy uses static analysis to extract data-flow and control-flow to identify whether a given application belongs to a known malware family. The experimental results show that Apposcopy is able to detect malware instances with high accuracy.
-%
-%In this paper, the authors tried to find the impact of project-level configurational choices of globally distributed software teams on project productivity, quality, and profits. The experimental results on 362 projects from four software companies show that achieving higher levels of productivity and quality require diametrically opposed configurational choices. Moreover, creating imbalances in the expertise and personnel distribution of project teams significantly helps increase profit margins. However, a profitoriented imbalance could also significantly affect productivity and/or quality outcomes. Hence, the authors proposed actionable managerial insights that can help software firms and their clients choose configurations that achieve desired project outcomes in globally distributed software development.
-%
-%\section{WHYPER: Towards Automating Risk Assessment of Mobile Applications}
-%\subsection{Problem}
-%Apple's App Store and Google's Play Store have played an important role in  delivering software to consumer smartphones and mobile devices. These application markets have provided a vibrant software ecosystem that benefits both consumers and developers. In particular, the consumer are easy to discover, purchase, download, and install necessary software by only few clicking within the markets store. Moreover, the developers can use these markets to advertise, sell, and distribute their application. Thus, it also provides an easy distribution mechanism for developers with malicious intent to distribute malware~\cite{felt2011survey}. In the past, most researchers have looked at the permissions~\cite{chakradeo2013mast}, code~\cite{egele2011pios}, or run time behavior~\cite{enck2014taintdroid} to classify whether an application as malicious, privacy infrining, or benign. However, these approaches are fail to capture the users expectation. In particular, the users expectation can be defined as what the users expect an application to do and what it actually does. In this paper, the authors try to address the question: Does the application description provide any indication for the application's use of a permission? 
-%
-%Specifically, the authors proposed WHYPER framework using Natural Language Processing (NLP) techniques to determine why an application uses a permission.
-%
-%\subsection{WHYPER}
-%\subsection{Design}
-%
-%\begin{figure}[t!]
-%	\centering
-%	\includegraphics[width=0.45\textwidth]{whyper_framework}
-%	\caption{Overview of WHYPER framework}
-%	\label{fig:whyper_framework}
-%\end{figure}
-%
-%\begin{figure*}[t!]
-%	\centering
-%	\includegraphics[width=0.75\textwidth]{whyper_results}
-%	\caption{Overview of WHYPER framework}
-%	\label{fig:whyper_results}
-%\end{figure*}
-%
-%Figure~\ref{fig:whyper_framework} presents an overview of WHYPER framework. Specifically, the framework includes five different components given below:
-%\begin{itemize}
-%	\item Preprocessor accepts natural-language application descriptions and preprocesses the sentences. The preprocessor also annotates sentence boundaries, and reduces the number of lexical tokens using semantic information. Note that the reduction of lexical tokens greatly increases the accuracy of the analysis in the subsequent components of WHYPER framework. 
-%	\item NLP parser accepts the pre-processed documents and annotates every sentence within each document using standard NLP techniques~\cite{deMarneffe:2008:STD:1608858.1608859}. 
-%	\item Intermediate-representation generator accepts the annotated documents and builds a relational representation of the document. This task is defined as  as a tree structure that is essentially a First-Order-Logic (FOL) expression~\cite{Fitting:1990:FLA:78167}. Every node in the tree except for the leaf nodes is predicate node and the leaf nodes represent as the entities. 
-%	\item Semantic engine uses the FOL representation of a sentence and based on the semantic graphs of Android permissions annotates a sentence if it matches the criteria. A semantic graph is basically a semantic representation of the resources which are governed by a permission.
-%	\item Semantic-Graph generator employs a semantic graph of a permission to perform deep semantic inference of sentences. In particular, the authors generate graphs from API documents. 
-%\end{itemize}
-%
-%\subsection{Experimental Results}
-%The authors compared the permission sentences identified by WHYPER to a manual annotation of all sentences in the application descriptions to evaluate the effectiveness of proposed framework. The datasets is snapshot downloaded in January 2012 and contained the top 500 free applications in each category of the Google Play Store. After filtering the applications containing on of three permissions (i.e., READ\_CONTACT, READ\_CALENDER, READ\_AUDIO), the authors randomly selected 200 applications contained English descriptions for each permission for labeling. Overall, there are 581 application descriptions including 9,953 sentences. 
-%
-%Figure~\ref{fig:whyper_results} shows the effectiveness of WHYPER in identifying permission sentences. The figure shows that WHYPER can identify permission sentences with the average precision, recall, and F1 accuracy of 82.8\%, 81.5\%, 82.2\%, and 97.3\%, respectively.
-%
-%\subsection{Qualitative Evaluation}
-%\subsubsection{Originality}
-%\begin{itemize}	
-%	\item Are the problems or approaches new? Yes, studying the user expectation is a new topic.. 	
-%	\item Is this novel techniques? No, the authors used basic NLP techniques to identify sentences describing the need for a given permission in an application description. 
-%	\item Is the technique better than previous work? Since this is the first paper that bridging the semantic gap between the user-application, so the authors do not compare to previous work.
-%\end{itemize}
-%\subsubsection{Clarity}
-%\begin{itemize}
-%	\item Is the paper clearly written? Yes. The paper is well-written.
-%	\item Is well-organized? Yes. The paper is easy to follow.
-%	\item Does it adequately inform the reader? No. The authors haven't released the WHYPER tool. 
-%\end{itemize}
-%\subsubsection{Evaluation}
-%The authors analyzed the 581 application descriptions including 9,953 sentences, the experimental results on precision, recall, and F1 shows the effectiveness of WHYPER in identifying permission sentences.
-%\subsubsection{Limitation}
-%\begin{itemize}
-%	\item The paper only takes into account application descriptions and Android API documents without considering user permission to identify permission sentences.
-%	\item The program analysis techniques for understanding code reuse are not mentioned. 
-%\end{itemize}
-
 \section{Related Work}
 \label{sec:relatedwork}
 \input{relatedwork}
@@ -609,6 +183,27 @@ James Hoang\\
 \label{sec:acknowledgments}
 \input{acknowledgments}
 
-\bibliographystyle{abbrv}
-\bibliography{sigproc}  % sigproc.bib is the name of the Bibliography in this case
+%\input{body}
+
+\balance
+
+\let\oldthebibliography=\thebibliography
+\let\endoldthebibliography=\endthebibliography
+\renewenvironment{thebibliography}[1]{%
+	\vspace{0pt}
+	\begin{oldthebibliography}{#1}%
+		\fontsize{7.0}{7.5}\selectfont
+		\setlength{\parskip}{0ex}%
+		\setlength{\itemsep}{0.5ex}%
+	}%
+	{%
+	\end{oldthebibliography}%
+}
+{\scriptsize
+	\def\baselinestretch{0.95}
+	\bibliographystyle{IEEEtranS}
+	%\def\IEEEbibitemsep{0.92pt plus .5pt}
+	\bibliography{sigproc}
+}
+
 \end{document}
