@@ -1,0 +1,18 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Proposed Approach}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Defect Prediction}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Parsing Source Code and Generating Features}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Deep Semi-supervised Learning}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.4}{Imbalanced Problem in Defect Prediction}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.5}{Setting for Training Deep Semi-supervised Learning}{section.2}% 7
+\BOOKMARK [1][-]{section.3}{Experimental Results}{}% 8
+\BOOKMARK [2][-]{subsection.3.1}{Evaluation Metrics}{section.3}% 9
+\BOOKMARK [2][-]{subsection.3.2}{Datasets}{section.3}% 10
+\BOOKMARK [2][-]{subsection.3.3}{Baselines}{section.3}% 11
+\BOOKMARK [2][-]{subsection.3.4}{Results}{section.3}% 12
+\BOOKMARK [1][-]{section.4}{Threats to validity}{}% 13
+\BOOKMARK [1][-]{section.5}{Related Work}{}% 14
+\BOOKMARK [2][-]{subsection.5.1}{Defect Prediction}{section.5}% 15
+\BOOKMARK [2][-]{subsection.5.2}{Deep Learning in Software Engineering}{section.5}% 16
+\BOOKMARK [1][-]{section.6}{Conclusion}{}% 17
+\BOOKMARK [1][-]{section*.1}{References}{}% 18
