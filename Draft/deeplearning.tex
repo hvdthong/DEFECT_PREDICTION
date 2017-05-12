@@ -1,47 +1,0 @@
-Recently, deep learning algorithms have been widely used to improve research tasks in software engineering. Lam et al.~\cite{lam2015combining} combined deep neural network (DNN)~\cite{hecht1988theory} with rVSM~\cite{zhou2012should}, a revised vector space model, to improve the performance of bug localization. Raychev et al.~\cite{raychev2014code} o reduced the problem of code completion to a natural-language processing problem of predicting probabilities of sentences and used recurrent neural network~\cite{mikolov2010recurrent} to predict the probabilities of the next token. Mou et al.~\cite{mou2014tbcnn} proposed tree-based convolutional neural network (TBCNN) for programming language processing. The results showed that the effectiveness of TBCNN  in two different program analysis tasks: classifying programs according to functionality, and detecting code snippets of certain patterns. Pascanu et al.~\cite{pascanu2015malware} employed recurrent neural network to build malware classification model in software system. Yuan et al.~\cite{yuan2014droid} adopted deep belief network (DBN)~\cite{hinton2009deep} to predict mobile malware in Android platform. The experimental results showed that deep learning technique is especially suitable for predicting malware in software system. 
-Recently, deep learning algorithms have been widely used to improve research tasks in software engineering. Lam et al.~\cite{lam2015combining} combined deep neural network (DNN)~\cite{hecht1988theory} with rVSM~\cite{zhou2012should}, a revised vector space model, to improve the performance of bug localization. Raychev et al.~\cite{raychev2014code} o reduced the problem of code completion to a natural-language processing problem of predicting probabilities of sentences and used recurrent neural network~\cite{mikolov2010recurrent} to predict the probabilities of the next token. Mou et al.~\cite{mou2014tbcnn} proposed tree-based convolutional neural network (TBCNN) for programming language processing. The results showed that the effectiveness of TBCNN  in two different program analysis tasks: classifying programs according to functionality, and detecting code snippets of certain patterns. Pascanu et al.~\cite{pascanu2015malware} employed recurrent neural network to build malware classification model in software system. Yuan et al.~\cite{yuan2014droid} adopted deep belief network (DBN)~\cite{hinton2009deep} to predict mobile malware in Android platform. The experimental results showed that deep learning technique is especially suitable for predicting malware in software system. 
-
-Yang et al.~\cite{yang2015deep} leveraged DBN to generate features from existing features and used these new features to predict whether a program element contains bugs. It showed that the deep learning algorithm helps to discover more bug than tradition approaches on average across from six large software projects. The existing features were manually designed based on change level: i.e., the number of modified subsystems, code added, code deleted, the number of files change, etc. In 2016, Wang et al.~\cite{wang2016automatically} also employed DBN to learn semantic features from source code. However, the existing features were extracted from abstract syntax tree since~\cite{wang2012compressed} claimed that Yang features~\cite{yang2015deep} were fail to distinguish the semantic difference among source code. The evaluation on ten popular source projects showed that the semantic features significantly improved the performance of defect detection. Different to the existing works that semantic features and defect prediction model are built independently, thus the semantic features only learn from source code without considering the label of this program element which may decrease the performance of defect prediction model. To tackle this problem, we propose a deep  discriminative autoencoder to build classification model for solving defect prediction problem.  We evaluate the effectiveness of our proposed approaches against Wang approaches~\cite{wang2012compressed} and the traditional machine learning algorithms (i.e., naive bayes, logistic regression, and random forest) on four popular software projects .
-
-%Our work diers from the above study mainly in three
-%aspects. First, we use DBN to learn semantic features directly
-%from source code, while features generated from their
-%approach are relations among existing features. Since the existing
-%features used cannot distinguish many semantic code
-%dierences, the combination of these features would still fail
-%to distinguish the semantic dierences. For example, if two
-%changes add the same line at dierent locations in the same
-%le, the traditional features used cannot distinguish the two
-%changes. Thus, the generated new features, which are combinations
-%of the traditional features, would also fail to distinguish
-%the two changes. Second, we evaluate the eectiveness
-%of our generated features using dierent classiers and
-%for both within-project and cross-project defect prediction,
-%while they use LR only for within-project defect prediction.
-%Third, we focus on le level defect prediction, while they
-%work on change level defect prediction.
-
-%Yang et
-%al. [68] proposed an approach that leveraged deep learning
-%to generate features from existing features and then used
-%these new features to predict whether a commit is buggy or
-%not. This work was motivated by the weaknesses of logistic
-%regression (LR) that LR can not combine features to generate
-%new features. They used DBN to generate features from
-%14 traditional change level features: the number of modi
-%ed subsystems, modied directories, modied les, code
-%added, code deleted, line of code before/after the change,
-%les before/after the change, and several developer experience
-%related features [68]. 
-
-%Other studies leverage deep learning to address other
-%problems in software engineering. Lam et al. [26] combined
-%deep learning algorithms and information retrieval tech-niques to improve fault localization. Raychev et al. [53]
-%reduced the code completion problem to a natural language
-%processing problem and used deep learning to predict the
-%probabilities of next tokens. White et al. [65] leveraged deep
-%learning to model program languages for code suggestion.
-%Similarly, Mou et al. [39] used deep learning to model
-%programs and showed that deep learning can capture
-%programs' structural information. In addition, deep learn-ing has also been used for malware classication [50, 69],
-%acoustic recognition [24,36,37], etc.
