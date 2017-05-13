@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.16)  13 MAY 2017 08:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.16)  13 MAY 2017 08:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -680,12 +680,10 @@ Package pdftex.def Info: dssl_framework.pdf used on input line 11.
 
 
 ]
-Underfull \vbox (badness 1577) has occurred while \output is active []
-
- [2 <./dssl_framework.pdf>]) (./exp.tex (./metrics.tex) (./datasets.tex) (./bas
-elines.tex)
-(./results.tex [3])) (./threats.tex [4]) (./relatedwork.tex (./defect.tex)
-(./deeplearning.tex)) (./conclusion.tex [5]) (./sig-alternate-sample.bbl)
+[2 <./dssl_framework.pdf>]) (./exp.tex (./metrics.tex) (./datasets.tex)
+(./baselines.tex) (./results.tex [3])) (./threats.tex [4]) (./relatedwork.tex
+(./defect.tex) (./deeplearning.tex)) (./conclusion.tex [5])
+(./sig-alternate-sample.bbl)
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -698,6 +696,10 @@ Before submitting the final camera ready copy, remember to:
  process uses the appropriate paper size.
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 208.
+
+Overfull \vbox (8.81499pt too high) has occurred while \output is active []
+
+
 [6]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 208.
  (./sig-alternate-sample.aux)
@@ -709,7 +711,7 @@ Package rerunfilecheck Info: File `sig-alternate-sample.out' has not changed.
 Here is how much of TeX's memory you used:
  10393 strings out of 493089
  157867 string characters out of 6134841
- 330253 words of memory out of 5000000
+ 330400 words of memory out of 5000000
  13581 multiletter control sequences out of 15000+600000
  44995 words of font info for 94 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -727,7 +729,7 @@ xmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2015/texmf-dist/f
 onts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type
 1/urw/times/utmr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/time
 s/utmri8a.pfb>
-Output written on sig-alternate-sample.pdf (6 pages, 435547 bytes).
+Output written on sig-alternate-sample.pdf (6 pages, 435576 bytes).
 PDF statistics:
  339 PDF objects out of 1000 (max. 8388607)
  309 compressed objects within 4 object streams
