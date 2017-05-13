@@ -16,13 +16,13 @@
 	\label{tab:data}%
 \end{table*}%
 
-We perform several steps to create our benchmark dataset. Firstly, we fetch top open-source Java projects from GitHub (sorted by the number of their stars and forks). We ignore projects with less than 150 source files as these projects are too small to employ deep neural network. We also filter out projects which have less than 100 tested files. For each remaining project, we extract two versions: training version (i.e., version as of January $1^{st}$, 2015), and testing version (i.e., version as of July $1^{st}$, 2015). 
+We perform several steps to create our benchmark dataset. Firstly, we fetch the latest top open-source Java projects from GitHub (sorted by the number of their stars and forks). We ignore projects with less than 150 source files as these projects are too small to employ deep neural network. We also filter out projects which have less than 100 tested files. For each remaining project, we extract two versions: training version (i.e., version as of January $1^{st}$, 2015), and testing version (i.e., version as of July $1^{st}$, 2015). 
 
-For labeling training version, we extract commits between January $1^{st}$, 2015 to July $1^{st}$ 2015. We then identify bug fixing commit by checking whether the commit message contains a bug fixing pattern. We follow the pattern used by Antoniol et al.~\cite{antoniol2008bug} as follows.
+For labeling training version, we extract commits between January $1^{st}$, 2015 to July $1^{st}$ 2015. We then identify bug fixing commits by checking whether the commit message contains a bug fixing pattern. We follow the pattern used by Antoniol et al.~\cite{antoniol2008bug} as follows.
 \[
 \backslash bfix|\backslash bbug|\backslash bproblem|\backslash bdefect|\backslash bpatch
 \]
-We consider changed files in bug fixing commits as buggy files and label their corresponding files (i.e., files of the same path) in training version as buggy. For labeling testing version, we extract commits between July $1^{st}$, 2015 to January $1^{st}$ 2016 and perform the same labeling process for the training version.
+We consider changed files in bug fixing commits as buggy files and label their corresponding files (i.e., files of the same path) in training version as buggy. For labeling testing version, we extract commits between July $1^{st}$, 2015 to January $1^{st}$ 2016 and perform the same labeling process that was done for the training version.
 
 We then randomly select four projects as the dataset for our preliminary experiment. Table~\ref{tab:data} shows statistics on this dataset. In average, our dataset contains around 783.875 source files with bug rate of 17.4\%, showing the imbalanced problem in defect prediction~\cite{wang2013using, khoshgoftaar2010attribute}.
 
