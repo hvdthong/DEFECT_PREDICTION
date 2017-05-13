@@ -10,7 +10,7 @@
 
 \begin{figure}
 	\centering
-	\includegraphics[width=1.0\columnwidth]{cropped_dda_framework}
+	\includegraphics[width=0.95\columnwidth]{cropped_dda_framework}
 	\caption{Our proposed DDA model architecture}
 	\label{fig:semi_framework}
 \end{figure}
@@ -18,7 +18,8 @@
 
 %Figure~\ref{fig:defect} presents the overall framework of file-level defect prediction. Typically, the defect prediction problem is solved by following two specific steps. 
 
-In this work, we focus on file-level defect prediction task, which consists of two main steps. The first step is to label source code files as buggy or clean and then extract traditional features of these files \textcolor{red}{[what do we mean by "traditional features"?]}. These traditional features are introduced in~\cite{wang2016automatically, mccabe1976complexity, chakradeo2013mast}. The second step is to construct a defect prediction model~\cite{bishop2006pattern} to predict whether a new source code file is buggy or clean.  We refer to the software version used for building our defect prediction model as training data and the one used to evaluate the built model as testing data. \textcolor{red}{[Is this last sentence really necessary? What does "software version" mean specifically in this context?]}
+In this work, we focus on file-level defect prediction task, which consists of two main steps. The first step is to label source code files as buggy or clean and then extract the features~\cite{jiang2013personalized, e1994candidate, mccabe1976complexity, chidamber1994metrics, harrison1998evaluation, wang2016automatically, chakradeo2013mast} of these files. The second step is to construct a defect prediction model~\cite{bishop2006pattern} to predict whether a new source code file is buggy or clean. In this study, we evaluate the performance of our approach on both within-project and cross-project defect prediction. 
+% We refer to the software version used for building our defect prediction model as training data and the one used to evaluate the built model as testing data. \textcolor{red}{[Is this last sentence really necessary? What does "software version" mean specifically in this context?]}
 
 %Figure 2 presents a typical le-level defect prediction process
 %that is adopted by existing studies [20,27,34,41,42,51,
