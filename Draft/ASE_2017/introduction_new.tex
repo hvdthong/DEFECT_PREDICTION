@@ -21,7 +21,11 @@ Wang et al.~\cite{wang2016automatically} recently developed a deep belief networ
 %builds semantic features and defect prediction model independently. 
 That is, the embedding features are learned from source files in an unsupervised manner, without considering the true label of the program element. Moreover, token values are mapped to unique integer identifier without reflecting the importance of that token in the program element. Hence, the embedding features may be suboptimal for defect prediction purposes. 
 
+<<<<<<< HEAD
 To address this shortcoming, we propose a new deep learning approach named \emph{deep discriminative autoencoder} (DDA), which provides an end-to-end learning scheme to construct discriminative embedding features and accurate defect classification model in one go. Our proposed framework extends the deep autoencoder model~\cite{Vincent2010} by augmenting additional hidden layers that map the embedding features to an output layer where the defect classification is made.
+=======
+To address this shortcoming, we propose a new deep learning approach named \emph{deep discriminative autoencoder} (DDA), which provides an end-to-end learning scheme to construct discriminative embedding features and accurate defect classification model in one go. Our proposed framework extends the deep autoencoder model~\cite{ng2011sparse} by augmenting additional hidden layers that map the embedding features to an output layer where the defect classification is made. \textcolor{red}{Specifically, DDA tries to map input features to an embedding representation. The embedding representation is mapped to defect label of input features and used to reconstructs the input features. Noted that the input features are extracted from source code based on AST.}
+>>>>>>> e77980ad82973cf897fb05e5d35056596dd6f9b6
 %a deep  discriminative autoencoder (DDA) approach allowing to extract semantic features and optimize the prediction model in one stage. Our proposed framework takes advantage of antoencoder~\cite{ng2011sparse} to construct DSSL model for defect prediction. 
 We summarize the key contributions of this paper below:
 \begin{itemize}
