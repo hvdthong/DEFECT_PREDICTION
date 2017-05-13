@@ -193,10 +193,6 @@ T.~T. Nguyen, T.~N. Nguyen, and T.~M. Phuong, ``Topic-based defect prediction
   software engineering}.\hskip 1em plus 0.5em minus 0.4em\relax ACM, 2011, pp.
   932--935.
 
-\bibitem{pan2002maximum}
-J.-X. Pan and K.-T. Fang, ``Maximum likelihood estimation,'' \emph{Growth Curve
-  Models and Statistical Diagnostics}, pp. 77--158, 2002.
-
 \bibitem{pascanu2015malware}
 R.~Pascanu, J.~W. Stokes, H.~Sanossian, M.~Marinescu, and A.~Thomas, ``Malware
   classification with recurrent networks,'' in \emph{Acoustics, Speech and
