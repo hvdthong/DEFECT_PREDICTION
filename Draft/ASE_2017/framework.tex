@@ -110,7 +110,7 @@ In this work, we define $\mathcal{L}_{discr}$ and $\mathcal{L}_{recon}$ respecti
 \mathcal{L}_{discr}(g(f(x_i)), y_i) = &-\left[ y_i \ln\left( \sigma(g(f(x_i))) \right) \right. + \nonumber\\
                                        &\left. (1 - y_i) \ln\left( 1 - \sigma(g(f(x_i))) \right)  \right]\\
 \label{eqn:reconstruction}
-\mathcal{L}_{recon}(h(f(x_i)), x_i) = &\frac{1}{2} \left( h(f(x_i)) - x_i \right)^2
+\mathcal{L}_{recon}(h(f(x_i)), x_i) = &\frac{1}{2} || h(f(x_i)) - x_i ||^2
 \end{align}
 while the regularization term $\Omega$ is given by:
 \begin{align}
