@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.16)  13 MAY 2017 11:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.16)  13 MAY 2017 11:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -683,11 +683,7 @@ Package pdftex.def Info: dda_framework.png used on input line 13.
 [2 <./dda_framework.png>]) (./exp.tex (./metrics.tex) (./datasets.tex)
 (./baselines.tex) (./results.tex [3] [4])) (./threats.tex) (./relatedwork.tex
 (./defect.tex) (./deeplearning.tex)) (./conclusion.tex [5])
-(./sig-alternate-sample.bbl
-Overfull \vbox (6.44902pt too high) has occurred while \output is active []
-
-
-[6])
+(./sig-alternate-sample.bbl [6])
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -715,7 +711,7 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 Here is how much of TeX's memory you used:
  10394 strings out of 493089
  157868 string characters out of 6134841
- 328343 words of memory out of 5000000
+ 309185 words of memory out of 5000000
  13581 multiletter control sequences out of 15000+600000
  44995 words of font info for 94 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -733,7 +729,7 @@ xmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2015/texmf-dist/f
 onts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type
 1/urw/times/utmr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/time
 s/utmri8a.pfb>
-Output written on sig-alternate-sample.pdf (7 pages, 239249 bytes).
+Output written on sig-alternate-sample.pdf (7 pages, 239433 bytes).
 PDF statistics:
  330 PDF objects out of 1000 (max. 8388607)
  303 compressed objects within 4 object streams
