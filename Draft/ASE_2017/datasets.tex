@@ -16,7 +16,7 @@
 	\label{tab:data}%
 \end{table*}%
 
-We perform several steps to create our benchmark dataset. Firstly, we fetch the latest top open-source Java projects from GitHub (sorted by the number of their stars and forks). We ignore projects with less than 150 source files as these projects are too small to employ deep neural network. We also filter out projects which have less than 100 tested files. For each remaining project, we extract two versions: training version (i.e., version as of January $1^{st}$, 2015), and testing version (i.e., version as of July $1^{st}$, 2015). 
+We perform several steps to create our benchmark dataset. {\color{red}We do not use PROMISE defect dataset\footnote{\url{http://openscience.us/repo/defect/}} since the projects are very old (i.e., average age is around 10 years)}. Firstly, we fetch the latest top open-source Java projects from GitHub (sorted by the number of their stars and forks). We ignore projects with less than 150 source files as these projects are too small to employ deep neural network. We also filter out projects which have less than 100 tested files. For each remaining project, we extract two versions: training version (i.e., version as of January $1^{st}$, 2015), and testing version (i.e., version as of July $1^{st}$, 2015). 
 
 For labeling training version, we extract commits between January $1^{st}$, 2015 to July $1^{st}$ 2015. We then identify bug fixing commits by checking whether the commit message contains a bug fixing pattern. We follow the pattern used by Antoniol et al.~\cite{antoniol2008bug} as follows.
 \[
