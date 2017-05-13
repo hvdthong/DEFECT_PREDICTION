@@ -183,10 +183,6 @@ I.~Neamtiu, J.~S. Foster, and M.~Hicks, ``Understanding source code evolution
   using abstract syntax tree matching,'' \emph{ACM SIGSOFT Software Engineering
   Notes}, vol.~30, no.~4, pp. 1--5, 2005.
 
-\bibitem{ng2011sparse}
-A.~Ng, ``Sparse autoencoder,'' \emph{CS294A Lecture notes}, vol.~72, no. 2011,
-  pp. 1--19, 2011.
-
 \bibitem{nguyen2011topic}
 T.~T. Nguyen, T.~N. Nguyen, and T.~M. Phuong, ``Topic-based defect prediction
   (nier track),'' in \emph{Proceedings of the 33rd international conference on
@@ -204,6 +200,14 @@ V.~Raychev, M.~Vechev, and E.~Yahav, ``Code completion with statistical
   language models,'' in \emph{ACM SIGPLAN Notices}, vol.~49, no.~6.\hskip 1em
   plus 0.5em minus 0.4em\relax ACM, 2014, pp. 419--428.
 
+\bibitem{Rosasco2004}
+\BIBentryALTinterwordspacing
+L.~Rosasco, E.~De~Vito, A.~Caponnetto, M.~Piana, and A.~Verri, ``Are loss
+  functions all the same?'' \emph{Neural Comput.}, vol.~16, no.~5, pp.
+  1063--1076, May 2004. [Online]. Available:
+  \url{http://dx.doi.org/10.1162/089976604773135104}
+\BIBentrySTDinterwordspacing
+
 \bibitem{safavian1991survey}
 S.~R. Safavian and D.~Landgrebe, ``A survey of decision tree classifier
   methodology,'' \emph{IEEE transactions on systems, man, and cybernetics},
@@ -217,6 +221,12 @@ J.~A. Suykens and J.~Vandewalle, ``Least squares support vector machine
 \bibitem{vapnik1998statistical}
 V.~N. Vapnik and V.~Vapnik, \emph{Statistical learning theory}.\hskip 1em plus
   0.5em minus 0.4em\relax Wiley New York, 1998, vol.~1.
+
+\bibitem{Vincent2010}
+P.~Vincent, H.~Larochelle, I.~Lajoie, Y.~Bengio, and P.-A. Manzagol, ``Stacked
+  denoising autoencoders: Learning useful representations in a deep network
+  with a local denoising criterion,'' \emph{Journal of Machine Learning
+  Research}, vol.~11, pp. 3371--3408, 2010.
 
 \bibitem{wang2012compressed}
 J.~Wang, B.~Shen, and Y.~Chen, ``Compressed c4. 5 models for software defect

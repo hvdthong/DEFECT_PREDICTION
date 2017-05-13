@@ -16,45 +16,45 @@ Warning--empty journal in mcabeebayesian
 Warning--empty year in mcabeebayesian
 
 Done.
-You've used 44 entries,
+You've used 45 entries,
             4483 wiz_defined-function locations,
-            1139 strings with 16189 characters,
-and the built_in function-call counts, 41192 in all, are:
-= -- 3656
-> -- 1129
-< -- 319
-+ -- 586
-- -- 268
-* -- 2100
-:= -- 6092
-add.period$ -- 110
-call.type$ -- 44
-change.case$ -- 261
-chr.to.int$ -- 732
-cite$ -- 46
-duplicate$ -- 2617
-empty$ -- 3124
-format.name$ -- 307
-if$ -- 9353
+            1151 strings with 16667 characters,
+and the built_in function-call counts, 42901 in all, are:
+= -- 3803
+> -- 1201
+< -- 336
++ -- 626
+- -- 286
+* -- 2198
+:= -- 6317
+add.period$ -- 112
+call.type$ -- 45
+change.case$ -- 273
+chr.to.int$ -- 777
+cite$ -- 47
+duplicate$ -- 2709
+empty$ -- 3221
+format.name$ -- 327
+if$ -- 9740
 int.to.chr$ -- 0
-int.to.str$ -- 44
-missing$ -- 431
-newline$ -- 155
-num.names$ -- 88
-pop$ -- 1129
+int.to.str$ -- 45
+missing$ -- 446
+newline$ -- 160
+num.names$ -- 90
+pop$ -- 1174
 preamble$ -- 1
-purify$ -- 220
+purify$ -- 231
 quote$ -- 2
-skip$ -- 3051
+skip$ -- 3168
 stack$ -- 0
-substring$ -- 1989
-swap$ -- 2075
-text.length$ -- 75
+substring$ -- 2101
+swap$ -- 2169
+text.length$ -- 77
 text.prefix$ -- 0
 top$ -- 6
-type$ -- 466
+type$ -- 477
 warning$ -- 2
-while$ -- 224
-width$ -- 46
-write$ -- 444
+while$ -- 230
+width$ -- 47
+write$ -- 457
 (There were 2 warnings)
