@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.16)  13 MAY 2017 08:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.16)  13 MAY 2017 08:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -681,9 +681,13 @@ Package pdftex.def Info: dssl_framework.pdf used on input line 11.
 
 ]
 [2 <./dssl_framework.pdf>]) (./exp.tex (./metrics.tex) (./datasets.tex)
-(./baselines.tex) (./results.tex [3])) (./threats.tex [4]) (./relatedwork.tex
+(./baselines.tex) (./results.tex [3])) [4] (./threats.tex) (./relatedwork.tex
 (./defect.tex) (./deeplearning.tex)) (./conclusion.tex [5])
-(./sig-alternate-sample.bbl)
+(./sig-alternate-sample.bbl
+Overfull \vbox (6.44902pt too high) has occurred while \output is active []
+
+
+[6])
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -696,26 +700,26 @@ Before submitting the final camera ready copy, remember to:
  process uses the appropriate paper size.
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 208.
-
-Overfull \vbox (8.81499pt too high) has occurred while \output is active []
-
-
-[6]
+[7]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 208.
  (./sig-alternate-sample.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 208.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 208.
 Package rerunfilecheck Info: File `sig-alternate-sample.out' has not changed.
 (rerunfilecheck)             Checksum: 78F68CB57FA6DD7F16274853F08978D3;1186.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 10393 strings out of 493089
- 157867 string characters out of 6134841
- 330400 words of memory out of 5000000
+ 10394 strings out of 493089
+ 157873 string characters out of 6134841
+ 329628 words of memory out of 5000000
  13581 multiletter control sequences out of 15000+600000
  44995 words of font info for 94 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 33i,16n,35p,1728b,343s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 33i,16n,35p,1728b,506s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/te
 xlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/tex
@@ -729,10 +733,10 @@ xmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2015/texmf-dist/f
 onts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type
 1/urw/times/utmr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/time
 s/utmri8a.pfb>
-Output written on sig-alternate-sample.pdf (6 pages, 435648 bytes).
+Output written on sig-alternate-sample.pdf (7 pages, 436416 bytes).
 PDF statistics:
- 339 PDF objects out of 1000 (max. 8388607)
- 309 compressed objects within 4 object streams
- 79 named destinations out of 1000 (max. 500000)
+ 345 PDF objects out of 1000 (max. 8388607)
+ 314 compressed objects within 4 object streams
+ 80 named destinations out of 1000 (max. 500000)
  150 words of extra memory for PDF output out of 10000 (max. 10000000)
 
