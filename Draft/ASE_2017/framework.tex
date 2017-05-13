@@ -1,15 +1,17 @@
 \subsection{Defect Prediction}
 \label{sec:defect_prediction}
+
 %\begin{figure*}[t!]
 %	\centering
 %	\includegraphics[width=0.85\textwidth]{defect_framework}
 %	\caption{Defect Prediction Framework}
 %	\label{fig:defect}
 %\end{figure*}
+
 \begin{figure}
 	\centering
-	\includegraphics[width=0.45\textwidth]{dssl_framework}
-	\caption{Deep Semi-supervised Learning Framework}
+	\includegraphics[width=1.0\columnwidth]{dda_framework.png}
+	\caption{Our proposed DDA model architecture}
 	\label{fig:semi_framework}
 \end{figure}
 
@@ -76,7 +78,10 @@ However, in contrast to Wang et al.'s approach which encodes the extracted AST t
 In this section, we describe our DDA approach to defect prediction, which aims to detect source code files that may potentially contain a bug. Firstly, let $\mathcal{X}=\{x_1, \dots, x_i, \dots, x_n\}$ denote the set of source code files in a software project and $\mathcal{Y}=\{y_1, \dots, y_i, \dots, y_n\}$ represents the set of labels for the source code files, where $n$ is the number of source code files in the project. A source code file is labelled as $y_{i}=1$ if it contains a bug; otherwise, it is labelled as $y_i = 0$. 
 %The source files can be collected from github repository~\footnote{https://github.com/}
 %The source files can be collected from some popular software projects (e.g, ant, camel, lucene, etc.)~\footnote{http://openscience.us/repo/defect/}. 
-Unlike traditional approaches~\cite{yang2015deep, wang2016automatically} that learn embedding features and defect prediction model separately, our DDA approach performs the two tasks in one shot for tackling defect prediction tasks. Specifically, we attempt to learn a semantic features function $f: \mathcal{X} \longmapsto \mathcal{X}$ and a defect prediction function $f': \mathcal{X} \longmapsto \mathcal{Y}$, $y_i \in \mathcal{Y}=\{0, 1\}$ indicates whether a source code file $x_i \in \mathcal{X}$ contains a bug. % which can be obtained by investigating software commit logs and bug report descriptions~\cite{fischer2003populating}.
+
+Unlike traditional approaches~\cite{yang2015deep, wang2016automatically}, which learn embedding features and defect prediction model separately, our DDA approach performs the two tasks in one shot for tackling defect prediction tasks. Specifically, DDA simultaneously learns three (non-linear) functions, namely: (1) an \emph{encoding function} $f$ that maps input features to an embedding representation, (2) a discriminative function $g$ that maps the embedding representation to defect class labels, and (3) an decoding function $h$ that reconstructs the input features from the embedding representation. Fig.~\ref{fig:semi_framework} presents the architecture of our DDA model combining the three functions. Each function may be represented using one or more hidden layers of neuron.
+
+%a defect prediction function $f': \mathcal{X} \longmapsto \mathcal{Y}$, $y_i \in \mathcal{Y}=\{0, 1\}$ indicates whether a source code file $x_i \in \mathcal{X}$ contains a bug. % which can be obtained by investigating software commit logs and bug report descriptions~\cite{fischer2003populating}.
 These two functions $f$ and $f'$ can be learned by minimizing the following objective function:
 %We formalize the our approaches as a joint optimization, expressed by the loss function $\mathcal{L}$, for learning semantic features and building defect prediction model as following:
 \begin{equation}
