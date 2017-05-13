@@ -45,7 +45,9 @@
 \citation{manning2008introduction}
 \citation{yang2015deep}
 \citation{wang2016automatically}
-\citation{ng2011sparse}
+\citation{khoshgoftaar2010attribute}
+\citation{wang2013using}
+\citation{kingma2014adam}
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Our proposed DDA model architecture}}{2}{figure.1}}
 \newlabel{fig:semi_framework}{{1}{2}{Our proposed DDA model architecture}{figure.1}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-B}}Parsing Source Code and Generating Input Features}{2}{subsection.2.2}}
@@ -56,9 +58,10 @@
 \newlabel{eqn:discriminative}{{2}{2}{Deep Discriminative Autoencoder}{equation.2.2}{}}
 \newlabel{eqn:reconstruction}{{3}{2}{Deep Discriminative Autoencoder}{equation.2.3}{}}
 \newlabel{eqn:regularization}{{4}{2}{Deep Discriminative Autoencoder}{equation.2.4}{}}
-\citation{khoshgoftaar2010attribute}
-\citation{wang2013using}
-\citation{kingma2014adam}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-D}}Imbalanced Problem in Defect Prediction}{2}{subsection.2.4}}
+\newlabel{sec:imbalanced}{{\unhbox \voidb@x \hbox {II-D}}{2}{Imbalanced Problem in Defect Prediction}{subsection.2.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-E}}Setting for Training Deep Semi-supervised Learning}{2}{subsection.2.5}}
+\newlabel{sec:setting}{{\unhbox \voidb@x \hbox {II-E}}{2}{Setting for Training Deep Semi-supervised Learning}{subsection.2.5}{}}
 \citation{menzies2007data}
 \citation{menzies2010defect}
 \citation{nam2013transfer}
@@ -74,10 +77,7 @@
 \citation{safavian1991survey}
 \citation{hosmer2013applied}
 \citation{vapnik1998statistical}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-D}}Imbalanced Problem in Defect Prediction}{3}{subsection.2.4}}
-\newlabel{sec:imbalanced}{{\unhbox \voidb@x \hbox {II-D}}{3}{Imbalanced Problem in Defect Prediction}{subsection.2.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-E}}Setting for Training Deep Semi-supervised Learning}{3}{subsection.2.5}}
-\newlabel{sec:setting}{{\unhbox \voidb@x \hbox {II-E}}{3}{Setting for Training Deep Semi-supervised Learning}{subsection.2.5}{}}
+\citation{wang2016automatically}
 \@writefile{toc}{\contentsline {section}{\numberline {III}Experimental Results}{3}{section.3}}
 \newlabel{sec:exp_results}{{III}{3}{Experimental Results}{section.3}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-A}}Evaluation Metrics}{3}{subsection.3.1}}
@@ -89,20 +89,21 @@
 \newlabel{sec:dataset}{{\unhbox \voidb@x \hbox {III-B}}{3}{Datasets}{subsection.3.2}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-C}}Baselines}{3}{subsection.3.3}}
 \newlabel{sec:baselines}{{\unhbox \voidb@x \hbox {III-C}}{3}{Baselines}{subsection.3.3}{}}
-\citation{wang2016automatically}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-D}}Results}{3}{subsection.3.4}}
+\newlabel{sec:results}{{\unhbox \voidb@x \hbox {III-D}}{3}{Results}{subsection.3.4}{}}
+\citation{menzies2007data}
+\citation{menzies2010defect}
+\citation{nam2013transfer}
 \@writefile{lot}{\contentsline {table}{\numberline {I}{\ignorespaces Description of four popular software projects.}}{4}{table.1}}
 \newlabel{tab:data}{{I}{4}{Description of four popular software projects}{table.1}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {II}{\ignorespaces Comparison between DDA and three classification algorithms (decision tree, logistic regression, and naive Bayes) using semantic features and AST features. P, R, and F1 denote precision, recall and F1 score respectively and are measured by percentage. The best F1 scores are highlighted in bold.}}{4}{table.2}}
-\newlabel{tab:within}{{II}{4}{Comparison between DDA and three classification algorithms (decision tree, logistic regression, and naive Bayes) using semantic features and AST features. P, R, and F1 denote precision, recall and F1 score respectively and are measured by percentage. The best F1 scores are highlighted in bold}{table.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {II}{\ignorespaces  Precision, recall and F1 scores of within-project prediction. All the scores are measured by percentage. The best F1 scores are highlighted in bold. Deep discriminative autoencoder, decision tree, logistic regression, and na\"{i}ve Bayes are denoted as DDA, DT, LR, NB respectively. }}{4}{table.2}}
+\newlabel{tab:within}{{II}{4}{Precision, recall and F1 scores of within-project prediction. All the scores are measured by percentage. The best F1 scores are highlighted in bold. Deep discriminative autoencoder, decision tree, logistic regression, and na\"{i}ve Bayes are denoted as DDA, DT, LR, NB respectively}{table.2}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {III}{\ignorespaces Precision, recall and F1 scores of cross-project defect prediction. All the scores are measured by percentage. The best F1 scores are highlighted in bold.}}{4}{table.3}}
 \newlabel{tab:cross}{{III}{4}{Precision, recall and F1 scores of cross-project defect prediction. All the scores are measured by percentage. The best F1 scores are highlighted in bold}{table.3}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {IV}{\ignorespaces Training time of the proposed DDA approach}}{4}{table.4}}
 \newlabel{tab:time}{{IV}{4}{Training time of the proposed DDA approach}{table.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-D}}Results}{4}{subsection.3.4}}
-\newlabel{sec:results}{{\unhbox \voidb@x \hbox {III-D}}{4}{Results}{subsection.3.4}{}}
-\citation{menzies2007data}
-\citation{menzies2010defect}
-\citation{nam2013transfer}
+\@writefile{toc}{\contentsline {section}{\numberline {IV}Threats to validity}{4}{section.4}}
+\newlabel{sec:threats}{{IV}{4}{Threats to validity}{section.4}{}}
 \citation{nam2013transfer}
 \citation{menzies2010defect}
 \citation{menzies2007data}
@@ -136,14 +137,14 @@
 \citation{wang2012compressed}
 \citation{yang2015deep}
 \citation{wang2012compressed}
-\@writefile{toc}{\contentsline {section}{\numberline {IV}Threats to validity}{5}{section.4}}
-\newlabel{sec:threats}{{IV}{5}{Threats to validity}{section.4}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {V}Related Work}{5}{section.5}}
 \newlabel{sec:relatedwork}{{V}{5}{Related Work}{section.5}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-A}}Defect Prediction}{5}{subsection.5.1}}
 \newlabel{sec:defect}{{\unhbox \voidb@x \hbox {V-A}}{5}{Defect Prediction}{subsection.5.1}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-B}}Deep Learning in Software Engineering}{5}{subsection.5.2}}
 \newlabel{sec:deeplearning}{{\unhbox \voidb@x \hbox {V-B}}{5}{Deep Learning in Software Engineering}{subsection.5.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {VI}Conclusion and Future Work}{5}{section.6}}
+\newlabel{sec:conclusion}{{VI}{5}{Conclusion and Future Work}{section.6}{}}
 \bibstyle{IEEEtranS}
 \bibdata{sigproc}
 \bibcite{amasaki2003bayesian}{1}
@@ -179,9 +180,6 @@
 \bibcite{ng2011sparse}{31}
 \bibcite{nguyen2011topic}{32}
 \bibcite{pascanu2015malware}{33}
-\@writefile{toc}{\contentsline {section}{\numberline {VI}Conclusion and Future Work}{6}{section.6}}
-\newlabel{sec:conclusion}{{VI}{6}{Conclusion and Future Work}{section.6}{}}
-\@writefile{toc}{\contentsline {section}{References}{6}{section*.1}}
 \bibcite{raychev2014code}{34}
 \bibcite{safavian1991survey}{35}
 \bibcite{suykens1999least}{36}
@@ -192,4 +190,5 @@
 \bibcite{yang2015deep}{41}
 \bibcite{yuan2014droid}{42}
 \bibcite{zhou2012should}{43}
+\@writefile{toc}{\contentsline {section}{References}{6}{section*.1}}
 \bibcite{zimmermann2007predicting}{44}
