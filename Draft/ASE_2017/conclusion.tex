@@ -2,7 +2,9 @@
 
 This paper presents a new deep discriminative autoencoder (DDA) approach to achieve an effective software defect prediction. DDA provides an end-to-end learning approach to simultaneously learn embedding features that can well represent token vectors extracted from programs' ASTs, and build an accurate classification model for defect prediction. Empirical studies on four software projects show that our approach significantly outperforms the existing defect prediction approaches. Specifically, our approach gives, on average, an F1 score that is higher by 8.6\% and 5.8\% when compared with the state-of-the-art approach for both within-project and cross-project setting, respectively. 
 
-While DDA offers a powerful approach for defect prediction, there remains room for improvement. For example, DDA currently takes as input the TF-IDF features constructed from AST nodes, thus ignoring the meaning of AST nodes within source code of a program. In the future, we wish to learn the semantics of AST nodes by employing word embedding representation. We also plan to develop a more sophisticated deep learning method to better capture sequence information within a defect prediction task. 
+While DDA offers a powerful approach for defect prediction, there remains room for improvement. In the future, we plan to improve the effectiveness of our approach, potentially by either generating better features or enhancing our DDA model. We also plan to experiment on more dataset and evaluate our approach more thoroughly. 
+
+%For example, DDA currently takes as input the TF-IDF features constructed from AST nodes, thus ignoring the meaning of AST nodes within source code of a program. In the future, we wish to learn the semantics of AST nodes by employing word embedding representation. We also plan to develop a more sophisticated deep learning method to better capture sequence information within a defect prediction task. 
 
 %In the future, we wish to learn meaning of AST nodes by taking advantage of word vector 
 %
