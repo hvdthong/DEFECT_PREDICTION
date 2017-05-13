@@ -183,10 +183,6 @@ I.~Neamtiu, J.~S. Foster, and M.~Hicks, ``Understanding source code evolution
   using abstract syntax tree matching,'' \emph{ACM SIGSOFT Software Engineering
   Notes}, vol.~30, no.~4, pp. 1--5, 2005.
 
-\bibitem{ng2011sparse}
-A.~Ng, ``Sparse autoencoder,'' \emph{CS294A Lecture notes}, vol.~72, no. 2011,
-  pp. 1--19, 2011.
-
 \bibitem{nguyen2011topic}
 T.~T. Nguyen, T.~N. Nguyen, and T.~M. Phuong, ``Topic-based defect prediction
   (nier track),'' in \emph{Proceedings of the 33rd international conference on
