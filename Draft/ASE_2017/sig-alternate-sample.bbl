@@ -119,6 +119,12 @@ A.~N. Lam, A.~T. Nguyen, H.~A. Nguyen, and T.~N. Nguyen, ``Combining deep
   International Conference on}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE,
   2015, pp. 476--481.
 
+\bibitem{Le2015}
+T.-D.~B. Le, R.~J. Oentaryo, and D.~Lo, ``Information retrieval and spectrum
+  based bug localization: Better together,'' in \emph{Proceedings of the 2015
+  10th Joint Meeting on Foundations of Software Engineering}, 2015, pp.
+  579--590.
+
 \bibitem{lee2011micro}
 T.~Lee, J.~Nam, D.~Han, S.~Kim, and H.~P. In, ``Micro interaction metrics for
   defect prediction,'' in \emph{Proceedings of the 19th ACM SIGSOFT symposium
@@ -201,12 +207,9 @@ V.~Raychev, M.~Vechev, and E.~Yahav, ``Code completion with statistical
   plus 0.5em minus 0.4em\relax ACM, 2014, pp. 419--428.
 
 \bibitem{Rosasco2004}
-\BIBentryALTinterwordspacing
 L.~Rosasco, E.~De~Vito, A.~Caponnetto, M.~Piana, and A.~Verri, ``Are loss
-  functions all the same?'' \emph{Neural Comput.}, vol.~16, no.~5, pp.
-  1063--1076, May 2004. [Online]. Available:
-  \url{http://dx.doi.org/10.1162/089976604773135104}
-\BIBentrySTDinterwordspacing
+  functions all the same?'' \emph{Neural Computation}, vol.~16, no.~5, pp.
+  1063--1076, 2004.
 
 \bibitem{safavian1991survey}
 S.~R. Safavian and D.~Landgrebe, ``A survey of decision tree classifier
