@@ -1,0 +1,17 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Proposed Approach}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Parsing Source Code and Generating Input Features}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Deep Discriminative Autoencoder}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Handling Imbalanced Class Distribution}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.4}{Parameter Setting for DDA Training}{section.2}% 6
+\BOOKMARK [1][-]{section.3}{Experimental Results}{}% 7
+\BOOKMARK [2][-]{subsection.3.1}{Evaluation Metrics}{section.3}% 8
+\BOOKMARK [2][-]{subsection.3.2}{Datasets}{section.3}% 9
+\BOOKMARK [2][-]{subsection.3.3}{Baselines}{section.3}% 10
+\BOOKMARK [2][-]{subsection.3.4}{Results}{section.3}% 11
+\BOOKMARK [2][-]{subsection.3.5}{Threats to validity}{section.3}% 12
+\BOOKMARK [1][-]{section.4}{Related Work}{}% 13
+\BOOKMARK [2][-]{subsection.4.1}{Defect Prediction}{section.4}% 14
+\BOOKMARK [2][-]{subsection.4.2}{Deep Learning in Software Engineering}{section.4}% 15
+\BOOKMARK [1][-]{section.5}{Conclusion and Future Work}{}% 16
+\BOOKMARK [1][-]{section*.1}{References}{}% 17

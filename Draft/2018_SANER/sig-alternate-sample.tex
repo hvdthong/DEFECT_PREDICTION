@@ -1,0 +1,208 @@
+%\documentclass{sig-alternate-05-2015}
+%\documentclass[conference]{IEEEtran}
+%\IEEEoverridecommandlockouts
+%\usepackage{caption}
+%\usepackage{subcaption}
+%\usepackage[T1]{fontenc}
+%\usepackage{pgfplots}
+%\pgfplotsset{
+%  compat=newest,
+%  xlabel near ticks,
+%  ylabel near ticks
+%}
+%\usepackage{color}
+%\usepackage{booktabs}
+%\usepackage{multirow}
+%\usepackage{hyperref}
+%\makeatletter
+%\def\@copyrightspace{\relax}
+%\makeatother
+%\usepackage{adjustbox}
+%\begin{document}
+%
+%\title{Deep Semi-Supervised Learning for Defect Prediction}
+%
+%\maketitle\begin{abstract}
+%	\label{sec:abstract}
+%	\input{abstract}
+%\end{abstract}
+%
+%\printccsdesc
+%\keywords{Deep learning, defect prediction, bug localization, autoencoder, semi-supervised.}
+%
+%\section{Introduction}
+%\label{sec:introduction}
+%\input{introduction}
+%
+%
+%
+%\section{Proposed Approach}
+%\label{sec:framework}
+%\input{framework}
+%
+%\section{Experimental Results}
+%\label{sec:exp_results}
+%\input{exp}
+%
+%\section{Threats to validity}
+%\label{sec:threats}
+%\input{threats}
+%
+%
+%\section{Related Work}
+%\label{sec:relatedwork}
+%\input{relatedwork}
+%
+%\section{Conclusion}
+%\label{sec:conclusion}
+%\input{conclusion}
+%
+%\section{Acknowledgments}
+%\label{sec:acknowledgments}
+%\input{acknowledgments}
+%
+%\bibliographystyle{abbrv}
+%\bibliography{sigproc}  % sigproc.bib is the name of the Bibliography in this case
+%\end{document}
+
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+
+\usepackage[pdftex]{graphicx}
+\usepackage{color}
+\usepackage{tablefootnote}
+\usepackage{mathtools}
+\usepackage{balance}
+\usepackage{amssymb,amsmath}
+\usepackage{proof,latexsym}
+\usepackage{color}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{ifthen}
+\usepackage{amssymb}
+\usepackage{multicol}
+\usepackage{multirow}
+
+\usepackage[ruled]{algorithm2e}
+\usepackage{adjustbox} 
+
+\newboolean{showcomments}
+\setboolean{showcomments}{true}
+\ifthenelse{\boolean{showcomments}}
+{ \newcommand{\mynote}[2]{
+		\fbox{\bfseries\sffamily\scriptsize#1}
+		{\small$\blacktriangleright$\textsf{\emph{#2}}$\blacktriangleleft$}}}
+{ \newcommand{\mynote}[2]{}}
+
+
+\def\cnf{\mathit{conf}}
+
+\newenvironment{packed_enum}{
+	\begin{enumerate}
+		\setlength{\itemsep}{1pt}
+		\setlength{\parskip}{0pt}
+		\setlength{\parsep}{0pt}
+	}{\end{enumerate}}
+
+\newenvironment{packed_itemize}{
+	\begin{itemize}
+		\setlength{\itemsep}{1pt}
+		\setlength{\parskip}{0pt}
+		\setlength{\parsep}{0pt}
+	}{\end{itemize}}
+
+\def\concat{\mathit{+\!\!+}}
+
+
+\newcommand{\todosimple}[2]
+{{\scriptsize \textbf{{#1} says: \color{red} {#2}}}}
+\newcommand{\ssmnote}[1]{\todosimple{SM}{#1}}
+\newcommand{\sdlnote}[1]{\todosimple{DL}{#1}}
+
+
+\newcommand{\task}[1]{\mynote{**Task**}{#1}}
+
+
+\newcommand{\todo}[1]{\vspace{3mm}\begin{center}\fbox{
+			\begin{minipage}{.7\linewidth} \small\begin{center}\fbox{To Do:}
+				\end{center}#1\end{minipage}}\end{center}}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}
+
+\begin{document}
+	
+	\pdfpagewidth 8.5in
+	\pdfpageheight 11.0in
+	
+	\title{End-to-End Deep Learning for Defect Prediction}
+	
+	\author{
+%		Author information omitted for double-blind review.
+	}
+	
+	\maketitle	
+
+	\begin{abstract}
+		\label{sec:abstract}
+		\input{abstract}
+	\end{abstract}
+
+%\printccsdesc
+%\keywords{Deep learning, defect prediction, bug localization, autoencoder, semi-supervised.}
+
+\section{Introduction}
+\label{sec:introduction}
+\input{introduction}
+
+
+
+\section{Proposed Approach}
+\label{sec:framework}
+\input{framework}
+
+\section{Experimental Results}
+\label{sec:exp_results}
+\input{exp}
+
+\subsection{Threats to validity}
+\label{sec:threats}
+\input{threats}
+
+
+\section{Related Work}
+\label{sec:relatedwork}
+\input{relatedwork}
+
+\section{Conclusion and Future Work}
+\label{sec:conclusion}
+\input{conclusion}
+
+%\section{Acknowledgments}
+%\label{sec:acknowledgments}
+%\input{acknowledgments}
+
+%\input{body}
+
+\balance
+
+\let\oldthebibliography=\thebibliography
+\let\endoldthebibliography=\endthebibliography
+%\renewenvironment{thebibliography}[1]{%
+%	\vspace{0pt}
+%	\begin{oldthebibliography}{#1}%
+%		\fontsize{7.5}{7.9}\selectfont
+%		\setlength{\parskip}{0ex}%
+%		\setlength{\itemsep}{0.5ex}%
+%	}%
+%	{%
+%	\end{oldthebibliography}%
+%}
+{\scriptsize
+%	\def\baselinestretch{0.95}
+	\bibliographystyle{IEEEtranS}
+	%\def\IEEEbibitemsep{0.92pt plus .5pt}
+	\bibliography{sigproc}
+}
+
+\end{document}
