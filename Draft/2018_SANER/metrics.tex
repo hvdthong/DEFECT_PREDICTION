@@ -3,16 +3,19 @@ To measure defect prediction performance, we employ three different evaluation m
 Below is the equation for each of these metrics:
 \begin{equation}
 \label{eq:precision}
-Precision = \frac{TP}{TP+FP}
+Precision = \frac{TP}{TP+FP} 
 \end{equation}
-
 \begin{equation}
 \label{eq:recall}
 Recall = \frac{TP}{TP+FN}
 \end{equation}
-
 \begin{equation}
 \label{eq:f1}
 F1 = \frac{2 * Precision * Recall}{Precision + Recall}
 \end{equation}
-where \textit{TP}, \textit{FP}, and \textit{FN} are considered as true positive, false positive, and false negative, respectively. True positive is the number of predicted defective files that are truly defective, while false positive is the number of predicted defective files that are actually not defective. False negative records the number of predicted non-defective files that are actually defective. A higher precision makes the manual inspection on a certain amount of predicted defective files find more defects, while an increase in recall reveals more defects in a project. F1 score considers both precision and recall. Note that our evaluation procedure is based on 5-fold cross validation. 
+where \textit{TP}, \textit{FP}, and \textit{FN} are considered as true positive, false positive, and false negative, respectively.
+%True positive is the number of predicted defective files that are truly defective, while false positive is the number of predicted defective files that are actually not defective. False negative records the number of predicted non-defective files that are actually defective. 
+A higher precision makes the manual inspection on a certain amount of predicted defective files find more defects, while an increase in recall reveals more defects in a project. F1 score considers both precision and recall. 
+
+%Our evaluation procedure is based on 5-fold cross validation. That is, for each project, we divide the training data into five (mutually exclusive) sets. Then, for each fold, we take 1 set as testing
+%data and treat the remaining 4 sets as training data. We repeat this 5 times, and then collate the results to get the aggregated precision, recall, and F1 scores. Note that we also use random sampling strategy described in Section~\ref{sec:imbalanced} to deal with class imbalance. 
