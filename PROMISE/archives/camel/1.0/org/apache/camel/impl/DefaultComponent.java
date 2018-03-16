@@ -1,0 +1,111 @@
+package org.apache.camel.impl;
+
+import org.apache.camel.CamelContext;
+import org.apache.camel.Component;
+import org.apache.camel.Endpoint;
+import org.apache.camel.Exchange;
+import org.apache.camel.util.IntrospectionSupport;
+import org.apache.camel.util.URISupport;
+import org.apache.camel.util.ObjectHelper;
+
+import java.net.URI;
+import java.util.Map;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.ThreadFactory;
+
+/**
+ * @version $Revision: 541335 $
+ */
+public abstract  class DefaultComponent<E extends Exchange> extends ServiceSupport implements Component<E> {
+
+	private int defaultThreadPoolSize = 5;
+    private CamelContext camelContext;
+    private ScheduledExecutorService executorService;
+
+    public DefaultComponent() {
+    }
+
+    public DefaultComponent(CamelContext context) {
+        this.camelContext = context;
+    }
+
+
+    public Endpoint<E> createEndpoint(String uri) throws Exception {
+        ObjectHelper.notNull(getCamelContext(), "camelContext");        
+        URI u = new URI(uri);
+        String path = u.getHost();
+        if (path == null) {
+            path = u.getSchemeSpecificPart();
+        }
+        Map parameters = URISupport.parseParamters(u);
+
+        Endpoint<E> endpoint = createEndpoint(uri, path, parameters);
+        if (endpoint == null) {
+            return null;
+        }
+        if (parameters != null) {
+            if (endpoint instanceof ScheduledPollEndpoint) {
+                ScheduledPollEndpoint scheduledPollEndpoint = (ScheduledPollEndpoint) endpoint;
+                scheduledPollEndpoint.configureProperties(parameters);
+            }
+            IntrospectionSupport.setProperties(endpoint, parameters);
+        }
+        return endpoint;
+    }
+
+    public CamelContext getCamelContext() {
+        return camelContext;
+    }
+
+    public void setCamelContext(CamelContext context) {
+        this.camelContext = context;
+    }
+
+    public ScheduledExecutorService getExecutorService() {
+        if (executorService == null) {
+            executorService = createExecutorService();
+        }
+        return executorService;
+    }
+
+    public void setExecutorService(ScheduledExecutorService executorService) {
+        this.executorService = executorService;
+    }
+
+    /**
+     * A factory method to create a default thread pool and executor
+     */
+    protected ScheduledExecutorService createExecutorService() {
+        return new ScheduledThreadPoolExecutor(defaultThreadPoolSize, new ThreadFactory() {
+            int counter;
+
+            public synchronized Thread newThread(Runnable runnable) {
+                Thread thread = new Thread(runnable);
+                thread.setName("Thread" + (++counter) + " " + DefaultComponent.this.toString());
+                return thread;
+            }
+        });
+    }
+
+    protected void doStart() throws Exception {
+    }
+
+    protected void doStop() throws Exception {
+        if (executorService != null) {
+            executorService.shutdown();
+        }
+    }
+
+
+    /**
+     * A factory method allowing derived components to create a new endpoint from the given URI,
+     * remaining path and optional parameters
+     *
+     * @param uri        the full URI of the endpoint
+     * @param remaining  the remaining part of the URI without the query parameters or component prefix
+     * @param parameters the optional parameters passed in
+     * @return a newly created endpoint or null if the endpoint cannot be created based on the inputs
+     */
+    abstract protected Endpoint<E> createEndpoint(String uri, String remaining, Map parameters) throws Exception;
+}

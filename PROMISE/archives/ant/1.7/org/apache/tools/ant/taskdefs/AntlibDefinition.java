@@ -1,0 +1,63 @@
+package org.apache.tools.ant.taskdefs;
+
+import org.apache.tools.ant.BuildException;
+import org.apache.tools.ant.ProjectHelper;
+import org.apache.tools.ant.Task;
+
+/**
+ * Base class for tasks that that can be used in antlibs.
+ * For handling uri and class loading.
+ *
+ * @since Ant 1.6
+ */
+public class AntlibDefinition extends Task {
+
+    private String uri = "";
+    private ClassLoader antlibClassLoader;
+
+    /**
+     * The URI for this definition.
+     * If the URI is "antlib:org.apache.tools.ant",
+     * (this is the default uri)
+     * the uri will be set to "".
+     * URIs that start with "ant:" are reserved
+     * and are not allowed in this context.
+     * @param uri the namespace URI
+     * @throws BuildException if a reserved URI is used
+     */
+    public void setURI(String uri) throws BuildException {
+        if (uri.equals(ProjectHelper.ANT_CORE_URI)) {
+            uri = "";
+        }
+        if (uri.startsWith("ant:")) {
+            throw new BuildException("Attempt to use a reserved URI " + uri);
+        }
+        this.uri = uri;
+    }
+
+    /**
+     * The URI for this definition.
+     * @return The URI for this defintion.
+     */
+    public String getURI() {
+        return uri;
+    }
+
+    /**
+     * Set the class loader of the loading object
+     *
+     * @param classLoader a <code>ClassLoader</code> value
+     */
+    public void setAntlibClassLoader(ClassLoader classLoader) {
+        this.antlibClassLoader = classLoader;
+    }
+
+    /**
+     * The current antlib classloader
+     * @return the antlib classloader for the definition, this
+     *         is null if the definition is not used in an antlib.
+     */
+    public ClassLoader getAntlibClassLoader() {
+        return antlibClassLoader;
+    }
+}

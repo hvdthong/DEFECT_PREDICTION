@@ -1,0 +1,37 @@
+package org.apache.xml.utils;
+
+import java.io.Serializable;
+
+/**
+ * <meta name="usage" content="advanced"/>
+ * A representation of a namespace.  One of these will
+ * be pushed on the namespace stack for each
+ * element.
+ */
+public class NameSpace implements Serializable
+{
+
+  /** Next NameSpace element on the stack.
+   *  @serial             */
+  public NameSpace m_next = null;
+
+  /** Prefix of this NameSpace element.
+   *  @serial          */
+  public String m_prefix;
+
+  /** Namespace URI of this NameSpace element.
+   *  @serial           */
+
+  /**
+   * Construct a namespace for placement on the
+   * result tree namespace stack.
+   *
+   * @param prefix Prefix of this element
+   * @param uri URI of  this element
+   */
+  public NameSpace(String prefix, String uri)
+  {
+    m_prefix = prefix;
+    m_uri = uri;
+  }
+}

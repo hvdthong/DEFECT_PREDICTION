@@ -1,0 +1,162 @@
+package org.apache.tools.ant.taskdefs;
+
+import org.apache.tools.ant.Project;
+import org.apache.tools.ant.Task;
+import org.apache.tools.ant.BuildException;
+
+/**
+ * A task to sleep for a period of time
+ *
+ * @author steve_l@iseran.com steve loughran
+ * @created 01 May 2001
+ */
+
+public class Sleep extends Task {
+    /**
+     * failure flag
+     */
+    private boolean failOnError = true;
+
+    /**
+     * Description of the Field
+     */
+    private int seconds = 0;
+    /**
+     * Description of the Field
+     */
+    private int hours = 0;
+    /**
+     * Description of the Field
+     */
+    private int minutes = 0;
+    /**
+     * Description of the Field
+     */
+    private int milliseconds = 0;
+
+
+
+    /**
+     * Creates new instance
+     */
+    public Sleep() {
+    }
+
+
+    /**
+     * Sets the Seconds attribute of the Sleep object
+     *
+     * @param seconds The new Seconds value
+     */
+    public void setSeconds(int seconds) {
+        this.seconds = seconds;
+    }
+
+
+    /**
+     * Sets the Hours attribute of the Sleep object
+     *
+     * @param hours The new Hours value
+     */
+    public void setHours(int hours) {
+        this.hours = hours;
+    }
+
+
+    /**
+     * Sets the Minutes attribute of the Sleep object
+     *
+     * @param minutes The new Minutes value
+     */
+    public void setMinutes(int minutes) {
+        this.minutes = minutes;
+    }
+
+
+    /**
+     * Sets the Milliseconds attribute of the Sleep object
+     *
+     * @param milliseconds The new Milliseconds value
+     */
+    public void setMilliseconds(int milliseconds) {
+        this.milliseconds = milliseconds;
+    }
+
+
+    /**
+     * sleep for a period of time
+     *
+     * @param millis time to sleep
+     */
+    public void doSleep(long millis) {
+        try {
+            Thread.currentThread().sleep(millis);
+        }
+        catch (InterruptedException ie) {
+        }
+    }
+
+
+    /**
+     * Sets the FailOnError attribute of the MimeMail object
+     *
+     * @param failOnError The new FailOnError value
+     */
+    public void setFailOnError(boolean failOnError) {
+        this.failOnError = failOnError;
+    }
+
+
+    /**
+     * return time to sleep
+     *
+     * @return sleep time. if below 0 then there is an error
+     */
+
+    private long getSleepTime() {
+        return ((((long) hours * 60) + minutes) * 60 + seconds) * 1000 + milliseconds;
+    }
+
+
+    /**
+     * verify parameters
+     *
+     * @throws BuildException if something is invalid
+     */
+    public void validate() 
+        throws BuildException {
+        long sleepTime = getSleepTime();
+        if (getSleepTime() < 0) {
+            throw new BuildException("Negative sleep periods are not supported");
+        }
+    }
+
+
+    /**
+     * Executes this build task. throws org.apache.tools.ant.BuildException
+     * if there is an error during task execution.
+     *
+     * @exception BuildException Description of Exception
+     */
+    public void execute()
+        throws BuildException {
+        try {
+            validate();
+            long sleepTime=getSleepTime();
+            log("sleeping for "+sleepTime+" milliseconds",
+                Project.MSG_VERBOSE);
+            doSleep(sleepTime);
+        }
+        catch (Exception e) {
+            if (failOnError) {
+                throw new BuildException(e);
+            }
+            else {
+                String text = e.toString();
+                log(text, Project.MSG_ERR);
+            }
+        }
+    }
+
+}
+

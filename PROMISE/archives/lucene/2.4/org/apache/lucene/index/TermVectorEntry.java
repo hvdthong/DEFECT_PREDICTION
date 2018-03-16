@@ -1,0 +1,76 @@
+public class TermVectorEntry {
+  private String field;
+  private String term;
+  private int frequency;
+  private TermVectorOffsetInfo [] offsets;
+  int [] positions;
+
+
+  public TermVectorEntry() {
+  }
+
+  public TermVectorEntry(String field, String term, int frequency, TermVectorOffsetInfo[] offsets, int[] positions) {
+    this.field = field;
+    this.term = term;
+    this.frequency = frequency;
+    this.offsets = offsets;
+    this.positions = positions;
+  }
+
+
+  public String getField() {
+    return field;
+  }
+
+  public int getFrequency() {
+    return frequency;
+  }
+
+  public TermVectorOffsetInfo[] getOffsets() {
+    return offsets;
+  }
+
+  public int[] getPositions() {
+    return positions;
+  }
+
+  public String getTerm() {
+    return term;
+  }
+
+  void setFrequency(int frequency) {
+    this.frequency = frequency;
+  }
+
+  void setOffsets(TermVectorOffsetInfo[] offsets) {
+    this.offsets = offsets;
+  }
+
+  void setPositions(int[] positions) {
+    this.positions = positions;
+  }
+
+
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+
+    TermVectorEntry that = (TermVectorEntry) o;
+
+    if (term != null ? !term.equals(that.term) : that.term != null) return false;
+
+    return true;
+  }
+
+  public int hashCode() {
+    return (term != null ? term.hashCode() : 0);
+  }
+
+  public String toString() {
+    return "TermVectorEntry{" +
+            "field='" + field + '\'' +
+            ", term='" + term + '\'' +
+            ", frequency=" + frequency +
+            '}';
+  }
+}

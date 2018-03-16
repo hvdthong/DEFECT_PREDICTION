@@ -1,0 +1,67 @@
+package org.apache.synapse.util;
+
+import org.apache.synapse.core.SynapseEnvironment;
+
+import javax.activation.DataSource;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+
+/**
+ * DataSource which will be used to pass the Hessian messages in to SOAP body within axis2/synapse
+ *
+ * @see javax.activation.DataSource
+ */
+public class SynapseBinaryDataSource implements DataSource {
+
+    /** Content type of the DataSource */
+    private String contentType;
+
+    /** Hessian message is kept inside the DataSource as a byte array */
+    private TemporaryData data;
+
+    /**
+     * Constructs the HessianDataSource from the given InputStream. Inside the HessianDataSource,
+     * data is stored in a byte[] or in a temp file format inorder to be able to get the stream any
+     * number of time, otherwise the stream can only be read once
+     *
+     * @param inputstream contains the Hessian message for later retrieval
+     * @param contentType message content type
+     * @throws IOException failure in reading from the InputStream
+     */
+    public SynapseBinaryDataSource(InputStream inputstream, String contentType) throws IOException {
+
+        this.contentType = contentType;
+        this.data = new TemporaryData(4, 1024, "tmp_", ".dat");
+
+        data.readFrom(inputstream);
+        inputstream.close();
+    }
+
+    public SynapseBinaryDataSource(InputStream inputstream, String contentType,
+        SynapseEnvironment synEnv) throws IOException {
+
+        this.contentType = contentType;
+        this.data = synEnv.createTemporaryData();
+
+        data.readFrom(inputstream);
+        inputstream.close();
+    }
+
+    public String getContentType() {
+        return contentType;
+    }
+
+    public InputStream getInputStream() throws IOException {
+        return data.getInputStream();
+    }
+
+    public String getName() {
+        return this.getClass().getName();
+    }
+
+    public OutputStream getOutputStream() throws IOException {
+        return data.getOutputStream();
+    }
+
+}

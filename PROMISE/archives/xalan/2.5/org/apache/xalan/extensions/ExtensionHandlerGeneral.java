@@ -1,0 +1,370 @@
+package org.apache.xalan.extensions;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.lang.reflect.Method;
+import java.net.URL;
+import java.net.URLConnection;
+import java.util.Hashtable;
+import java.util.Vector;
+
+import javax.xml.transform.TransformerException;
+
+import org.apache.xalan.res.XSLMessages;
+import org.apache.xalan.res.XSLTErrorResources;
+import org.apache.xalan.templates.ElemTemplateElement;
+import org.apache.xalan.templates.Stylesheet;
+import org.apache.xalan.transformer.TransformerImpl;
+import org.apache.xml.dtm.DTMIterator;
+import org.apache.xml.dtm.ref.DTMNodeList;
+import org.apache.xml.utils.StringVector;
+import org.apache.xml.utils.SystemIDResolver;
+import org.apache.xpath.XPathProcessorException;
+import org.apache.xpath.functions.FuncExtFunction;
+import org.apache.xpath.objects.XObject;
+
+/**
+ * <meta name="usage" content="internal"/>
+ * Class handling an extension namespace for XPath. Provides functions
+ * to test a function's existence and call a function
+ *
+ * @author Sanjiva Weerawarana (sanjiva@watson.ibm.com)
+ */
+public class ExtensionHandlerGeneral extends ExtensionHandler
+{
+
+  /** script source to run (if any)      */
+  private String m_scriptSrc;   
+
+  /** URL of source of script (if any)         */
+  private String m_scriptSrcURL;  
+
+  /** functions of namespace        */
+  private Hashtable m_functions = new Hashtable();  
+
+  /** elements of namespace         */
+  private Hashtable m_elements = new Hashtable();   
+
+
+  /** Instance of Manager class          */
+
+  /** BSF manager used to run scripts         */
+  private Object m_engine;  
+
+
+  /** BSFManager package name          */
+  private static final String BSF_MANAGER = "com.ibm.bsf.BSFManager";
+
+  /** Manager class          */
+  private static Class managerClass;
+
+  /** Manager load scripting engine          */
+  private static Method mgrLoadScriptingEngine;
+
+  /** BSFEngine package name          */
+  private static final String BSF_ENGINE = "com.ibm.bsf.BSFEngine";
+
+  /** Engine call to "compile" scripts         */
+  private static Method engineExec;   
+
+  /** Engine call to invoke scripts          */
+  private static Method engineCall;   
+
+  /** Negative one integer         */
+  private static final Integer NEG1INT = new Integer(-1);
+
+  static
+  {
+    try
+    {
+                        managerClass = ExtensionHandler.getClassForName(BSF_MANAGER);
+      mgrLoadScriptingEngine = managerClass.getMethod("loadScriptingEngine",
+              new Class[]{ String.class });
+
+                        Class engineClass = ExtensionHandler.getClassForName(BSF_ENGINE);
+
+      engineExec = engineClass.getMethod("exec", new Class[]{ String.class,
+                                                              Integer.TYPE,
+                                                              Integer.TYPE,
+                                                              Object.class });
+      engineCall = engineClass.getMethod("call", new Class[]{ Object.class,
+                                                              String.class,
+                                                              Class.forName(
+                                                                "[Ljava.lang.Object;") });
+    }
+    catch (Exception e)
+    {
+      managerClass = null;
+      mgrLoadScriptingEngine = null;
+      engineExec = null;
+      engineCall = null;
+
+      e.printStackTrace();
+    }
+  }
+
+  /**
+   * Construct a new extension namespace handler given all the information
+   * needed.
+   *
+   * @param namespaceUri the extension namespace URI that I'm implementing
+   * @param elemNames Vector of element names
+   * @param funcNames    string containing list of functions of extension NS
+   * @param lang         language of code implementing the extension
+   * @param srcURL       value of src attribute (if any) - treated as a URL
+   *                     or a classname depending on the value of lang. If
+   *                     srcURL is not null, then scriptSrc is ignored.
+   * @param scriptLang Scripting language of implementation
+   * @param scriptSrcURL URL of source script
+   * @param scriptSrc    the actual script code (if any)
+   *
+   * @throws TransformerException
+   */
+  public ExtensionHandlerGeneral(
+          String namespaceUri, StringVector elemNames, StringVector funcNames, String scriptLang, String scriptSrcURL, String scriptSrc, String systemId)
+            throws TransformerException
+  {
+
+    super(namespaceUri, scriptLang);
+
+    if (elemNames != null)
+    {
+      Object junk = new Object();
+      int n = elemNames.size();
+
+      for (int i = 0; i < n; i++)
+      {
+        String tok = elemNames.elementAt(i);
+
+      }
+    }
+
+    if (funcNames != null)
+    {
+      Object junk = new Object();
+      int n = funcNames.size();
+
+      for (int i = 0; i < n; i++)
+      {
+        String tok = funcNames.elementAt(i);
+
+      }
+    }
+
+    m_scriptSrcURL = scriptSrcURL;
+    m_scriptSrc = scriptSrc;
+
+    if (m_scriptSrcURL != null)
+    {
+      URL url = null;
+      try{
+        url = new URL(m_scriptSrcURL);
+      }
+      catch (java.net.MalformedURLException mue)
+      {
+        int indexOfColon = m_scriptSrcURL.indexOf(':');
+        int indexOfSlash = m_scriptSrcURL.indexOf('/');
+
+        if ((indexOfColon != -1) && (indexOfSlash != -1)
+            && (indexOfColon < indexOfSlash))
+        {
+          url = null;
+        }
+        else
+        {
+          try{
+            url = new URL(new URL(SystemIDResolver.getAbsoluteURI(systemId)), m_scriptSrcURL);          
+          }        
+          catch (java.net.MalformedURLException mue2)
+          {
+          }
+        }
+      }
+      if (url != null)
+      {
+        try
+        {
+          URLConnection uc = url.openConnection();
+          InputStream is = uc.getInputStream();
+          byte []bArray = new byte[uc.getContentLength()];
+          is.read(bArray);
+          m_scriptSrc = new String(bArray);
+          
+        }
+        catch (IOException ioe)
+        {
+        }
+      }
+      
+    }
+   
+    if (null == managerClass)
+
+    try
+    {
+      m_mgr = managerClass.newInstance();
+      m_engine = mgrLoadScriptingEngine.invoke(m_mgr,
+                                               new Object[]{ scriptLang });
+
+      engineExec.invoke(m_engine, new Object[]{ "XalanScript", NEG1INT,
+                                                NEG1INT, m_scriptSrc });
+    }
+    catch (Exception e)
+    {
+      e.printStackTrace();
+
+    }
+  }
+
+  /**
+   * Tests whether a certain function name is known within this namespace.
+   * @param function name of the function being tested
+   * @return true if its known, false if not.
+   */
+  public boolean isFunctionAvailable(String function)
+  {
+    return (m_functions.get(function) != null);
+  }
+
+  /**
+   * Tests whether a certain element name is known within this namespace.
+   * @param function name of the function being tested
+   *
+   * @param element name of the element being tested
+   * @return true if its known, false if not.
+   */
+  public boolean isElementAvailable(String element)
+  {
+    return (m_elements.get(element) != null);
+  }
+
+  /**
+   * Process a call to a function.
+   *
+   * @param funcName Function name.
+   * @param args     The arguments of the function call.
+   * @param methodKey A key that uniquely identifies this class and method call.
+   * @param exprContext The context in which this expression is being executed.
+   *
+   * @return the return value of the function evaluation.
+   *
+   * @throws TransformerException          if parsing trouble
+   */
+  public Object callFunction(
+          String funcName, Vector args, Object methodKey, ExpressionContext exprContext)
+            throws TransformerException
+  {
+
+    Object[] argArray;
+
+    try
+    {
+      argArray = new Object[args.size()];
+
+      for (int i = 0; i < argArray.length; i++)
+      {
+        Object o = args.elementAt(i);
+
+        argArray[i] = (o instanceof XObject) ? ((XObject) o).object() : o;
+        o = argArray[i];
+        if(null != o && o instanceof DTMIterator)
+        {
+          argArray[i] = new DTMNodeList((DTMIterator)o);
+        }
+      }
+
+      return engineCall.invoke(m_engine, new Object[]{ null, funcName,
+                                                       argArray });
+    }
+    catch (Exception e)
+    {
+      e.printStackTrace();
+
+      String msg = e.getMessage();
+
+      if (null != msg)
+      {
+        if (msg.startsWith("Stopping after fatal error:"))
+        {
+          msg = msg.substring("Stopping after fatal error:".length());
+        }
+
+        throw new TransformerException(e);
+      }
+      else
+      {
+
+      }
+    }
+  }
+
+  /**
+   * Process a call to an XPath extension function
+   *
+   * @param extFunction The XPath extension function
+   * @param args The arguments of the function call.
+   * @param exprContext The context in which this expression is being executed.
+   * @return the return value of the function evaluation.
+   * @throws TransformerException
+   */
+  public Object callFunction(FuncExtFunction extFunction,
+                             Vector args,
+                             ExpressionContext exprContext)
+      throws TransformerException
+  {
+    return callFunction(extFunction.getFunctionName(), args, 
+                        extFunction.getMethodKey(), exprContext);
+  }
+
+  /**
+   * Process a call to this extension namespace via an element. As a side
+   * effect, the results are sent to the TransformerImpl's result tree.
+   *
+   * @param localPart      Element name's local part.
+   * @param element        The extension element being processed.
+   * @param transformer      Handle to TransformerImpl.
+   * @param stylesheetTree The compiled stylesheet tree.
+   * @param mode           The current mode.
+   * @param sourceTree     The root of the source tree (but don't assume
+   *                       it's a Document).
+   * @param sourceNode     The current context node.
+   * @param methodKey A key that uniquely identifies this class and method call.
+   *
+   * @throws XSLProcessorException thrown if something goes wrong
+   *            while running the extension handler.
+   * @throws MalformedURLException if loading trouble
+   * @throws FileNotFoundException if loading trouble
+   * @throws IOException           if loading trouble
+   * @throws TransformerException          if parsing trouble
+   */
+  public void processElement(
+          String localPart, ElemTemplateElement element, TransformerImpl transformer, 
+          Stylesheet stylesheetTree, Object methodKey)
+            throws TransformerException, IOException
+  {
+
+    Object result = null;
+    XSLProcessorContext xpc = new XSLProcessorContext(transformer, stylesheetTree);
+
+    try
+    {
+      Vector argv = new Vector(2);
+
+      argv.addElement(xpc);
+      argv.addElement(element);
+
+      result = callFunction(localPart, argv, methodKey,
+                            transformer.getXPathContext().getExpressionContext());
+    }
+    catch (XPathProcessorException e)
+    {
+
+      throw new TransformerException(e.getMessage(), e);
+    }
+
+    if (result != null)
+    {
+      xpc.outputToResultTree(stylesheetTree, result);
+    }
+  }
+}

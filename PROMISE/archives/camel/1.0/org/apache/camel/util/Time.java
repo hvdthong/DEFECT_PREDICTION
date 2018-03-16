@@ -1,0 +1,75 @@
+package org.apache.camel.util;
+
+import java.util.concurrent.TimeUnit;
+import java.util.Date;
+
+/**
+ * A helper class for working with times in various units
+ *
+ * @version $Revision: $
+ */
+public class Time {
+    private long number;
+    private TimeUnit timeUnit = TimeUnit.MILLISECONDS;
+
+    public static Time millis(long value) {
+        return new Time(value, TimeUnit.MILLISECONDS);
+    }
+
+    public static Time micros(long value) {
+        return new Time(value, TimeUnit.MICROSECONDS);
+    }
+
+    public static Time nanos(long value) {
+        return new Time(value, TimeUnit.NANOSECONDS);
+    }
+
+    public static Time seconds(long value) {
+        return new Time(value, TimeUnit.SECONDS);
+    }
+
+    public static Time minutes(long value) {
+        return new Time(minutesAsSeconds(value), TimeUnit.MILLISECONDS);
+    }
+
+    public static Time hours(long value) {
+        return new Time(hoursAsSeconds(value), TimeUnit.MILLISECONDS);
+    }
+
+    public static Time days(long value) {
+        return new Time(daysAsSeconds(value), TimeUnit.MILLISECONDS);
+    }
+
+    public Time(long number, TimeUnit timeUnit) {
+        this.number = number;
+        this.timeUnit = timeUnit;
+    }
+
+    public long toMillis() {
+        return timeUnit.toMillis(number);
+    }
+
+    public Date toDate() {
+        return new Date(toMillis());
+    }
+
+    public long getNumber() {
+        return number;
+    }
+
+    public TimeUnit getTimeUnit() {
+        return timeUnit;
+    }
+
+    protected static long minutesAsSeconds(long value) {
+        return value * 60;
+    }
+
+    protected static long hoursAsSeconds(long value) {
+        return minutesAsSeconds(value) * 60;
+    }
+
+    protected static long daysAsSeconds(long value) {
+        return hoursAsSeconds(value) * 24;
+    }
+}

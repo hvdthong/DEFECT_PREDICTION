@@ -1,0 +1,105 @@
+package org.apache.camel.processor.interceptor;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.camel.CamelContext;
+import org.apache.camel.Exchange;
+import org.apache.camel.Processor;
+import org.apache.camel.impl.DefaultCamelContext;
+import org.apache.camel.model.ProcessorType;
+import org.apache.camel.spi.InterceptStrategy;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
+/**
+ * An interceptor strategy for debugging and tracing routes
+ *
+ * @version $Revision: 671751 $
+ */
+public class Debugger implements InterceptStrategy {
+    private static final transient Log LOG = LogFactory.getLog(Debugger.class);
+
+    private int exchangeBufferSize = -1;
+    private Map<String, DebugInterceptor> interceptors = new HashMap<String, DebugInterceptor>();
+    private boolean logExchanges = true;
+    private TraceFormatter formatter = new TraceFormatter();
+
+
+    /**
+     * A helper method to return the debugger instance for a given {@link CamelContext} if one is enabled
+     *
+     * @param context the camel context the debugger is connected to
+     * @return the debugger or null if none can be found
+     */
+    public static Debugger getDebugger(CamelContext context) {
+        if (context instanceof DefaultCamelContext) {
+            DefaultCamelContext defaultCamelContext = (DefaultCamelContext) context;
+            List<InterceptStrategy> list = defaultCamelContext.getInterceptStrategies();
+            for (InterceptStrategy interceptStrategy : list) {
+                if (interceptStrategy instanceof Debugger) {
+                    return (Debugger)interceptStrategy;
+                }
+            }
+        }
+        return null;
+    }
+
+    public DebugInterceptor getInterceptor(String id) {
+        return interceptors.get(id);
+    }
+
+    /**
+     * Returns the list of exchanges sent to the given node in the DSL
+     */
+    public List<Exchange> getExchanges(String id) {
+        DebugInterceptor interceptor = getInterceptor(id);
+        if (interceptor == null) {
+            return null;
+        } else {
+            return interceptor.getExchanges();
+        }
+    }
+
+    /**
+     * Returns the breakpoint object for the given node in the DSL
+     */
+    public Breakpoint getBreakpoint(String id) {
+        DebugInterceptor interceptor = getInterceptor(id);
+        if (interceptor == null) {
+            return null;
+        } else {
+            return interceptor.getBreakpoint();
+        }
+    }
+
+
+    public Processor wrapProcessorInInterceptors(ProcessorType processorType, Processor target) throws Exception {
+        String id = processorType.idOrCreate();
+        if (logExchanges) {
+            target = new TraceInterceptor(processorType, target, formatter);
+        }
+        DebugInterceptor interceptor = new DebugInterceptor(processorType, target, createExchangeList(), createExceptionsList());
+        interceptors.put(id, interceptor);
+        if (LOG.isDebugEnabled()) {
+            LOG.debug("Adding " + id + " interceptor: " + interceptor);
+        }
+        return interceptor;
+    }
+
+    protected List<Exchange> createExchangeList() {
+        if (exchangeBufferSize == 0) {
+            return null;
+        } else if (exchangeBufferSize > 0) {
+            return new ArrayList<Exchange>();
+        } else {
+            return new ArrayList<Exchange>();
+        }
+    }
+
+    protected List<ExceptionEvent> createExceptionsList() {
+        return new ArrayList<ExceptionEvent>();
+    }
+}

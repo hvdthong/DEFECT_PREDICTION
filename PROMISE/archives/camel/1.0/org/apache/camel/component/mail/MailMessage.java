@@ -1,0 +1,110 @@
+package org.apache.camel.component.mail;
+
+import org.apache.camel.impl.DefaultMessage;
+import org.apache.camel.util.CollectionHelper;
+
+import javax.mail.Header;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import java.util.Enumeration;
+import java.util.Map;
+
+/**
+ * Represents a {@link org.apache.camel.Message} for working with Mail
+ *
+ * @version $Revision:520964 $
+ */
+public class MailMessage extends DefaultMessage {
+    private Message mailMessage;
+
+    public MailMessage() {
+    }
+
+    public MailMessage(Message message) {
+        this.mailMessage = message;
+    }
+
+    @Override
+    public String toString() {
+        if (mailMessage != null) {
+            return "MailMessage: " + mailMessage;
+        }
+        else {
+            return "MailMessage: " + getBody();
+        }
+    }
+
+    @Override
+    public MailExchange getExchange() {
+        return (MailExchange) super.getExchange();
+    }
+
+    /**
+     * Returns the underlying Mail message
+     *
+     * @return the underlying Mail message
+     */
+    public Message getMessage() {
+        return mailMessage;
+    }
+
+    public void setMessage(Message mailMessage) {
+        this.mailMessage = mailMessage;
+    }
+
+    public Object getHeader(String name) {
+        String[] answer = null;
+        if (mailMessage != null) {
+            try {
+                answer = mailMessage.getHeader(name);
+            }
+            catch (MessagingException e) {
+                throw new MessageHeaderAccessException(name, e);
+            }
+        }
+        if (answer == null) {
+            return super.getHeader(name);
+        }
+        if (answer.length == 1) {
+            return answer[0];
+        }
+        return answer;
+    }
+
+    @Override
+    public MailMessage newInstance() {
+        return new MailMessage();
+    }
+
+    @Override
+    protected Object createBody() {
+        if (mailMessage != null) {
+            return getExchange().getBinding().extractBodyFromMail(getExchange(), mailMessage);
+        }
+        return null;
+    }
+
+    @Override
+    protected void populateInitialHeaders(Map<String, Object> map) {
+        if (mailMessage != null) {
+            Enumeration names;
+            try {
+                names = mailMessage.getAllHeaders();
+            }
+            catch (MessagingException e) {
+                throw new MessageHeaderNamesAccessException(e);
+            }
+            try {
+                while (names.hasMoreElements()) {
+                    Header header = (Header) names.nextElement();
+                    String value = header.getValue();
+                    String name = header.getName();
+                    CollectionHelper.appendValue(map, name, value);
+                }
+            }
+            catch (Throwable e) {
+                throw new MessageHeaderNamesAccessException(e);
+            }
+        }
+    }
+}

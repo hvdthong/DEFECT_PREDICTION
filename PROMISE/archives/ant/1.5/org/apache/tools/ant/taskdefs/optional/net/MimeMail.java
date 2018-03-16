@@ -1,0 +1,29 @@
+package org.apache.tools.ant.taskdefs.optional.net;
+
+import org.apache.tools.ant.BuildException;
+import org.apache.tools.ant.taskdefs.email.EmailTask;
+
+/**
+ * A task to send SMTP email; Use <tt>mail</tt> instead 
+ *
+ * @deprecated Use {@link EmailTask} instead.
+ *
+ * @author glenn_twiggs@bmc.com
+ * @author steve_l@iseran.com steve loughran
+ * @author ehatcher@apache.org Erik Hatcher
+ * @author paulo.gaspar@krankikom.de Paulo Gaspar
+ * @since Ant1.4
+ */
+public class MimeMail extends EmailTask {
+    /**
+     * Executes this build task.
+     *
+     * @exception BuildException On error.
+     */
+    public void execute()
+        throws BuildException {
+        log("DEPRECATED - The " + getTaskName() + " task is deprecated. " 
+            + "Use the mail task instead.");
+        super.execute();
+    }
+}
