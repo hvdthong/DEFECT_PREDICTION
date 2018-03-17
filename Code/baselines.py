@@ -88,6 +88,37 @@ def baselines_algorithm(X_train, X_test, y_train, y_test, algorithm):
     print "f1", f1_score(y_true=y_test, y_pred=clf.predict(X_test))
 
 
+def loading_project_pairs(name):
+    trains, tests = list(), list()
+    if name == "within-project":
+        trains.append("ant-1.5.csv"), tests.append("ant-1.6.csv")
+        trains.append("ant-1.6.csv"), tests.append("ant-1.7.csv")
+        trains.append("camel-1.2.csv"), tests.append("camel-1.4.csv")
+        trains.append("camel-1.4.csv"), tests.append("camel-1.6.csv")
+        trains.append("log4j-1.0.csv"), tests.append("log4j-1.1.csv")
+        trains.append("lucene-2.0.csv"), tests.append("lucene-2.2.csv")
+        trains.append("lucene-2.2.csv"), tests.append("lucene-2.4.csv")
+        trains.append("xalan-2.4.csv"), tests.append("xalan-2.5.csv")
+        trains.append("xerces-1.2.csv"), tests.append("xerces-1.3.csv")
+        trains.append("ivy-1.4.csv"), tests.append("ivy-2.0.csv")
+        trains.append("synapse-1.0.csv"), tests.append("synapse-1.1.csv")
+        trains.append("synapse-1.1.csv"), tests.append("synapse-1.2.csv")
+        trains.append("poi-1.5.csv"), tests.append("poi-2.5.csv")
+        trains.append("poi-2.5.csv"), tests.append("poi-3.0.csv")
+    else:
+        print "wrong names"
+        exit()
+    return trains, tests
+
+
+def make_project_pairs(names):
+    trains, tests = [], []
+    for i in xrange(0, len(names) - 1):
+        for j in xrange(i + 1, len(names)):
+            trains.append(names[i]), tests.append(names[j])
+    return trains, tests
+
+
 if __name__ == "__main__":
     # path_read, path_write = "../PROMISE/data", "../PROMISE/data_renameCol"
     # files = load_files(path_file=path_read)
@@ -97,21 +128,25 @@ if __name__ == "__main__":
     #     change_col_name(path_write=path_write, name=files[i], path_file=path_files_[i])
 
     path_ = "../PROMISE/data_renameCol"
-    files = load_files(path_file=path_)
+    files = sorted(load_files(path_file=path_))
     path_files_ = make_path(path_file=path_, names=files)
-    train, test = "ant-1.6.csv", "ant-1.7.csv"
-    train_, test_ = load_train_test(train_path=train, test_path=test, path_files=path_files_)
-    train_ftr, train_labels = load_project_data(path_file=train_)
-    test_ftr, test_labels = load_project_data(path_file=test_)
-    print train, test
-    algorithm_name = "nb"
-    print algorithm_name, baselines_algorithm(X_train=train_ftr, X_test=test_ftr, y_train=train_labels,
-                                              y_test=test_labels, algorithm=algorithm_name)
-    algorithm_name = "lr"
-    print algorithm_name, baselines_algorithm(X_train=train_ftr, X_test=test_ftr, y_train=train_labels,
-                                              y_test=test_labels,
-                                              algorithm=algorithm_name)
-    algorithm_name = "dt"
-    print algorithm_name, baselines_algorithm(X_train=train_ftr, X_test=test_ftr, y_train=train_labels,
-                                              y_test=test_labels,
-                                              algorithm=algorithm_name)
+    trains, tests = make_project_pairs(names=files)
+    for train, test in zip(trains, tests):
+        train_, test_ = load_train_test(train_path=train, test_path=test, path_files=path_files_)
+        train_ftr, train_labels = load_project_data(path_file=train_)
+        test_ftr, test_labels = load_project_data(path_file=test_)
+        print train, test
+        algorithm_name = "nb"
+        print algorithm_name
+        baselines_algorithm(X_train=train_ftr, X_test=test_ftr, y_train=train_labels,
+                            y_test=test_labels, algorithm=algorithm_name)
+        algorithm_name = "lr"
+        print algorithm_name
+        baselines_algorithm(X_train=train_ftr, X_test=test_ftr, y_train=train_labels,
+                            y_test=test_labels,
+                            algorithm=algorithm_name)
+        algorithm_name = "dt"
+        print algorithm_name
+        baselines_algorithm(X_train=train_ftr, X_test=test_ftr, y_train=train_labels,
+                            y_test=test_labels,
+                            algorithm=algorithm_name)
