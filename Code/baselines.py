@@ -130,7 +130,8 @@ if __name__ == "__main__":
     path_ = "../PROMISE/data_renameCol"
     files = sorted(load_files(path_file=path_))
     path_files_ = make_path(path_file=path_, names=files)
-    trains, tests = make_project_pairs(names=files)
+    # trains, tests = make_project_pairs(names=files)
+    trains, tests = loading_project_pairs(name="within-project")
     for train, test in zip(trains, tests):
         train_, test_ = load_train_test(train_path=train, test_path=test, path_files=path_files_)
         train_ftr, train_labels = load_project_data(path_file=train_)
