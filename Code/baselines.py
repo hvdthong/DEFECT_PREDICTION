@@ -82,10 +82,11 @@ def baselines_algorithm(X_train, X_test, y_train, y_test, algorithm):
         exit()
 
     clf.fit(X=X_train, y=y_train)
-    print "acc", accuracy_score(y_true=y_test, y_pred=clf.predict(X_test))
-    print "prc", precision_score(y_true=y_test, y_pred=clf.predict(X_test))
-    print "recall", recall_score(y_true=y_test, y_pred=clf.predict(X_test))
-    print "f1", f1_score(y_true=y_test, y_pred=clf.predict(X_test))
+    y_pred = clf.predict(X_test)
+    print "acc", accuracy_score(y_true=y_test, y_pred=y_pred)
+    print "prc", precision_score(y_true=y_test, y_pred=y_pred)
+    print "recall", recall_score(y_true=y_test, y_pred=y_pred)
+    print "f1", f1_score(y_true=y_test, y_pred=y_pred)
 
 
 def loading_project_pairs(name):
@@ -105,6 +106,24 @@ def loading_project_pairs(name):
         trains.append("synapse-1.1.csv"), tests.append("synapse-1.2.csv")
         trains.append("poi-1.5.csv"), tests.append("poi-2.5.csv")
         trains.append("poi-2.5.csv"), tests.append("poi-3.0.csv")
+    elif name == "cross-project":
+        trains.append("ant-1.6.csv"), tests.append("camel-1.4.csv")
+        trains.append("camel-1.4.csv"), tests.append("ant-1.6.csv")
+        trains.append("poi-3.0.csv"), tests.append("ant-1.6.csv")
+        trains.append("lucene-2.2.csv"), tests.append("log4j-1.1.csv")
+        trains.append("lucene-2.2.csv"), tests.append("xalan-2.5.csv")
+        trains.append("xalan-2.5.csv"), tests.append("lucene-2.2.csv")
+        trains.append("log4j-1.1.csv"), tests.append("lucene-2.2.csv")
+        trains.append("xalan-2.5.csv"), tests.append("xerces-1.3.csv")
+        trains.append("ivy-2.0.csv"), tests.append("xerces-1.3.csv")
+        trains.append("xerces-1.3.csv"), tests.append("ivy-2.0.csv")
+        trains.append("synapse-1.2.csv"), tests.append("ivy-2.0.csv")
+        trains.append("ivy-1.4.csv"), tests.append("synapse-1.1.csv")
+        trains.append("poi-2.5.csv"), tests.append("synapse-1.1.csv")
+        trains.append("ivy-2.0.csv"), tests.append("synapse-1.2.csv")
+        trains.append("poi-3.0.csv"), tests.append("synapse-1.2.csv")
+        trains.append("synapse-1.2.csv"), tests.append("poi-3.0.csv")
+        trains.append("ant-1.6.csv"), tests.append("poi-3.0.csv")
     else:
         print "wrong names"
         exit()
@@ -131,7 +150,8 @@ if __name__ == "__main__":
     files = sorted(load_files(path_file=path_))
     path_files_ = make_path(path_file=path_, names=files)
     # trains, tests = make_project_pairs(names=files)
-    trains, tests = loading_project_pairs(name="within-project")
+    # trains, tests = loading_project_pairs(name="within-project")
+    trains, tests = loading_project_pairs(name="cross-project")
     for train, test in zip(trains, tests):
         train_, test_ = load_train_test(train_path=train, test_path=test, path_files=path_files_)
         train_ftr, train_labels = load_project_data(path_file=train_)
